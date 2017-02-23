@@ -1,0 +1,8 @@
+*.csproj
+*.pidb
+*.sln
+*.userprefs
+*.unityproj
+*.suo
+GameJam2017/Temp/
+GameJam2017/Library/
