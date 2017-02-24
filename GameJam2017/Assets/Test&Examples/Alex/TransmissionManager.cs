@@ -20,6 +20,13 @@ public class TransmissionManager : MonoBehaviour {
         CreateTransmission("test3", 14);
     }
 
+    void CreateTransmission(string text, float time)
+    {
+        this.text.Add(text);
+        DelayManager.CallTo(SendTransmission, time);
+    }
+
+    // Envoyer
     void SendTransmission()
     {
         transmissionCanvas.SetActive(true);
@@ -28,14 +35,9 @@ public class TransmissionManager : MonoBehaviour {
         DelayManager.CallTo(EndTransmission, timeOfTransmition);
     }
 
+    // Fin de la transmission, on la fait disparaitre
     void EndTransmission()
     {
         transmissionCanvas.SetActive(false);
-    }
-
-    void CreateTransmission(string text, float time)
-    {
-        this.text.Add(text);
-        DelayManager.CallTo(SendTransmission, time);
     }
 }
