@@ -5,7 +5,7 @@ public class Singleton<T> : MonoBehaviour where T : class
 {
     protected static T instance;
 
-    void Awake()
+    protected virtual void Awake()
     {
         if (!(this is T))
         {
