@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CCC.Manager;
 
+[System.Serializable]
 public struct Entry
 {
     public string name;

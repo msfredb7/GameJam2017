@@ -16,9 +16,6 @@ public class DisplayObject : MonoBehaviour {
     }
     public List<objectType> listObjets = new List<objectType>();
 
-    public Personne UIPersonne;
-    public Cell UICell;
-
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
     
@@ -26,11 +23,16 @@ public class DisplayObject : MonoBehaviour {
     public GameObject tabLayoutGroup;
     public GameObject contentLayoutGroup;
     public GameObject textZone;
-    public SpriteRenderer charFace;
+    public Image charFace;
     public Text topInfo;
 
     public Sprite Computer;
     public Sprite Door;
+
+    private Personne UIPersonne;
+    private Cell UICell;
+    private Ordinateur UIOrdinateur;
+    private Registre UIRegistre;
 
     private int currentObjectType;
     private int currentCategoryTab;
@@ -41,10 +43,29 @@ public class DisplayObject : MonoBehaviour {
     }
 
 
+
     public void ChangeTab(int tab)
     {
         currentCategoryTab = tab;
         InstanciateTextZones();
+    }
+
+    public void UpdateHeader()
+    {
+
+        if (currentObjectType == 0)
+        {
+            charFace.sprite = UIPersonne.apparence;
+            topInfo.text = UIPersonne.GetNom();
+        }
+        if (currentObjectType == 1)
+        {
+            charFace.sprite = Computer;
+        }
+        if (currentObjectType == 2)
+        {
+            charFace.sprite = Door;
+        }
     }
 
     public void InstanciateTextZones()
@@ -97,12 +118,27 @@ public class DisplayObject : MonoBehaviour {
     }
     public void DisplayHistorique()
     {
+        List<SiteInternet> listSites = UIOrdinateur.GetHistorique();
+        for (int i = 0; i < listSites.Count; i++)
+        {
+            texts.Add("Adresse: " + listSites[i].adresse + "\nContenu: " + listSites[i].date);
+        }
     }
     public void DisplayCourriel()
     {
+        List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
+        for (int i = 0; i < listcourriel.Count; i++)
+        {
+            texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
+        }
     }
     public void DisplayAccès()
     {
+        List<Entry> listRegistre = UIRegistre.GetEntries();
+        for (int i = 0; i < listRegistre.Count; i++)
+        {
+            texts.Add("Passage de: " + listRegistre[i].name + "\nHeure: " + listRegistre[i].hour);
+        }
     }
 
     public void PrintTexts()
@@ -136,28 +172,10 @@ public class DisplayObject : MonoBehaviour {
         UpdateHeader();
         DestroyCategoryTab();
         currentCategoryTab = 0;
-        InstanciateCategoryTab();
-        
+        InstanciateCategoryTab();    
     }
 
 
-
-    public void UpdateHeader()
-    {
-        if (currentCategoryTab == 0)
-        {
-            charFace.sprite = UIPersonne.apparence;         
-            topInfo.text = UIPersonne.GetNom();
-        }
-        if (currentCategoryTab == 1)
-        {
-            charFace.sprite = Computer;
-        }
-        if (currentCategoryTab == 2)
-        {
-            charFace.sprite = Door;
-        }
-    }
 
     public void DestroyCategoryTab()
     {
@@ -201,6 +219,24 @@ public class DisplayObject : MonoBehaviour {
         ChangeObject();
     }
 
+    public void GetComputer(Ordinateur ordinateur)
+    {
+        UIOrdinateur = ordinateur;
+        currentObjectType = 1;
+        currentCategoryTab = 0;
 
-    
+        ChangeObject();
+    }
+
+    public void GetRegister(Registre registre)
+    {
+        UIRegistre = registre;
+        currentObjectType = 2;
+        currentCategoryTab = 0;
+  
+        ChangeObject();
+    }
+
+
+
 }
