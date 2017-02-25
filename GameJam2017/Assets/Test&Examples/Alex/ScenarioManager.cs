@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScenarioManager : MonoBehaviour {
 
+    public static ScenarioManager instance;
+
     //public Ordinateur computer1;
 
     //public Registre registre1;
@@ -21,6 +23,9 @@ public class ScenarioManager : MonoBehaviour {
 
     void Awake ()
     {
+        if (instance == null)
+            instance = this;
+
         // Exemples action dans le monde
         
         //ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
