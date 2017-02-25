@@ -8,19 +8,35 @@ public class Personne : Character {
 
     private string nom;
     private string myDescription;
-    private Sprite apparence;
-    private Brain myBrain;
+    public Sprite apparence;
+    public Brain myBrain;
     private Cell myCell;
 
-    public Personne(string myDescription, Brain myBrain, Cell myCell)
+    public void SetPersonne(string nom, string myDescription, Cell myCell)
     {
         this.myDescription = myDescription;
-        this.myBrain = myBrain;
+        this.nom = nom;
         this.myCell = myCell;
+    }
+
+    public string GetDescription()
+    {
+        return myDescription;
+    }
+
+    public Cell GetCell()
+    {
+        return myCell;
+    }
+
+    public string GetNom()
+    {
+        return nom;
     }
 
     public Brain GetBrain()
     {
         return myBrain;
     }
+
 }
