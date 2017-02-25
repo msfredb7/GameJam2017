@@ -19,11 +19,6 @@ public class Personne : Character {
         this.myCell = myCell;
     }
 
-    public string GetNom()
-    {
-        return nom;
-    }
-
     public string GetDescription()
     {
         return myDescription;
