@@ -19,6 +19,11 @@ public class Personne : Character {
         this.myCell = myCell;
     }
 
+    public string GetNom()
+    {
+        return nom;
+    }
+
     public string GetDescription()
     {
         return myDescription;
@@ -29,14 +34,8 @@ public class Personne : Character {
         return myCell;
     }
 
-    public string GetNom()
-    {
-        return nom;
-    }
-
     public Brain GetBrain()
     {
         return myBrain;
     }
-
 }
