@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using CCC.Manager;
 
+[System.Serializable]
 public struct SiteInternet
 {
     public string adresse;
     public string date;
 }
 
+[System.Serializable]
 public struct Courriel
 {
     public string destinataire;
@@ -35,7 +37,6 @@ public class Ordinateur : MonoBehaviour {
     {
         return courriels;
     }
-
 
     public void AddSiteInternet(string adresse, string date)
     {

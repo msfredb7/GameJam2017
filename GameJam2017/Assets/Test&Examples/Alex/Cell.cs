@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using CCC.Manager;
 
+[System.Serializable]
 public struct Call
 {
     public string date;
     public string destinataire;
 }
 
+[System.Serializable]
 public struct SMS
 {
     public string text;
