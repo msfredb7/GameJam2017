@@ -14,6 +14,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     protected void Start()
     {
         start = Time.time;
+        start -= startTime;
 
         if (events.Count <= 0) return;
 
@@ -36,6 +37,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     void Update()
     {
         float currentTime = Time.time;
+
 
         if (events.Count <= 0) return;
 
