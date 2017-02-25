@@ -22,12 +22,12 @@ public class ScenarioManager : MonoBehaviour {
     void Awake ()
     {
         // Exemples action dans le monde
-        
+
         //ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
 
         // Exemple liste event Personne Roger
 
-        //roger.GetBrain().ToDo();
+        roger.GetBrain().ToDo();
 	}
 
     void AjoutDuRegistre1()
