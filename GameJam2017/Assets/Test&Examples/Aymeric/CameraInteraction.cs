@@ -20,6 +20,12 @@ public class CameraInteraction : MonoBehaviour {
     public Color selectedColor;
     public Color unSelectedColor;
 
+    public float maxDepX;
+    public float minDepX;
+
+    public float maxDepY;
+    public float minDepY;
+
 
     #region hoveredCamera
 
@@ -132,22 +138,22 @@ public class CameraInteraction : MonoBehaviour {
     {
         if (Input.GetAxis("Vertical") < 0)
         {
-            if(selectedCamera == 1 && state1 != CameraState.following)
+            if(selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.z > minDepY)
             {
                 Camera1.transform.Translate(new Vector3(0, -0.1f, 0));
             }
-            else if(selectedCamera == 2 && state2 != CameraState.following)
+            else if(selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.z > minDepY)
             {
                 Camera2.transform.Translate(new Vector3(0, -0.1f, 0));
             }
         }
         if (Input.GetAxis("Vertical") > 0)
         {
-            if (selectedCamera == 1 && state1 != CameraState.following)
+            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.z < maxDepY)
             {
                 Camera1.transform.Translate(new Vector3(0, 0.1f, 0));
             }
-            else if (selectedCamera == 2 && state2 != CameraState.following)
+            else if (selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.z < maxDepY)
             {
                 Camera2.transform.Translate(new Vector3(0, 0.1f, 0));
             }
@@ -155,22 +161,22 @@ public class CameraInteraction : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal") < 0)
         {
-            if (selectedCamera == 1 && state1 != CameraState.following)
+            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.x > minDepX )
             {
                 Camera1.transform.Translate(new Vector3(-0.1f, 0, 0));
             }
-            else if (selectedCamera == 2 && state2 != CameraState.following)
+            else if (selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.x > minDepX)
             {
                 Camera2.transform.Translate(new Vector3(-0.1f, 0, 0));
             }
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            if (selectedCamera == 1 && state1 != CameraState.following)
+            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.x < maxDepX)
             {
                 Camera1.transform.Translate(new Vector3(0.1f, 0, 0));
             }
-            else if (selectedCamera == 2 && state2 != CameraState.following)
+            else if (selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.x < maxDepX)
             {
                 Camera2.transform.Translate(new Vector3(0.1f, 0, 0));
             }
