@@ -198,7 +198,7 @@ public class CameraInteraction : MonoBehaviour {
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (hit.collider.GetComponent<TempoTestMouvement>() != null)
+                        if (hit.collider.GetComponent<Personne>() != null)
                         {
                             Camera1.GetComponent<FollowObject>().follow(hit.collider.transform);
                             state1 = CameraState.following;
@@ -217,7 +217,7 @@ public class CameraInteraction : MonoBehaviour {
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit))
                     {
-                        if (hit.collider.GetComponent<TempoTestMouvement>() != null)
+                        if (hit.collider.GetComponent<Personne>() != null)
                         {
                             Camera2.GetComponent<FollowObject>().follow(hit.collider.transform);
                             state2 = CameraState.following;
