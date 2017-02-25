@@ -107,30 +107,25 @@ public class CameraInteraction : MonoBehaviour {
 
     private void selectCamera1()
     {
-        Debug.Log("Camera1Selected");
         IUCamera1.GetComponent<Image>().color = selectedColor;
     }
 
     private void selectCamera2()
     {
-        Debug.Log("Camera2Selected");
         IUCamera2.GetComponent<Image>().color = selectedColor;
     }
 
     private void deSelectCamera1()
     {
-        Debug.Log("Camera1DeSelected");
         IUCamera1.GetComponent<Image>().color = unSelectedColor;
     }
 
     private void deSelectCamera2()
     {
-        Debug.Log("Camera2DeSelected");
         IUCamera2.GetComponent<Image>().color = unSelectedColor;
     }
 
     #endregion
-
 
     #region MouvementCameras
     private void mouvementCamera()
