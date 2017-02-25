@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(MyAIPath))]
 public class Character : MonoBehaviour {
 
-    public Animator animator; 
+    public Animator animatorFront;
+    public Animator animatorBack;
+    public Animator animatorRight;
+    public Animator animatorLeft; 
 
     void Awake()
     {
@@ -19,28 +22,19 @@ public class Character : MonoBehaviour {
     public void MoveTo(Vector2 position)
     {
         pather.SetTarget(new Vector3(position.x, 0, position.y));
-        animator.SetBool("Walking", true);
+        //animator.SetBool("Walking", true);
         pather.onTargetReached.AddListener(Stop);
     }
 
     public void Stop()
     {
         pather.Stop();
-        animator.SetBool("Walking", false);
+        //animator.SetBool("Walking", false);
     }
 
     public void LookTarget(Transform target)
     {
         pather.lookTarget = target;
-    }
-
-    #endregion
-
-    #region Autres Actions
-
-    public void Working()
-    {
-        animator.SetBool("Walking", true);
     }
 
     #endregion

@@ -10,8 +10,10 @@ public class ScenarioManager : MonoBehaviour {
 
     public Personne roger;
 
-	void Start ()
+	void Awake ()
     {
-		
+
 	}
+
+
 }
