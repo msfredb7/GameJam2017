@@ -6,17 +6,12 @@ using CCC.Manager;
 // Classe abstraite pour definir le comportement d'un personnage
 public abstract class Brain : MonoBehaviour {
 
-    public enum BaseAction { None, Idle, Goto , Balayer } // Action possible pour un personnage
-
-    public BaseAction currentAction;
-
     public Personne personnage;
 
     protected Brain(Personne personne)
     {
         this.personnage = personne;
-        ChangeCurrentAction(BaseAction.Idle);
     }
 
-    public abstract void ChangeCurrentAction(BaseAction action);
+    public abstract void ToDo();
 }
