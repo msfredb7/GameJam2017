@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FredTestScript : MonoBehaviour {
-    public MyAIPath character;
+    public Character character;
     public Transform waypointA;
     public Transform waypointB;
+    public Transform waypointC;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            character.SetTarget(waypointA.position);
+            character.Teleport(waypointA.position);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            character.SetTarget(waypointB.position);
+            character.MoveTo(waypointB.position);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            character.Teleport(waypointC.position);
         }
     }
 }
