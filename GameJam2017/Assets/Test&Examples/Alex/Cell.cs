@@ -21,6 +21,11 @@ public class Cell {
     private List<SMS> historiqueTextos = new List<SMS>();
     private List<Call> historiqueAppels = new List<Call>();
 
+    public Cell()
+    {
+
+    }
+
     public Cell(List<SMS> historiqueTextos, List<Call> historiqueAppels)
     {
         this.historiqueAppels = historiqueAppels;

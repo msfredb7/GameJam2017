@@ -10,7 +10,8 @@ public class ScenarioManager : MonoBehaviour {
 
     public Personne roger;
 
-	void Awake ()
+
+    void Awake ()
     {
         // Exemples action dans le monde
         

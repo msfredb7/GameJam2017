@@ -5,7 +5,7 @@ using CCC.Manager;
 
 public class GameManager : Singleton<GameManager> {
 
-    public List<Personne> staffs = new List<Personne>();
+    public ScenarioManager scenario;
 
 	protected override void Awake () {
         base.Awake();
@@ -13,5 +13,6 @@ public class GameManager : Singleton<GameManager> {
 
         // Spawn Personnage
         //staffs.Add(new Personne()); // Exemple bidon
+        scenario.roger.SetPersonne("Roger","lolilol",new Cell());
 	}
 }

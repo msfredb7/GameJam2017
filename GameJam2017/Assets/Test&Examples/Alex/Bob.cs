@@ -11,21 +11,8 @@ public class Bob : Brain {
 
     }
 
-    public override void ChangeCurrentAction(BaseAction action)
+    public override void ToDo()
     {
-        switch (action)
-        {
-            case BaseAction.Idle:
-                // On fait levennement pour que braintest idle
-                personnage.Stop();
-                break;
-            case BaseAction.Goto:
-                // On fait levennement pour que braintest goto
-                break;
-            case BaseAction.Balayer:
-                break;
-            default:
-                break;
-        }
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(15,new Vector3(0,0,0),personnage));
     }
 }
