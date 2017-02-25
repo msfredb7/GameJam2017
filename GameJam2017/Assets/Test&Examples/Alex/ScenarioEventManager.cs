@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         start = Time.time;
 
         if (events.Count <= 0) return;
+
+        events.Sort(new Comparer());
 
         for(int i = events.Count - 1; i >= 0; i--)
         {
@@ -36,6 +39,8 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
 
         if (events.Count <= 0) return;
 
+        events.Sort(new Comparer());
+
         for (int i = events.Count - 1; i >= 0; i--)
         {
             if (events[i].Time() <= (currentTime - start))
@@ -54,5 +59,18 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     void PrintTest()
     {
         print("test");
+    }
+
+
+    private class Comparer : IComparer<ScenarioEvent>
+    {
+        public int Compare(ScenarioEvent x, ScenarioEvent y)
+        {
+            if (x.Time() < y.Time())
+                return 1;
+            if (x.Time() > y.Time())
+                return -1;
+            return 0;
+        }
     }
 }

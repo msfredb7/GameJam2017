@@ -18,4 +18,9 @@ public class Personne : Character {
         this.myBrain = myBrain;
         this.myCell = myCell;
     }
+
+    public Brain GetBrain()
+    {
+        return myBrain;
+    }
 }
