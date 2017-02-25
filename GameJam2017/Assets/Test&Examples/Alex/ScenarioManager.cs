@@ -12,22 +12,17 @@ public class ScenarioManager : MonoBehaviour {
 
 	void Awake ()
     {
-        // Exemples
+        // Exemples action dans le monde
+        
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
 
-        ActionScenarioEvent registreEvent1 = new ActionScenarioEvent(5,AjoutDuRegistre1);
-        ScenarioEventManager.AddEvent(registreEvent1);
+        // Exemple liste event Personne Roger
 
-        ActionScenarioEvent registreEvent2 = new ActionScenarioEvent(5, ChangerMissionRoger);
-        ScenarioEventManager.AddEvent(registreEvent2);
+        roger.GetBrain().ToDo();
 	}
 
     void AjoutDuRegistre1()
     {
         registre1.AddEntry("Bob","16h05");
-    }
-
-    void ChangerMissionRoger()
-    {
-        roger.GetBrain().ChangeCurrentAction(Brain.BaseAction.Idle);
     }
 }
