@@ -8,7 +8,15 @@ public class ScenarioManager : MonoBehaviour {
 
     //public Registre registre1;
 
-    public Personne roger;
+    public Personne Enrique;
+    public Personne Samantha;
+    public Personne Steven;
+    public Personne Stephen;
+    public Personne Justine;
+    public Personne Annushka;
+    public Personne Gary;
+    public Personne Gaetan;
+    public Personne MonsieurX;
 
 
     void Awake ()
