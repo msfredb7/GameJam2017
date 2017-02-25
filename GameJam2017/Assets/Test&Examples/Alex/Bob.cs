@@ -6,13 +6,9 @@ public class Bob : Brain {
 
     public enum BobAction {  }
 
-    Bob(Personne personne) : base(personne)
-    {
-
-    }
-
     public override void ToDo()
     {
-
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(5,WayPoint.getWaypoint("WCRed").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(10, WayPoint.getWaypoint("WCBlue").position, personnage));
     }
 }

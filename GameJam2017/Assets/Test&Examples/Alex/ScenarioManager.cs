@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScenarioManager : MonoBehaviour {
 
-    public Ordinateur computer1;
+    //public Ordinateur computer1;
 
-    public Registre registre1;
+    //public Registre registre1;
 
     public Personne roger;
 
@@ -23,6 +23,6 @@ public class ScenarioManager : MonoBehaviour {
 
     void AjoutDuRegistre1()
     {
-        registre1.AddEntry("Bob","16h05");
+        //registre1.AddEntry("Bob","16h05");
     }
 }

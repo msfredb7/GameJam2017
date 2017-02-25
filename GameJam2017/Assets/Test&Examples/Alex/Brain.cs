@@ -8,10 +8,5 @@ public abstract class Brain : MonoBehaviour {
 
     public Personne personnage;
 
-    protected Brain(Personne personne)
-    {
-        this.personnage = personne;
-    }
-
     public abstract void ToDo();
 }

@@ -15,9 +15,9 @@ public class TransmissionManager : MonoBehaviour {
     void Start ()
     {
         // Voici tous les messages qu'on va envoyer au joueur!
-        CreateTransmission("Une nouvelle pizzeria vient d'ouvrir au coin de la rue",2);
+        /*CreateTransmission("Une nouvelle pizzeria vient d'ouvrir au coin de la rue",2);
         CreateTransmission("test2", 8);
-        CreateTransmission("test3", 14);
+        CreateTransmission("test3", 14);*/
     }
 
     // Creer la transmission pour plus tard
