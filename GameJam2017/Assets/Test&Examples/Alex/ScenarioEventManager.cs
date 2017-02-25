@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScenarioEventManager : Singleton<ScenarioEvent> {
+public class ScenarioEventManager : Singleton<ScenarioEventManager> {
 
-	private List<ScenarioEvent> events = new List<ScenarioEvent>();
+	private static List<ScenarioEvent> events = new List<ScenarioEvent>();
 
     public float startTime = 0;
 
-    private float start;
+    private static float start;
 
-    protected override void Awake()
+    protected void Start()
     {
-        base.Awake();
         start = Time.time;
 
-        for(int i = events.Count - 1; i < 0; i--)
+        if (events.Count <= 0) return;
+
+        for(int i = events.Count - 1; i >= 0; i--)
         {
-            if (events[i].time() < startTime)
+            if (events[i].Time() < startTime)
             {
                 events[i].FastExecute();
                 events.Remove(events[i]);
-            } else if (events[i].time() == startTime)
+            } else if (events[i].Time() == startTime)
             {
                 events[i].Execute();
                 events.Remove(events[i]);
@@ -29,8 +30,29 @@ public class ScenarioEventManager : Singleton<ScenarioEvent> {
         }
     }
 
-    public void AddEvent(ScenarioEvent newEvent)
+    void Update()
+    {
+        float currentTime = Time.time;
+
+        if (events.Count <= 0) return;
+
+        for (int i = events.Count - 1; i >= 0; i--)
+        {
+            if (events[i].Time() <= (currentTime - start))
+            {
+                events[i].Execute();
+                events.Remove(events[i]);
+            }
+        }
+    }
+
+    public static void AddEvent(ScenarioEvent newEvent)
     {
         events.Add(newEvent);
+    }
+
+    void PrintTest()
+    {
+        print("test");
     }
 }

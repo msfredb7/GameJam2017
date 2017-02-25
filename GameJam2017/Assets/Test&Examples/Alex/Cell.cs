@@ -43,16 +43,6 @@ public class Cell {
         nouveauSMS.text = text;
         nouveauSMS.date = date;
         nouveauSMS.destinataire = destinataire;
-        if (time == 0)
-        {
-            historiqueTextos.Add(nouveauSMS);
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                historiqueTextos.Add(nouveauSMS);
-            }, time);
-        }
     }
 
     public void AddCall(string destinataire, string date, float time = 0)
@@ -60,15 +50,6 @@ public class Cell {
         Call nouveauCall = new Call();
         nouveauCall.destinataire = destinataire;
         nouveauCall.date = date;
-        if (time == 0)
-        {
-            historiqueAppels.Add(nouveauCall);
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                historiqueAppels.Add(nouveauCall);
-            }, time);
-        }
+        historiqueAppels.Add(nouveauCall);
     }
 }

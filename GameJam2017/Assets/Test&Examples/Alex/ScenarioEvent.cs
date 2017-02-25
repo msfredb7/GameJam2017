@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface ScenarioEvent {
 
-    float time();
+    float Time();
 
     void Execute();
 

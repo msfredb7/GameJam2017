@@ -37,38 +37,19 @@ public class Ordinateur : MonoBehaviour {
     }
 
 
-    public void AddSiteInternet(string adresse, string date, float time = 0)
+    public void AddSiteInternet(string adresse, string date)
     {
         SiteInternet newSite = new SiteInternet();
         newSite.date = date;
         newSite.adresse = adresse;
-        if (time == 0)
-        {
-            historique.Add(newSite);
-
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                historique.Add(newSite);
-            }, time);
-        }
+        historique.Add(newSite);
     }
 
-    public void AddCourriel(string destinataire, string text, float time = 0)
+    public void AddCourriel(string destinataire, string text)
     {
         Courriel newCourriel = new Courriel();
         newCourriel.destinataire = destinataire;
         newCourriel.text = text;
-        if (time == 0)
-        {
-            courriels.Add(newCourriel);
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                courriels.Add(newCourriel);
-            }, time);
-        }
+        courriels.Add(newCourriel);
     }
 }

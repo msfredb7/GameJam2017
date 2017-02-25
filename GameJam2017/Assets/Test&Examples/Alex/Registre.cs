@@ -28,15 +28,6 @@ public class Registre : MonoBehaviour {
         Entry nouveauEntry = new Entry();
         nouveauEntry.name = name;
         nouveauEntry.hour = hour;
-        if (time == 0)
-        {
-            entries.Add(nouveauEntry);
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                entries.Add(nouveauEntry);
-            }, time);
-        }
+        entries.Add(nouveauEntry);
     }
 }
