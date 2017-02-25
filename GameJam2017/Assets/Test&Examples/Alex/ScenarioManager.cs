@@ -26,17 +26,14 @@ public class ScenarioManager : MonoBehaviour {
         if (instance == null)
             instance = this;
 
-        // Exemples action dans le monde
-        
-        //ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
-
-        // Exemple liste event Personne Roger
-
-        //roger.GetBrain().ToDo();
+        Enrique.GetBrain().ToDo();
+        Samantha.GetBrain().ToDo();
+        Steven.GetBrain().ToDo();
+        Stephen.GetBrain().ToDo();
+        Justine.GetBrain().ToDo();
+        Annushka.GetBrain().ToDo();
+        Gary.GetBrain().ToDo();
+        Gaetan.GetBrain().ToDo();
+        MonsieurX.GetBrain().ToDo();
 	}
-
-    void AjoutDuRegistre1()
-    {
-        //registre1.AddEntry("Bob","16h05");
-    }
 }
