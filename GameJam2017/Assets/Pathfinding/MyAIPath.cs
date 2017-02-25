@@ -523,5 +523,7 @@ public class MyAIPath : MonoBehaviour
     {
         target = tr.position;
         path = null;
+        if(rvoController != null)
+            rvoController.Move(Vector3.zero);
     }
 }

@@ -63,7 +63,7 @@ public class Character : MonoBehaviour
         pather.canMove = false;
         Vector3 flattenedPos = new Vector3(position.x, 0.5f, position.z);
         transform.position = flattenedPos;
-        pather.SetTarget(flattenedPos);
+        Stop();
     }
 
     public void Stop()
