@@ -2,28 +2,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ActionScenarioEvent : ScenarioEvent
 {
-    private float time;
+    private float startTime;
+    private UnityAction action;
 
-    public ActionScenarioEvent(float time)
+    public ActionScenarioEvent(float startTime, UnityAction action)
     {
-
+        this.action = action;
+        this.startTime = startTime;
     }
 
     public void Execute()
     {
-        throw new NotImplementedException();
+        action.Invoke();
     }
 
     public void FastExecute()
     {
-        throw new NotImplementedException();
+        action.Invoke();
     }
 
-    public float time()
+    public float Time()
     {
-        throw new NotImplementedException();
+        return startTime;
     }
 }

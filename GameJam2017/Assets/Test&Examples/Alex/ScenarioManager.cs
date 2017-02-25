@@ -10,8 +10,14 @@ public class ScenarioManager : MonoBehaviour {
 
     public Personne roger;
 
-	void Start ()
+	void Awake ()
     {
-		
+        ActionScenarioEvent registreEvent1 = new ActionScenarioEvent(5,AjoutDuRegistre1);
+        ScenarioEventManager.AddEvent(registreEvent1);
 	}
+
+    void AjoutDuRegistre1()
+    {
+        registre1.AddEntry("Bob","16h05");
+    }
 }

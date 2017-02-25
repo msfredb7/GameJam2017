@@ -23,20 +23,11 @@ public class Registre : MonoBehaviour {
         return entries;
     }
 
-    public void AddEntry(string name, string hour, float time = 0)
+    public void AddEntry(string name, string hour)
     {
         Entry nouveauEntry = new Entry();
         nouveauEntry.name = name;
         nouveauEntry.hour = hour;
-        if (time == 0)
-        {
-            entries.Add(nouveauEntry);
-        } else
-        {
-            DelayManager.CallTo(delegate()
-            {
-                entries.Add(nouveauEntry);
-            }, time);
-        }
+        entries.Add(nouveauEntry);
     }
 }
