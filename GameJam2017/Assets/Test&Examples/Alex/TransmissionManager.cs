@@ -20,13 +20,14 @@ public class TransmissionManager : MonoBehaviour {
         CreateTransmission("test3", 14);
     }
 
+    // Creer la transmission pour plus tard
     void CreateTransmission(string text, float time)
     {
         this.text.Add(text);
         DelayManager.CallTo(SendTransmission, time);
     }
 
-    // Envoyer
+    // Envoyer une transmission dans l'ecran
     void SendTransmission()
     {
         transmissionCanvas.SetActive(true);
