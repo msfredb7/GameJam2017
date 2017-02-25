@@ -6,7 +6,7 @@ public class Annushka : Brain {
 
     public override void ToDo()
     {
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(1, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 8h a 8h10
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 8h a 8h10
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(10, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 8h10 a 8h20
 

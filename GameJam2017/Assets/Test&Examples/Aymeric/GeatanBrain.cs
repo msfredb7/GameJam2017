@@ -42,7 +42,7 @@ public class GeatanBrain : Brain {
         //17H
 
         //18H
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, TocPorteGary));
+        //ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, TocPorteGary));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
     }
 
