@@ -23,7 +23,7 @@ public class Registre : MonoBehaviour {
         return entries;
     }
 
-    public void AddEntry(string name, string hour, float time = 0)
+    public void AddEntry(string name, string hour)
     {
         Entry nouveauEntry = new Entry();
         nouveauEntry.name = name;
