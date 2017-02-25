@@ -7,9 +7,9 @@ public class MoveScenarioEvent : ScenarioEvent {
 
     private float startTime;
     private Personne personnage;
-    private Vector2 position;
+    private Vector3 position;
 
-    public MoveScenarioEvent(float startTime, Vector2 position, Personne personnage)
+    public MoveScenarioEvent(float startTime, Vector3 position, Personne personnage)
     {
         this.startTime = startTime;
         this.position = position;
@@ -18,12 +18,12 @@ public class MoveScenarioEvent : ScenarioEvent {
 
     public void Execute()
     {
-        // Deplacement normal
+        personnage.MoveTo(position);
     }
 
     public void FastExecute()
     {
-        // Teleport
+        personnage.Teleport(position);
     }
 
     public float Time()
