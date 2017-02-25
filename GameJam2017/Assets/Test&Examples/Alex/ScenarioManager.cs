@@ -15,15 +15,15 @@ public class ScenarioManager : MonoBehaviour {
     {
         // Exemples action dans le monde
         
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
+        //ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, AjoutDuRegistre1));
 
         // Exemple liste event Personne Roger
 
-        roger.GetBrain().ToDo();
+        //roger.GetBrain().ToDo();
 	}
 
     void AjoutDuRegistre1()
     {
-        registre1.AddEntry("Bob","16h05");
+        //registre1.AddEntry("Bob","16h05");
     }
 }

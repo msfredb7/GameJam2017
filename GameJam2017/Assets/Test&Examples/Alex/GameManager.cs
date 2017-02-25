@@ -13,6 +13,6 @@ public class GameManager : Singleton<GameManager> {
 
         // Spawn Personnage
         //staffs.Add(new Personne()); // Exemple bidon
-        scenario.roger.SetPersonne("Roger","lolilol",new Cell());
+        //scenario.roger.SetPersonne("Roger","lolilol",new Cell());
 	}
 }
