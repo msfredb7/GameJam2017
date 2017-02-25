@@ -6,45 +6,55 @@ using UnityEngine.UI;
 
 public class DisplayObject : MonoBehaviour {
 
+    public static DisplayObject instance;
+
     [System.Serializable]
     public class objectType
     {
         public string objectTypeName;
         public List<string> categoryName = new List<string>();
     }
-
-    public class objectContent
-    {
-        private string objectName;
-        private List<string> categoryContent = new List<string>();
-    }
-
-
     public List<objectType> listObjets = new List<objectType>();
+
+    public Personne UIpersonne;
+    public Cell UICell;
 
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
-
+    
     public GameObject categoryTabButton;
     public GameObject tabLayoutGroup;
     public GameObject contentLayoutGroup;
     public GameObject textZone;
 
-    public ClickCategoryTab clickCatTab;
-
     private int currentObjectType;
+    private int currentCategoryTab;
     public Text objetName;
 
     void Start()
     {
-        clickCatTab.tabClicked.AddListener(changeTab);
+        currentObjectType = 0;
+        currentCategoryTab = 0;
 
-        //currentCategory = 0;
-        //categoryText.text = categoryName[nbCategory];
+        changeObjectType();
+
+        changeTab(currentObjectType);
     }
+
+
+
 
     public void changeTab(int tab)
     {
+        currentCategoryTab = tab;
+         
+        if (currentObjectType == 0 && tab == 1)         //Call object Cellulaire
+        {
+            currentObjectType = 3;
+            currentCategoryTab = 0;
+            changeObjectType();
+        }
+
         destrotTextZones();
         instanciateTextZones();
     }
@@ -57,31 +67,34 @@ public class DisplayObject : MonoBehaviour {
             categoryButton.RemoveAt(textZones.Count - 1);
         }
     }
+    
+
 
     public void instanciateTextZones()
-    {
+    {       
         int nbTextZones = listObjets[currentObjectType].categoryName.Count;
-        for (int i = 0; i < nbCategory; i++)
+        for (int i = 0; i < nbTextZones; i++)
         {
-            GameObject newButton = Instantiate(categoryTabButton);
-            Text newText = newButton.GetComponentInChildren<Text>();
-            newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
-            newButton.transform.SetParent(tabLayoutGroup.transform);
+            GameObject newTextZone = Instantiate(textZone);
+            Text newText = newTextZone.GetComponentInChildren<Text>();
+            newTextZone.GetComponent<ClickCategoryTab>();
+            newTextZone.transform.SetParent(contentLayoutGroup.transform);
             newText.text = listObjets[currentObjectType].categoryName[i];
-
-            categoryButton.Add(newButton);
-        }
+    
+            categoryButton.Add(newTextZone);
+        }    
     }
 
 
     public void changeObjectType()
     {
-        destroyButtons();
-        instanciateButtons();
+        destroyCategoryTab();
+        instanciateCategoryTab();
     }
 
-    public void destroyButtons()
-    { 
+    public void destroyCategoryTab()
+    {
+        Debug.Log("reste " + categoryButton.Count);
         while (categoryButton.Count > 0)
         {
             Destroy(categoryButton[categoryButton.Count - 1]);
@@ -89,29 +102,27 @@ public class DisplayObject : MonoBehaviour {
         }
     }
 
-    public void instanciateButtons()
+    public void instanciateCategoryTab()
     {
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
-        for (int i = 0; i < nbCategory; i++ )
-        {
+        for (int i = 0; i < nbCategory; i++)
+        { 
             GameObject newButton = Instantiate(categoryTabButton);
             Text newText = newButton.GetComponentInChildren<Text>();
+
             newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
+
             newButton.transform.SetParent(tabLayoutGroup.transform);
             newText.text = listObjets[currentObjectType].categoryName[i];
 
-            categoryButton.Add(newButton);         
+            ClickCategoryTab newTab = newButton.GetComponent<ClickCategoryTab>();
+            newTab.tabClicked.AddListener(changeTab);
+
+            categoryButton.Add(newButton);
+           Debug.Log("create " + i);
         }
     }
 
 
-
-    public void clickRight()
-    {
-     //   if (++nbCategory > categoryName.Count) nbCategory = 0;
-       // categoryText.text = categoryName[nbCategory];
-    }
-
-
-
+    
 }

@@ -8,7 +8,7 @@ public class ClickCategoryTab : MonoBehaviour {
 
     public class clickOnCategoryTab : UnityEvent<int> { };
     public int numeroButton;
-    public clickOnCategoryTab tabClicked;
+    public clickOnCategoryTab tabClicked = new clickOnCategoryTab();
    
 
     void Start () {
