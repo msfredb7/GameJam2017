@@ -46,7 +46,14 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(301, TurnTop2));
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h20
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h15
+
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(315, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 13h15 a 13h20
+
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(317, Pre_RemoveMemoBoss)); // 13h10 a 13h15
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(318, RemoveMemoBoss)); // 13h10 a 13h15
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h20 a 13h30
 
@@ -183,7 +190,17 @@ public class Samantha : Brain {
 
     public void MemoBoss()
     {
+        ScenarioManager.instance.FeuilleAmourSamantha.gameObject.SetActive(true);
+    }
 
+    public void Pre_RemoveMemoBoss()
+    {
+        BulleManager.instance.Say("Pfff...\n Enrique est à moi!", personnage, 2.5f, 0);
+    }
+
+    public void RemoveMemoBoss()
+    {
+        ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(false);
     }
 
     public void ParleAvecAnn2()

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gaetan : Brain {
+public class Gaetan : Brain
+{
 
     public override void ToDo()
     {
@@ -14,6 +15,7 @@ public class Gaetan : Brain {
 
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(139, NoteAmour_BossDesk));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(155, StephenOrdinateurUse));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(168, WayPoint.getWaypoint("AnnushkaDesk").position, personnage));
@@ -55,10 +57,15 @@ public class Gaetan : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
 
-    
+
 
     //9h10 discution Annuska ? TODO
 
+
+    public void NoteAmour_BossDesk()
+    {
+        ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(true);
+    }
     //10h45 Utilise le bureau de stephen
     public void StephenOrdinateurUse()
     {
