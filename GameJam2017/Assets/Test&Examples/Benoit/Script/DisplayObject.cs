@@ -19,7 +19,7 @@ public class DisplayObject : MonoBehaviour {
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
     public Text textZoneT;
-    private GameObject accusationButton;
+   
 
     public GameObject categoryTabButton;
     public GameObject tabLayoutGroup;
@@ -291,6 +291,7 @@ public class DisplayObject : MonoBehaviour {
     public void InstanciateCategoryTab()
     {
         DestroyCategoryTab();
+        DisplayAccusation();
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
         {
@@ -360,15 +361,13 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisplayAccusation()
     {
-        if (accusationEnabled)
+        if (accusationEnabled && currentObjectType == 0)
         {
-            if (currentObjectType == 0)
-            {
-                accusationButton = Instantiate(Accusation);
-                ClickAccusation newAccusation = accusationButton.GetComponent<ClickAccusation>();
-                newAccusation.clickAccusation.AddListener(MakeAccusation);
-            }
-            else Destroy(accusationButton);
+            Accusation.SetActive(true);
+        }
+        else
+        {
+            Accusation.SetActive(false);
         }
     }
 

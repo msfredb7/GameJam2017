@@ -24,6 +24,7 @@ public class MonsieurX : Brain {
 
     public void enableAccusation()
     {
+        Debug.Log("AccusationEnabled");
         DisplayObject.instance.EnableAccusation();
     }
 }
