@@ -104,9 +104,16 @@ public class Gaetan : Brain {
     //17h15 à 17h30 : Croise Steven et lui précise qu’il est allergique au chocolat. Steven il lui assure qu’il n’y en a pas dans le gâteau de ce soir
     public void ParleASteven()
     {
+        Personne stev = ScenarioManager.instance.Steven;
+        personnage.focus = stev;
+        stev.focus = personnage;
+
         BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage);
         BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5);
         BulleManager.instance.Say("Ouff! C'est\nmon jour de chance en effet", personnage, 10);
+
+        stev.SetFocusIn(null, 11);
+        personnage.SetFocusIn(null, 11);
     }
 
     //18h10 à 18h20 : Embrasse Enrique

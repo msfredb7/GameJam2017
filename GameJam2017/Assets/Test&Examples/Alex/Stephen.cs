@@ -46,32 +46,51 @@ public class Stephen : Brain {
     //8h40 à 9h15 : Toilettes des hommes et discussion avec Gaétan
     public void GaetanConv()
     {
-        BulleManager.instance.Say("Salut Gaétan !\n Quoi de neuf?", ScenarioManager.instance.Stephen, 5);
-        BulleManager.instance.Say("Hey, j’ai analysé\n la salle de bain\n et la ventilation mène\n directement à la \nsalle de réunion", ScenarioManager.instance.Gaetan, 5, 5);
-        BulleManager.instance.Say("Cool, mais inutile\n à savoir non?", ScenarioManager.instance.Stephen, 10, 10);
-        BulleManager.instance.Say("Non du tout !\n On pourrait tous\n mourir si quelqu’un\n lançait une attaque\n chimique à partir d’ici", ScenarioManager.instance.Gaetan, 5, 20);
-        BulleManager.instance.Say("T’es creep\n mon Gaétan.", ScenarioManager.instance.Stephen, 5, 25);
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
 
+        BulleManager.instance.Say("Salut Gaétan !\n Quoi de neuf?", personnage, 5);
+        BulleManager.instance.Say("Hey, j’ai analysé\n la salle de bain\n et la ventilation mène\n directement à la \nsalle de réunion", ScenarioManager.instance.Gaetan, 5, 5);
+        BulleManager.instance.Say("Cool, mais inutile\n à savoir non?", personnage, 10, 10);
+        BulleManager.instance.Say("Non du tout !\n On pourrait tous\n mourir si quelqu’un\n lançait une attaque\n chimique à partir d’ici", ScenarioManager.instance.Gaetan, 5, 20);
+        BulleManager.instance.Say("T’es creep\n mon Gaétan.", personnage, 5, 25);
+
+        gaet.SetFocusIn(null, 26);
+        personnage.SetFocusIn(null, 26);
     }
 
     //10h45 à 10h52 : Surprend Gaétan sur son ordinateur
     public void GaetanSurprise()
     {
-        BulleManager.instance.Say("Hey !\n Touche pas à mon ordi,\n prend celle de la stagiaire", ScenarioManager.instance.Stephen, 5);
-        BulleManager.instance.Say("J’mexcuse, j’avais\n juste une recherche\n rapide à faire", ScenarioManager.instance.Gaetan, 5, 5);
-        BulleManager.instance.Say("Excuse-toi pas\n pis recommence pu", ScenarioManager.instance.Stephen, 10, 10);
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
 
+        BulleManager.instance.Say("Hey !\n Touche pas à mon ordi,\n prend celle de la stagiaire", personnage, 5);
+        BulleManager.instance.Say("J’mexcuse, j’avais\n juste une recherche\n rapide à faire", ScenarioManager.instance.Gaetan, 5, 5);
+        BulleManager.instance.Say("Excuse-toi pas\n pis recommence pu", personnage, 10, 10);
+
+        gaet.SetFocusIn(null, 11);
+        personnage.SetFocusIn(null, 11);
     }
 
     //12h00 à 12h30 : Se plaint de Enrique dû au fait qu’il n’a pas reçu de bonus après sa dernière campagne publicitaire
     public void DiscutionPrime()
     {
-        BulleManager.instance.Say("J’en reviens pas\n que Enrique a\n dépensé mon bonus\n pour modifier\n sa Civic", ScenarioManager.instance.Stephen, 5);
-        BulleManager.instance.Say(" J’ai doublé les\n chiffres de l’entreprise pis\n j’recois pas une cenne", ScenarioManager.instance.Stephen, 5, 5);
-        BulleManager.instance.Say("J’mériterais\n au moins 10 000$", ScenarioManager.instance.Stephen, 5, 10);
+        Personne sam = ScenarioManager.instance.Samantha;
+        Personne ann = ScenarioManager.instance.Annushka;
+        personnage.focus = sam;
+        sam.focus = ann;
+
+        BulleManager.instance.Say("J’en reviens pas\n que Enrique a\n dépensé mon bonus\n pour modifier\n sa Civic", personnage, 5);
+        BulleManager.instance.Say(" J’ai doublé les\n chiffres de l’entreprise pis\n j’recois pas une cenne", personnage, 5, 5);
+        BulleManager.instance.Say("J’mériterais\n au moins 10 000$", personnage, 5, 10);
         BulleManager.instance.Say(": Moi avec 10 000$,\n j’macheterais de nouveaux\n implants mamaires", ScenarioManager.instance.Samantha, 5, 15);
         BulleManager.instance.Say("Tu vois déjà pas\n tes pieds… Toi pas trouver\n ça assez gros?", ScenarioManager.instance.Annushka, 5, 20);
 
+        sam.SetFocusIn(null, 21);
+        personnage.SetFocusIn(null, 21);
     }
 
     //12h40 à 13h00 : Appel téléphonique sur un numéro anonyme. Il demande des informations sur la réunion de ce soir
@@ -92,10 +111,17 @@ public class Stephen : Brain {
     //Rencontre Gaétan (15h30):
     public void GaetanBlabla()
     {
-        BulleManager.instance.Say("As-tu une femme\n et des enfants toi Gaétan?", ScenarioManager.instance.Stephen, 5);
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
+
+        BulleManager.instance.Say("As-tu une femme\n et des enfants toi Gaétan?", personnage, 5);
         BulleManager.instance.Say("Non, les femmes\n m’intéressent pas", ScenarioManager.instance.Gaetan, 5, 5);
-        BulleManager.instance.Say("Attends quoi?\n T’aimes les hommes?", ScenarioManager.instance.Stephen, 5, 10);
+        BulleManager.instance.Say("Attends quoi?\n T’aimes les hommes?", personnage, 5, 10);
         BulleManager.instance.Say("Pas les hommes,\n 1 seul…", ScenarioManager.instance.Gaetan, 5, 15);
+
+        gaet.SetFocusIn(null, 16);
+        personnage.SetFocusIn(null, 16);
     }
 
     //17h45 à 18h00 : Appel téléphonique sur le fait qu’il ignore l’identité du dirigeant qui vient visiter ce soir. Il aurait aimé ça le savoir pour faire ses recherches et l’impressionner et espérer obtenir un meilleur poste à la direction (PREUVE INNOCENCE)
