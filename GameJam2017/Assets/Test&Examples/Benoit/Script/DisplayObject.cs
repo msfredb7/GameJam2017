@@ -18,6 +18,7 @@ public class DisplayObject : MonoBehaviour {
 
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
+    public Text textZoneT;
     private GameObject accusationButton;
 
     public GameObject categoryTabButton;
@@ -121,11 +122,13 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisplaySMS()
     {
+        
         List<SMS> listSMS = UIPersonne.GetCell().GetHistoriqueTextos();
         for (int i = 0; i < listSMS.Count; i++)
         {
-            texts.Add("Date: " + listSMS[i].date + "\nDestinaire: " + listSMS[i].destinataire + "\nContenu: " + listSMS[i].text);
+            texts.Add("Date: " + listSMS[i].date + "\nDestinaire: " + listSMS[i].destinataire + "\n"+ listSMS[i].text);
         }
+        
     }
 
     public void DisplayFichierActif()
@@ -147,7 +150,7 @@ public class DisplayObject : MonoBehaviour {
         List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
         for (int i = 0; i < listcourriel.Count; i++)
         {
-            texts.Add("Expéditeur: " + listcourriel[i].expediteur + "\nContenu: " + listcourriel[i].text);
+            texts.Add("Expéditeur: " + listcourriel[i].expediteur + "\n" + listcourriel[i].text);
         }
     }
 
@@ -180,17 +183,15 @@ public class DisplayObject : MonoBehaviour {
     public void PrintTexts()
     {
 
+
+        string temp ="";
         int nbtexts = texts.Count;
         for (int i = 0; i < nbtexts; i++)
-        {
-            GameObject newTextZone = Instantiate(textZone, contentLayoutGroup.transform);
-            Text newText = newTextZone.GetComponentInChildren<Text>();
-            newText.text = texts[i];
-
-            
-            textZones.Add(newTextZone);
+        {    
+            temp += texts[i] + "\n\n";
         }
         texts.Clear();
+        textZoneT.text = temp;
     }
 
     public void DestroyTextZones()
@@ -381,4 +382,8 @@ public class DisplayObject : MonoBehaviour {
         GameManager.EndGame(victory);
     }
 
+
+
 }
+
+
