@@ -28,15 +28,13 @@ public class Character : MonoBehaviour
         animatorBack.gameObject.SetActive(false);
         animatorRight.gameObject.SetActive(false);
         SetSide(Direction.Down);
-        pather.onTargetReached.AddListener(Stop);
+        //pather.onTargetReached.AddListener(Stop);
     }
 
     void Update()
     {
         UpdateSpeed();
         UpdateAnim();
-        if (Input.GetKeyDown(KeyCode.Y))
-            Start();
     }
 
     #region Movement
@@ -54,6 +52,7 @@ public class Character : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
+        print("MOVING" + gameObject.name);
         pather.canMove = true;
         pather.SetTarget(position);
     }

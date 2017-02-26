@@ -14,7 +14,9 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     protected void Start()
     {
         start = Time.time;
-        start -= (startTime-1);
+        start -= startTime;
+
+        print("FIRST TIME : " + startTime);
 
         if (events.Count <= 0) return;
 
@@ -34,7 +36,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     {
         float currentTime = Time.time;
 
-        print((currentTime - start));
+        
 
         if (events.Count <= 0) return;
 

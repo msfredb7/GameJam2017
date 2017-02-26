@@ -8,7 +8,7 @@ public class GeatanBrain : Brain {
     public override void ToDo()
     {
         //8H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(1, WayPoint.getWaypoint("WCBlue").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("WCBlue").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(40, stephenConv));
         //9H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("WCRed").position, personnage));
@@ -34,16 +34,27 @@ public class GeatanBrain : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(330, WayPoint.getWaypoint("WCRed").position, personnage));
 
         //14H
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
 
         //15H
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
+
 
         //16H
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, tocGary));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(510, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+
 
         //17H
 
         //18H
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(610, EmbrasseEnrique));
+
         //ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, TocPorteGary));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
     }
 
     //8h40 discution stephen?
@@ -80,6 +91,18 @@ public class GeatanBrain : Brain {
 
     //13h00 à 13h10 : Se pogne le cul dans son placard
     public void GaetanPogneCul()
+    {
+
+    }
+
+    //16h00 à 16h10 : Cogne sans réponse +Gaétan dit à Gary qu’il faudrait bien qu’il le laisse nettoyer son bureau un jour
+    public void tocGary()
+    {
+
+    }
+
+    //18h10 à 18h20 : Embrasse Enrique
+    public void EmbrasseEnrique()
     {
 
     }
