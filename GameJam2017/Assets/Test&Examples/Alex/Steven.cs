@@ -30,6 +30,8 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(100, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 9h40 a 9h50
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(105, TurnRight));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(110, RelaxSalleManger)); // 9h50 a 10h10
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(121, DiscussionStephen)); // 10h05 a 10h20
