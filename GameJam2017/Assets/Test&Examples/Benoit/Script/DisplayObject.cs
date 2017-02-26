@@ -35,6 +35,7 @@ public class DisplayObject : MonoBehaviour {
     private Ordinateur UIOrdinateur;
     private Registre UIRegistre;
     private AppelTéléphonique UIAppelTéléphonique;
+    private FichierActif UIFichierActif;
 
     private int currentObjectType;
     private int currentCategoryTab;
@@ -62,14 +63,17 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             charFace.sprite = Computer;
+            topInfo.text = UIOrdinateur.GetNomOrdinateur();
         }
         if (currentObjectType == 2)
         {
             charFace.sprite = Door;
+            topInfo.text = "fonctionnalité non implanté";
         }
         if (currentObjectType == 3)
         {
             charFace.sprite = Appel;
+            topInfo.text = "Appel de " + UIAppelTéléphonique.GetNomEmetteur();
         }
     }
 
@@ -82,6 +86,7 @@ public class DisplayObject : MonoBehaviour {
             if (currentCategoryTab == 0) DisplayDescription();
             if (currentCategoryTab == 1) DisplayAppel();      //historique
             if (currentCategoryTab == 2) DisplaySMS();
+            if (currentCategoryTab == 3) DisplayFichierActif();
         }
         if (currentObjectType == 1)
         {
@@ -105,7 +110,6 @@ public class DisplayObject : MonoBehaviour {
         texts.Add(UIPersonne.GetNom());
     }
 
-
     public List<string> texts = new List<string>();
 
     public void DisplayAppel()
@@ -125,6 +129,12 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Date: " + listSMS[i].date + "\nDestinaire: " + listSMS[i].destinataire + "\nContenu: " + listSMS[i].text);
         }
     }
+
+    public void DisplayFichierActif()
+    {
+        texts.Add("Nom du fichier: " + UIFichierActif.GetNomFichier() + "\n\n" + UIFichierActif.GetContenuFicher());
+    }
+
     public void DisplayHistorique()
     {
         List<SiteInternet> listSites = UIOrdinateur.GetHistorique();
@@ -133,6 +143,7 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Adresse: " + listSites[i].adresse + "\nContenu: " + listSites[i].date);
         }
     }
+
     public void DisplayCourriel()
     {
         List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
@@ -141,6 +152,7 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
         }
     }
+
     public void DisplayAccès()
     {
         List<Entry> listRegistre = UIRegistre.GetEntries();
@@ -191,7 +203,6 @@ public class DisplayObject : MonoBehaviour {
             textZones.RemoveAt(textZones.Count - 1);
         }
     }
-
 
     public void DisableListener()
     {
@@ -267,19 +278,23 @@ public class DisplayObject : MonoBehaviour {
         DestroyCategoryTab();
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
-        { 
-            GameObject newButton = Instantiate(categoryTabButton);
-            Text newText = newButton.GetComponentInChildren<Text>();
+        {
+            if (currentObjectType == 0 && i == 3 && UIFichierActif == null) { } //affiche pas fichier si aucun fichier
+            else
+            {
+                GameObject newButton = Instantiate(categoryTabButton);
+                Text newText = newButton.GetComponentInChildren<Text>();
 
-            newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
+                newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
 
-            newButton.transform.SetParent(tabLayoutGroup.transform);
-            newText.text = listObjets[currentObjectType].categoryName[i];
+                newButton.transform.SetParent(tabLayoutGroup.transform);
+                newText.text = listObjets[currentObjectType].categoryName[i];
 
-            ClickCategoryTab newTab = newButton.GetComponent<ClickCategoryTab>();
-            newTab.tabClicked.AddListener(ChangeTab);
+                ClickCategoryTab newTab = newButton.GetComponent<ClickCategoryTab>();
+                newTab.tabClicked.AddListener(ChangeTab);
 
-            categoryButton.Add(newButton);
+                categoryButton.Add(newButton);
+            }
         }
 
         InstanciateTextZones();

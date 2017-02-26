@@ -21,13 +21,29 @@ public struct Courriel
 public class Ordinateur : MonoBehaviour {
     public UnityEvent contentUpdate = new UnityEvent();
 
+    private string nomOrdinateur;
     private List<SiteInternet> historique = new List<SiteInternet>();
     private List<Courriel> courriels = new List<Courriel>();
 
-	public Ordinateur(List<SiteInternet> historique, List<Courriel> courriels)
+    private FichierActif fichierActif;
+
+
+    public Ordinateur(string nomOrdinateur, List<SiteInternet> historique, List<Courriel> courriels)
     {
+        this.nomOrdinateur = nomOrdinateur;
         this.historique = historique;
         this.courriels = courriels;
+        fichierActif = null;
+    }
+
+    public string GetNomOrdinateur()
+    {
+        return nomOrdinateur;
+    }
+
+    public FichierActif GetFichierActif()
+    {
+        return fichierActif;
     }
 
     public List<SiteInternet> GetHistorique()
@@ -38,6 +54,11 @@ public class Ordinateur : MonoBehaviour {
     public List<Courriel> GetCourriels()
     {
         return courriels;
+    }
+
+    public void AddFichierActif(string nomFichier, string contenuFichier)
+    {
+        fichierActif = new FichierActif(nomFichier, contenuFichier);
     }
 
     public void AddSiteInternet(string adresse, string date)
