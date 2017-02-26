@@ -9,7 +9,8 @@ public class Justine : Brain {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(25, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(25, ConversationSteven));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(27, ConversationSteven));
+
         //9H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(62, AppelMari));
@@ -51,8 +52,8 @@ public class Justine : Brain {
         steph.focus = personnage;
 
         BulleManager.instance.Say("Salut Steven", personnage,2);
-        BulleManager.instance.Say("Bon alors, comme j'avais commencé à t'expliquer hier...", ScenarioManager.instance.Steven, delay: 2);
-        BulleManager.instance.Say("J'ai un appel important,\n Désolé je reviens.", ScenarioManager.instance.Steven, delay:5);
+        BulleManager.instance.Say("Bon alors, comme j'avais \n commencé  à t'expliquer \n hier...", ScenarioManager.instance.Steven, 3, delay: 2);
+        BulleManager.instance.Say("J'ai un appel important,\n Désolé je reviens.", ScenarioManager.instance.Steven,3,delay:5);
 
         steph.SetFocusIn(null, 7);
         personnage.SetFocusIn(null, 7);
