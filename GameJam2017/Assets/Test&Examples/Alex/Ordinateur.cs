@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using CCC.Manager;
 
 [System.Serializable]
@@ -18,6 +19,7 @@ public struct Courriel
 }
 
 public class Ordinateur : MonoBehaviour {
+    public UnityEvent contentUpdate = new UnityEvent();
 
     private List<SiteInternet> historique = new List<SiteInternet>();
     private List<Courriel> courriels = new List<Courriel>();
@@ -44,6 +46,8 @@ public class Ordinateur : MonoBehaviour {
         newSite.date = date;
         newSite.adresse = adresse;
         historique.Add(newSite);
+
+        contentUpdate.Invoke();
     }
 
     public void AddCourriel(string destinataire, string text)
@@ -52,5 +56,7 @@ public class Ordinateur : MonoBehaviour {
         newCourriel.destinataire = destinataire;
         newCourriel.text = text;
         courriels.Add(newCourriel);
+
+        contentUpdate.Invoke();
     }
 }

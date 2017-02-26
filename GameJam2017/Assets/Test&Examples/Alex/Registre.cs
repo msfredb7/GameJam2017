@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using CCC.Manager;
 
-[System.Serializable]
+
+
+
 public struct Entry
 {
     public string name;
@@ -11,8 +14,10 @@ public struct Entry
 }
 
 public class Registre : MonoBehaviour {
+    public UnityEvent contentUpdate = new UnityEvent();
 
-    private List<Entry> entries = new List<Entry>();
+
+private List<Entry> entries = new List<Entry>();
 
     public Registre(List<Entry> entries)
     {
@@ -30,5 +35,7 @@ public class Registre : MonoBehaviour {
         nouveauEntry.name = name;
         nouveauEntry.hour = hour;
         entries.Add(nouveauEntry);
+
+        contentUpdate.Invoke();
     }
 }
