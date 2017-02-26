@@ -163,7 +163,7 @@ public class DisplayObject : MonoBehaviour {
 
         for (int i = 0; i < messageRecepteur.Count; i++)
         {
-            texts.Add(nomRecepteur + ": \n" + nomRecepteur[i]);
+            texts.Add(nomRecepteur + ": \n" + messageRecepteur[i]);
             if (i < messageEmetteur.Count)
             {
                 texts.Add(nomEmetteur + ": \n" + messageEmetteur[i]);
@@ -235,6 +235,8 @@ public class DisplayObject : MonoBehaviour {
 
     public void newContent()
     {
+        Debug.Log("update");
+
         int previousTab = currentCategoryTab; //Change object met le tab à cuurentCatTab à 0
         ChangeObject();
         ChangeTab(previousTab);
@@ -242,8 +244,26 @@ public class DisplayObject : MonoBehaviour {
 
     public void ChangeObject()
     {
-        if (currentObjectType == 0)  UIAppelTéléphonique = UICell.GetCurrentCall();  
-        if (currentObjectType == 1)  UIFichierActif = UIOrdinateur.GetFichierActif();
+        if (currentObjectType == 0)
+        {
+            UIAppelTéléphonique = UICell.GetCurrentCall();
+            if (UIAppelTéléphonique != null)
+            {
+                UIAppelTéléphonique.contentUpdate.AddListener(newContent);
+                Debug.Log("Tel Setter");
+            }
+        }
+
+        if (currentObjectType == 1)
+        {
+            UIFichierActif = UIOrdinateur.GetFichierActif();
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
+        }
+        
+
+
+        if (UIAppelTéléphonique == null) Debug.Log("tel existe");
+        else Debug.Log("tel n'existe pas");
 
         UpdateHeader();
         DestroyCategoryTab();
@@ -270,7 +290,7 @@ public class DisplayObject : MonoBehaviour {
         for (int i = 0; i < nbCategory; i++)
         {
             if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { }             //skip fichier actif si null
-            else if (currentObjectType == 0 && i == 2 && UIAppelTéléphonique == null) { }   //skip appel courant si null
+            else if (currentObjectType == 0 && i == 3 && UIAppelTéléphonique == null) { Debug.Log("tel ignorer"); }   //skip appel courant si null
             else
             {
                 GameObject newButton = Instantiate(categoryTabButton);

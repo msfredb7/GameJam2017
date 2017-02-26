@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Samantha : Brain {
 
     public override void ToDo()
@@ -81,13 +80,6 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSamantha").position, personnage)); // 18h15 a 18h30
     }
 
-    public void MakeTexto1()
-    {
-        personnage.GetCell().AddTexto("T'en reviendras pas Natasha, Enrique porte sa cravate rouge aujourd'hui. Y sait clairement que c'est ma préférée en plus", "8h10", "Enrique");
-        personnage.GetCell().AddTexto("Oops lis pas le dernier message, c'était pas pour toi !", "8h10", "Enrique");
-        personnage.GetCell().AddTexto("T'en reviendras pas Natasha, Enrique porte sa cravate rouge aujourd'hui. Y sait clairement que c'est ma préférée en plus", "8h10", "Natasha");
-    }
-
     public void Drague1()
     {
         Personne mrX = ScenarioManager.instance.MonsieurX;
@@ -100,6 +92,11 @@ public class Samantha : Brain {
 
         mrX.SetFocusIn(null, 11);
         personnage.SetFocusIn(null, 11);
+    }
+
+    public void MakeTexto1()
+    {
+
     }
 
     public void TravailPersonnel()
