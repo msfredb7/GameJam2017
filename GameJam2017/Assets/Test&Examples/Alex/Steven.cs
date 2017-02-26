@@ -164,13 +164,13 @@ public class Steven : Brain
         personnage.focus = ann;
         ann.focus = personnage;
 
-        BulleManager.instance.Say("Annunshka,\nn'oublies pas le colis ce\nsoir! C'est vraiment\nimportant pour nous", personnage);
-        BulleManager.instance.Say("Quelle heure?", ScenarioManager.instance.Annushka, 2, 5);
-        BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger\n cela", personnage, 7);
-        BulleManager.instance.Say("D'accord", ScenarioManager.instance.Annushka, 2, 12);
+        BulleManager.instance.Say("Annunshka,\nn'oublies pas le colis ce\nsoir! C'est vraiment\nimportant pour nous", personnage, 4,0);
+        BulleManager.instance.Say("Quelle heure?", ScenarioManager.instance.Annushka, 3, 4);
+        BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger\n cela", personnage, 4, 7);
+        BulleManager.instance.Say("D'accord", ScenarioManager.instance.Annushka, 3, 11);
 
-        ann.SetFocusIn(null, 11);
-        personnage.SetFocusIn(null, 11);
+        ann.SetFocusIn(null, 14);
+        personnage.SetFocusIn(null, 14);
     }
     public void DiscussionGaétan()
     { }
