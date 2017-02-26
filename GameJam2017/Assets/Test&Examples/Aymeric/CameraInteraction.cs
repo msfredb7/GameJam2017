@@ -114,21 +114,25 @@ public class CameraInteraction : MonoBehaviour {
     private void selectCamera1()
     {
         IUCamera1.GetComponent<Image>().color = selectedColor;
+        Camera1.GetComponent<AudioListener>().enabled = true;
     }
 
     private void selectCamera2()
     {
         IUCamera2.GetComponent<Image>().color = selectedColor;
+        Camera2.GetComponent<AudioListener>().enabled = true;
     }
 
     private void deSelectCamera1()
     {
         IUCamera1.GetComponent<Image>().color = unSelectedColor;
+        Camera1.GetComponent<AudioListener>().enabled = false;
     }
 
     private void deSelectCamera2()
     {
         IUCamera2.GetComponent<Image>().color = unSelectedColor;
+        Camera2.GetComponent<AudioListener>().enabled = false;
     }
 
     #endregion
