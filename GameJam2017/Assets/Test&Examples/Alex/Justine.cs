@@ -23,13 +23,13 @@ public class Justine : Brain {
         //12H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed").position, personnage));
         //13H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("PlacardConsierge_Visiteur").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, ConversationGaetan));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(330, WayPoint.getWaypoint("WCRed").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(340, WayPoint.getWaypoint("JustineDesk").position, personnage));
         //14H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SamanthaDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(365, ConversationSamantha));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SamanthaDesk_Visiteur").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(368, ConversationSamantha));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(395, AppelMari2));
         //15H
@@ -96,19 +96,19 @@ public class Justine : Brain {
         personnage.focus = gaet;
         gaet.focus = personnage;
 
-        BulleManager.instance.Say("C'est vraiment malaisant,\n mais j'ai bouché la \n toilette des femmes", personnage);
-        BulleManager.instance.Say("Ben voyons,\n y'a pas de problème\n, on va aller voir ca\n ensemble", ScenarioManager.instance.Gaetan, delay:5);
-        BulleManager.instance.Say("Ensemble?", personnage, 2 , 10);
-        BulleManager.instance.Say("Oui oui,\n ensemble!", ScenarioManager.instance.Gaetan, 3 , delay:12);
-        BulleManager.instance.Say("Savais-tu que\nla ventilation de la\ntoilette des dames\n menait directement\nau bureau de Enrique?", ScenarioManager.instance.Gaetan, delay:20);
-        BulleManager.instance.Say("OMG c'est horrible,\n est-ce qu'il le sait?", personnage, delay:25);
-        BulleManager.instance.Say("Surement pas,\ncar ca pourrait être dangereux", ScenarioManager.instance.Gaetan, delay: 30);
-        BulleManager.instance.Say("Comment ca\ndangereux?", personnage, 3 , delay: 35);
-        BulleManager.instance.Say("Quelqu'un de malintentionné\npourrait lancer une\nbombe par ce conduit?", ScenarioManager.instance.Gaetan, delay: 38);
-        BulleManager.instance.Say("Hmm okay, tu fais\nparfois peur Gaetan.\nAnyway j'dois retourner travailler.", personnage, delay: 42);
+        BulleManager.instance.Say("C'est vraiment malaisant,\n mais j'ai bouché la \n toilette des femmes", personnage, 3 ,0);
+        BulleManager.instance.Say("Ben voyons,\n y'a pas de problème\n, on va aller voir ca\n ensemble", ScenarioManager.instance.Gaetan, 4, 3);
+        BulleManager.instance.Say("Ensemble?", personnage, 1 , 7);
+        BulleManager.instance.Say("Oui oui,\n ensemble!", ScenarioManager.instance.Gaetan, 3 , 8);
+        BulleManager.instance.Say("Savais-tu que\nla ventilation de la\ntoilette des dames\n menait directement\nau bureau de Enrique?", ScenarioManager.instance.Gaetan, 4,11);
+        BulleManager.instance.Say("OMG c'est horrible,\n est-ce qu'il le sait?", personnage, 3,15);
+        BulleManager.instance.Say("Surement pas,\ncar ca pourrait \nêtre dangereux", ScenarioManager.instance.Gaetan, 4,18);
+        BulleManager.instance.Say("Comment ca\ndangereux?", personnage, 2, 22);
+        BulleManager.instance.Say("Quelqu'un de malintentionné\npourrait lancer une\nbombe par ce conduit.", ScenarioManager.instance.Gaetan, 3, 24);
+        BulleManager.instance.Say("Hmm okay, tu fais\nparfois peur Gaetan.\nAnyway j'dois retourner travailler.", personnage, 3, 27);
 
-        gaet.SetFocusIn(null, 43);
-        personnage.SetFocusIn(null, 43);
+        gaet.SetFocusIn(null, 30);
+        personnage.SetFocusIn(null, 30);
     }
 
     public void ConversationSamantha()
@@ -117,12 +117,12 @@ public class Justine : Brain {
         personnage.focus = sam;
         sam.focus = personnage;
 
-        BulleManager.instance.Say("Hey! Ca te tenterais-tu\nd'aller magasiner demain?", personnage);
-        BulleManager.instance.Say("Ca serait super!\nOn pourrait aller\nse faire les ongles aussi.", ScenarioManager.instance.Samantha, 5);
-        BulleManager.instance.Say("Ah mais attend,\nla soirée risque d'être\ntrop explosive.Je\npense pas qu'on sera en\n mesure de s'en remettre", ScenarioManager.instance.Samantha, 10);
-        BulleManager.instance.Say("De quoi tu parles?", personnage, 2 , 15);
-        BulleManager.instance.Say("Bah la fête pour\ntondé...Euh pour\nle deal de Enrique!", ScenarioManager.instance.Samantha , 17);
-        BulleManager.instance.Say("Hmm okay...\nTu m'en reparleras\nplus tard", personnage, 22);
+        BulleManager.instance.Say("Hey! Ca te tenterais-tu\nd'aller magasiner demain?", personnage,3,0);
+        BulleManager.instance.Say("Ca serait super!\nOn pourrait aller\nse faire les ongles aussi.", ScenarioManager.instance.Samantha, 4,3);
+        BulleManager.instance.Say("Ah mais attend,\nla soirée risque d'être\ntrop explosive.Je\npense pas qu'on sera en\n mesure de s'en remettre", ScenarioManager.instance.Samantha, 6,7);
+        BulleManager.instance.Say("De quoi tu parles?", personnage, 3 , 13);
+        BulleManager.instance.Say("Bah la fête pour\ntondé...Euh pour\nle deal de Enrique!", ScenarioManager.instance.Samantha, 4, 16);
+        BulleManager.instance.Say("Hmm okay...\nTu m'en reparleras\nplus tard", personnage,3, 20);
 
         sam.SetFocusIn(null, 23);
         personnage.SetFocusIn(null, 23);
