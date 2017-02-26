@@ -16,8 +16,6 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         start = Time.time;
         start -= startTime;
 
-        print("FIRST TIME : " + startTime);
-
         if (events.Count <= 0) return;
 
         events.Sort(new Comparer());

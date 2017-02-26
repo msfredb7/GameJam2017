@@ -11,15 +11,11 @@ public class BulleManager : MonoBehaviour {
     public int lenghtMaxPetiteBulle = 27;
     public int lenghtMaxMoyenneBulle = 60;
 
-    public GameObject petiteBulle;
-    public GameObject petiteBulleText;
-    public GameObject moyenneBulle;
-    public GameObject moyenneBulleText;
-    public GameObject grosseBulle;
-    public GameObject grosseBulleText;
+    public Bubble petiteBulle;
+    public Bubble moyenneBulle;
+    public Bubble grosseBulle;
 
-    private GameObject currentBulle;
-    private GameObject currentText;
+    private Bubble currentBulle;
 
     public float littleOffsetX = 2.93f;
     public float littleOffsetZ = 4.84f;
@@ -33,7 +29,6 @@ public class BulleManager : MonoBehaviour {
     private float currentOffsetX;
     private float currentOffsetZ;
 
-
     void Awake()
     {
         if (instance == null)
@@ -44,18 +39,15 @@ public class BulleManager : MonoBehaviour {
     {
         ChoisirBulle(text);
 
-        Transform bullePosition = currentBulle.transform;
+        Vector3 position = new Vector3((character.transform.position.x + currentOffsetX), currentBulle.transform.position.y, (character.transform.position.z + currentOffsetZ));
 
-        bullePosition.position = new Vector3((character.transform.position.x + currentOffsetX), character.transform.position.y, (character.transform.position.z + currentOffsetZ));
+        print(currentBulle.transform.position.y);
 
-        currentBulle.SetActive(true);
-        currentText.GetComponent<TextMesh>().text = text;
-        DelayManager.CallTo(EraseBulle, time);
-    }
+        Bubble myBubble = Instantiate(currentBulle, position, currentBulle.transform.rotation);
 
-    private void EraseBulle()
-    {
-        currentBulle.SetActive(false);
+        myBubble.gameObject.SetActive(true);
+        myBubble.myText.GetComponent<TextMesh>().text = text;
+        myBubble.SetValues(currentOffsetX, currentOffsetZ, character, time);
     }
 
     private void ChoisirBulle(string text)
@@ -65,19 +57,16 @@ public class BulleManager : MonoBehaviour {
             currentOffsetX = littleOffsetX;
             currentOffsetZ = littleOffsetZ;
             currentBulle = petiteBulle;
-            currentText = petiteBulleText;
         } else if (text.Length <= lenghtMaxMoyenneBulle)
         {
             currentOffsetX = moyenOffsetX;
             currentOffsetZ = moyenOffsetZ;
             currentBulle = moyenneBulle;
-            currentText = moyenneBulleText;
         } else
         {
             currentOffsetX = bigOffsetX;
             currentOffsetZ = bigOffsetZ;
             currentBulle = grosseBulle;
-            currentText = grosseBulleText;
         }
     }
 }
