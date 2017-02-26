@@ -62,6 +62,6 @@ public class IntroDocument : MonoBehaviour {
     {
         portrait.sprite = personne.apparence;
         nom.text = personne.GetNom();
-        description.text = personne.GetDescription();
+        description.text = personne.GetDescription().Replace('$', '\n');
     }
 }
