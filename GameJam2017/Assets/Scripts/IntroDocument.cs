@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CCC.Manager;
 
 public class IntroDocument : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class IntroDocument : MonoBehaviour {
     public Button rightButton;
     public Button continueButton;
     public bool canContinue = false;
+    public AudioClip pageFlip;
 
     private int currentIndex;
 
@@ -38,6 +40,7 @@ public class IntroDocument : MonoBehaviour {
         leftButton.interactable = true;
 
         Display(personnes[currentIndex]);
+        SoundManager.Play(pageFlip);
     }
 
     void OnLeftClick()
@@ -52,6 +55,7 @@ public class IntroDocument : MonoBehaviour {
         rightButton.interactable = true;
 
         Display(personnes[currentIndex]);
+        SoundManager.Play(pageFlip);
     }
 
     public void Display(Personne personne)
