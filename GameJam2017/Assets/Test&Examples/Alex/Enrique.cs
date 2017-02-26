@@ -18,7 +18,7 @@ public class Enrique : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(156, ConvJustine));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(195, WayPoint.getWaypoint("WCBlue").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, ConvStephen));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, ConvSteven));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(225, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
         //12H
 
