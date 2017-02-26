@@ -85,7 +85,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         }
     }
 
-    public float GetSeconds()
+    public static float GetSeconds()
     {
         return (Time.time - start);
     }
