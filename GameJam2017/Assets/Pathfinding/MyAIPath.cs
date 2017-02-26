@@ -179,6 +179,7 @@ public class MyAIPath : MonoBehaviour
 	 */
     protected virtual void OnEnable()
     {
+        print("OnEnable" + gameObject.name);
         lastRepath = -9999;
         canSearchAgain = true;
 
@@ -521,6 +522,7 @@ public class MyAIPath : MonoBehaviour
 
     public void Stop()
     {
+        print("OnStop" + gameObject.name);
         target = tr.position;
         path = null;
         if(rvoController != null)

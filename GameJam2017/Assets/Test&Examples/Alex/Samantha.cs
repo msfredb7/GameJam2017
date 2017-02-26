@@ -6,6 +6,7 @@ public class Samantha : Brain {
 
     public override void ToDo()
     {
+        /*
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 8h
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, MakeTexto1));                                             // 8h10
 
@@ -13,6 +14,7 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, Drague1));                                           // 8h40
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage));
+        */
     }
 
     public void MakeTexto1()
