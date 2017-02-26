@@ -70,6 +70,11 @@ public class ScenarioManager : MonoBehaviour {
         List<SiteInternet> listS = new List<SiteInternet>();
         listC.Add(new Courriel("Marketing Online", "Titre : Résumé de votre dernière campagne publicitaire (#098-1) Message: Votre dernière campagne publicitaire a généré 1082 % plus de clics qu’à l’habitude.Nous vous remercions de la confiance accordée à Marketing Online. "));
         listC.Add(new Courriel("EB GAMES", "Titre : Votre infolettre mensuel Message: Passez en boutique pour bénéficier de rabais exceptionnels sur les nouveautés.Échangez votre Xbox One(avec un minimum de 14 jeux et 3 mannettes) pour obtenir un crédit - magasin de 50$ sur la Nintendo Switch. "));
+
+
+        listS.Add(new SiteInternet("www.LeMarketingPourLesNuls.ca","29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.LaFainDuMonde.fr", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.LeMonde.fr", "29/02/2016 : 13.10"));
         StephenOrdi.initialise("StephenOrdi",listS,listC);
     }
     public void InitStevenOrdi()
@@ -78,6 +83,9 @@ public class ScenarioManager : MonoBehaviour {
         List<SiteInternet> listS = new List<SiteInternet>();
         listC.Add(new Courriel("Ressources Humaines Canada", "Titre : Conditions de travail Message: En réponse à vos précédentes requêtes, nous vous confirmons que les motifs évoqués par vos employés ne sont pas suffisant pour ouvrir une enquête interne sur votre PDG. "));
         listC.Add(new Courriel("LinkedIn", "Titre : Nouvelle connexion Message: Annushka désire rejoindre votre réseau LinkedIn.Nous vous suggérons de n’accepter les invitations des personnes que vous connaissez personnellement. "));
+        listS.Add(new SiteInternet("www.MutinerieEnEntreprise.ca", "29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.PrimiPrime.fr", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.Calinours.fr", "29/02/2016 : 13.10"));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
     }
     public void InitEnriqueOrdi()
@@ -86,18 +94,27 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("Garage automobile", "Titre : Civic immatriculé 756 JWB Message: Votre Civic est prête à être récupéré.Votre facture s’élève à 11, 876$ taxes incluses payable dans les trente(30) prochains jours."));
         listC.Add(new Courriel("Magasine 100% Hétéro", "Titre : Renouvellement abonnement Message: Votre abonnement au magasine 100 % Hétéro a expiré il y a 2 jours.Le renouvellement automatique d’un montant de 69, 00$ s’effectuera automatiquement la semaine prochaine.Pour annuler votre abonnement, veuillez communiquer avec le service à la clientèle. "));
         List<SiteInternet> listS = new List<SiteInternet>();
+        listS.Add(new SiteInternet("www.CactchAttack.ca", "29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.CatchMen.fr", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.XMen.ca", "29/02/2016 : 13.10"));
         EnriqueOrdi.initialise("EnriqueOrdi", listS, listC);
     }
     public void InitSamanthaOrdi()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listS.Add(new SiteInternet("www.LaVenusMaquillage.ca", "29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.FoudroiStyle.fr", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.Sasasamouraille.ca", "29/02/2016 : 13.10"));
         SamanthaOrdi.initialise("SamanthaOrdi", listS, listC);
     }
     public void InitGaryOrdi()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listS.Add(new SiteInternet("www.EveOnline.com", "29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.WoW.com", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
     }
     public void InitAnnushkaOrdi()
@@ -115,6 +132,9 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("Ordre comptable agréé (CPA)", "Titre : Plainte #134-02-111 Message: Madame, nous vous rappelons l’importance de répondre dans les plus brefs délais à notre précédent message.Votre ancien employeur, M.Milton, ayant déposé une plainte contre vous, il est dans votre devoir de formuler votre version des faits rapidement. "));
         listC.Add(new Courriel("Votre concessionnaire BMW", "Titre : Livraison - BMW 3 Series 2017 Message: Nous avons le plaisir de vous annoncer que votre BMW 3 Series 2017 vient tout juste d’arriver à notre succursale.Vous pouvez passer dès ce soir la récupérer, tel que demandé, nous l’avons décoré d’un ruban rouge. "));
         listC.Add(new Courriel("M.Milton", "Titre : Fraude fiscale Message: Puisque tu ne retournes pas mes appels, j’ai officiellement déposé une plainte à ton ordre professionnel.J’ai toutes les preuves nécessaires pour te poursuivre en justice.Je te conseille de me rendre ce que tu m’as volé pendant les 5 dernières années + intérêt de 10 % +dédommagement de 50 000$. "));
+        listS.Add(new SiteInternet("www.Droit.ca", "29/02/2016 : 11.00"));
+        listS.Add(new SiteInternet("www.ContratLegal.fr", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.MaitreNabal.ca", "29/02/2016 : 13.10"));
         JustineOrdi.initialise("JustineOrdi", listS, listC);
     }
 
