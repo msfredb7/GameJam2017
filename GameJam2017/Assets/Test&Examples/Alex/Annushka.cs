@@ -48,9 +48,13 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(435, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 15h15 a 15h30
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(445, TravailPersonnel));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(450, CogneChezGary)); // 15h30 a 15h45
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 15h45 a 16h00
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, TravailPersonnel1));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("WCRed").position, personnage)); // 17h00 a 17h05
 
@@ -69,6 +73,16 @@ public class Annushka : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(630, WayPoint.getWaypoint("SalleReunionAnn").position, personnage)); // 18h15 a 18h30
     }
 
+
+    public void TravailPersonnel1()
+    {
+        ClavierAnimation(60);
+    }
+
+    public void TravailPersonnel()
+    {
+        ClavierAnimation(15);
+    }
 
     public void TurnTop1()
     {
