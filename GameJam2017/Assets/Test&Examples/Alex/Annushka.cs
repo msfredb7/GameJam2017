@@ -36,7 +36,9 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h00 a 13h20
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(355, WayPoint.getWaypoint("SalleEntrainement").position, personnage)); // 13h55 a 14h05
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(355, WayPoint.getWaypoint("SalleEntrainement_Talk").position, personnage)); // 13h55 a 14h05
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(370, DiscussionAvecEnrique)); // 14h05 
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(410, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 14h50 a 15h00
 
@@ -60,6 +62,23 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(630, WayPoint.getWaypoint("SalleReunionAnn").position, personnage)); // 18h15 a 18h30
     }
+
+
+    public void DiscussionAvecEnrique()
+    {
+        Personne enrique = ScenarioManager.instance.Enrique;
+        personnage.focus = enrique;
+        enrique.focus = personnage;
+
+        BulleManager.instance.Say("Check mes pipes !", enrique, 3, 0);
+        BulleManager.instance.Say("Pas très impressionnée...", personnage, 3,3);
+        BulleManager.instance.Say("Pourtant j'passe \nmes journées à \nm'entrainer", enrique, 3,6);
+        BulleManager.instance.Say("Devrais plutôt travailler", personnage, 3, 9);
+
+        enrique.SetFocusIn(null, 12);
+        personnage.SetFocusIn(null, 12);
+    }
+
 
     public void CogneChezGary()
     {
