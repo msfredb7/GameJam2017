@@ -8,9 +8,7 @@ public class Enrique : Brain {
     {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("BossDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
-        //9H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(75, WayPoint.getWaypoint("BossDesk").position, personnage));
+        //9H      
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(121, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         //10H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, TocPorteGary));

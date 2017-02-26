@@ -7,8 +7,8 @@ using CCC.Manager;
 public class Personne : Character
 {
 
-    private string nom;
-    private string myDescription;
+    public string nom;
+    public string myDescription;
     public Sprite apparence;
     public Personne focus = null;
     public Brain myBrain;

@@ -65,6 +65,8 @@ public class BulleManager : MonoBehaviour {
 
     private void MoveCamera(Character character)
     {
+        if (!CameraInteraction.InstaceNotNull())
+            return;
         Personne tar1 = CameraInteraction.GetFocusedTarget(0);
         Personne tar2 = CameraInteraction.GetFocusedTarget(1);
         if (tar1 != null && tar1.focus == character)

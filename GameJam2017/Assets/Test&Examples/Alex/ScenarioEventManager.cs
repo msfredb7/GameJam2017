@@ -8,6 +8,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
 	private static List<ScenarioEvent> events = new List<ScenarioEvent>();
 
     public float startTime = 0;
+    public bool isIntro = false;
 
     private static float start;
 
@@ -28,6 +29,11 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
                 events.Remove(events[i]);
             }
         }
+    }
+
+    public void ClearAll()
+    {
+        events.Clear();
     }
 
     void Update()
@@ -54,8 +60,10 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         }
     }
 
-    public static void AddEvent(ScenarioEvent newEvent)
+    public static void AddEvent(ScenarioEvent newEvent, bool isIntro = false)
     {
+        if (instance != null && instance.isIntro && !isIntro)
+            return;
         events.Add(newEvent);
     }
 
