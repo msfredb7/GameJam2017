@@ -10,12 +10,12 @@ public class Enrique : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("BossDesk").position, personnage));
         //9H      
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(90, ConvStephen));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(121, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(116, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(158, WayPoint.getWaypoint("BossDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(165, ConvJustine));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(146, WayPoint.getWaypoint("BossDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(156, ConvJustine));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(195, WayPoint.getWaypoint("WCBlue").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, ConvStephen));
