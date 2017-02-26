@@ -8,6 +8,8 @@ public class MonsieurX : Brain {
     {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(-1, WayPoint.getWaypoint("OutOfTheMap").position, personnage)); // Start
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(570,enableAccusation));
+
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("InFaceOfSamanthaDesk").position, personnage)); // 18h00 a 18h05
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(605, DrinkCoffee)); // 18h05 a 18h15
@@ -18,5 +20,10 @@ public class MonsieurX : Brain {
     public void DrinkCoffee()
     {
 
+    }
+
+    public void enableAccusation()
+    {
+        DisplayObject.instance.EnableAccusation();
     }
 }
