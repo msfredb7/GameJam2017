@@ -43,7 +43,7 @@ public class TransmissionManager : MonoBehaviour {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(600, LastHint));
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(632, EndGame));
     }
 
     // Creer la transmission pour plus tard
@@ -74,8 +74,12 @@ public class TransmissionManager : MonoBehaviour {
 
     public void LastMinute()
     {
-        musicManager.PlayLastMinuteSong();
         CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 heures!",0);
+        DelayManager.CallTo(delegate ()
+        {
+            musicManager.PlayLastMinuteSong();
+        }, 1);
+        
     }
 
     public void EndGame()
