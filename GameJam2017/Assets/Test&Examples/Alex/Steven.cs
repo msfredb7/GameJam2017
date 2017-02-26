@@ -33,7 +33,7 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(110, RelaxSalleManger)); // 9h50 a 10h10
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(130, DiscussionStephen)); // 10h10 a 10h20
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, DiscussionStephen)); // 10h05 a 10h20
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h20 a 10h30
                                                                                                                             // voir temps! Second à parler Donc doit timer Avec Annushka (Le temps est surement PAS BON de base)
@@ -114,15 +114,15 @@ public class Steven : Brain
         personnage.SetFocusIn(null, 15);
     }
 
-    public void DiscussionStephen()
+    public void DiscussionStephen() // 10h10 a 10h20
     {
         Personne steph = ScenarioManager.instance.Stephen;
         personnage.focus = steph;
         steph.focus = personnage;
 
-        BulleManager.instance.Say("Écoute ca!\nJ'suis tellement tanné d'Enrique", ScenarioManager.instance.Stephen);
+        BulleManager.instance.Say("Écoute ca!\nJ'suis tellement \ntanné d'Enrique", ScenarioManager.instance.Stephen, 5, 0);
         BulleManager.instance.Say("Qu'est ce qu'il\n a fait encore?", personnage, 3, 5);
-        BulleManager.instance.Say("Au lieu de me donner\nmon bonus, il a modifié\n sa Civic", ScenarioManager.instance.Stephen, 8);
+        BulleManager.instance.Say("Au lieu de me donner\nmon bonus, il a modifié\n sa Civic", ScenarioManager.instance.Stephen, 5, 8);
         BulleManager.instance.Say("Urghh, ca me\nsurprend même pas...", personnage, 3, 13);
 
         steph.SetFocusIn(null, 14);
