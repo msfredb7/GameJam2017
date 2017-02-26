@@ -12,6 +12,7 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(32,GaetanConv));
         //9H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(75, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(76, TurnTop1));
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(108, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(155, WayPoint.getWaypoint("StephenDesk").position, personnage));
@@ -41,6 +42,12 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(585,AppelTel2 ));
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
+    }
+
+    public void TurnTop1()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 33);
     }
 
     public void TurnTop()

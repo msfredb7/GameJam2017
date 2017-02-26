@@ -12,6 +12,8 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 8h30 a 8h40
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(31, TurnTop1));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(40, Drague1));                                           // 8h40 a 9h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 9h00 a 9h10
@@ -19,6 +21,8 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(70, TravailPersonnel)); // 9h10 a 9h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk_Visiteur").position, personnage)); // 9h30 a 9h40
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(91, TurnTop1));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(100, ParleAvecAnn)); // 9h40 a 10h10
 
@@ -39,6 +43,8 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, MakeTexto2)); // 12h35 a 13h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 13h00 a 13h10
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(301, TurnTop2));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h20
 
@@ -82,6 +88,20 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSamantha").position, personnage)); // 18h15 a 18h30
     }
+
+    public void TurnTop2()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 20);
+    }
+
+    public void TurnTop1()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 30);
+    }
+
+
 
     public void TurnTop()
     {
