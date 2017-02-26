@@ -9,6 +9,7 @@ public class EndGame : MonoBehaviour {
 
     public AudioSource winMusic;
     public GameObject button;
+    public GameObject text;
 
     void Start()
     {
@@ -24,7 +25,13 @@ public class EndGame : MonoBehaviour {
         {
             DelayManager.CallTo(delegate ()
             {
+                text.SetActive(true);
+
+            }, 2);
+            DelayManager.CallTo(delegate ()
+            {
                 button.SetActive(true);
+
             }, 5);
         }
     }
