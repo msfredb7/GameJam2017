@@ -28,11 +28,21 @@ public class ScenarioManager : MonoBehaviour {
     public Personne Gaetan;
     public Personne MonsieurX;
 
-
     void Awake ()
     {
         if (instance == null)
             instance = this;
+        
+
+        Enrique.SetPersonne("Enrique", "Enrique est le PDG de l’entreprise.\n\nD’origine mexicaine, il a déménagé ici à un très jeune âge. Il est rapidement devenu un douchebag. Il passe une bonne partie de son temps dans en réunion ou dans la salle d’entrainement de l’édifice.", new Cell());
+        Samantha.SetPersonne("Samantha", "Samantha est la secrétaire de l’entreprise.\n\nElle a rejoint l’entreprise au cours de la dernière année. Ses aptitudes professionnelles sont très peu développées, contrairement à sa poitrine. Ses deux excellentes qualités lui ont permis d’être engagé sans aucun problème.", new Cell());
+        Steven.SetPersonne("Steven", "Steven est plus âgé de 2 minutes et 21 secondes que son frère Stephen qui travaille également dans l’entreprise.\n\nIl s’occupe du département des ressources humaines de l’entreprise et son bureau renferme l’ensemble des données confidentielles des employés.", new Cell());
+        Stephen.SetPersonne("Stephen", "Stephen est quelqu’un d’extrêmement charismatique et est le frère cadet de Steven.\n\nSa dernière campagne publicitaire a permis de doubler le chiffre d’affaire de l’entreprise. Il adore aller discuter avec les autres employés et être le centre de l’attention.", new Cell());
+        Justine.SetPersonne("Justine", "Justine est une excellente comptable, mais elle déteste la routine.\n\nDu moins, c’est la raison qu’elle vous donnera lorsque vous lui demanderez pourquoi elle ne reste jamais plus de 5 ans dans la même compagnie. Justement, son contrat de travail se termine aujourd’hui...", new Cell());
+        Annushka.SetPersonne("Annushka", "Annushka est une jeune femme russe qui effectue un stage international au sein de l’entreprise.\n\nSon français laisse à désirer, mais elle arrive, du moins la plupart du temps, à se faire comprendre malgré tout. Annushka est une féministe très engagée et défend ardemment l’égalité des sexes en entreprise.", new Cell());
+        Gary.SetPersonne("Gary", "Gary est l’informaticien de l’entreprise.\n\nAucun employé n’a déjà vu son visage, même pas le patron de l’entreprise, puisque Gary était déjà employé avant que Enrique devienne PDG. Des rumeurs supposent que le concierge a déjà aperçu brièvement la couleur de ses yeux, un soir de pleine lune lors de la dernière année bissextile.", new Cell());
+        Gaetan.SetPersonne("Gaetan", "Gaétan est le concierge de l’édifice depuis près de 30 ans.\n\nD’origine musulmane, ses deux parents sont décédés il y a quelques années. Il passe la grande majorité de son temps dans les salles de bain de l’édifice ou dans son placard de conciergerie, ce qui explique ses comportements étranges.", new Cell());
+        MonsieurX.SetPersonne("MonsieurX", "Whore", new Cell());
 
         //Trouve les référence des ordinateurs et les initialises.
         StephenOrdi = GameObject.Find("StephenOrdi").GetComponent<Ordinateur>();
@@ -43,28 +53,27 @@ public class ScenarioManager : MonoBehaviour {
         AnnushkaOrdi = GameObject.Find("AnnushkaOrdi").GetComponent<Ordinateur>();
         JustineOrdi = GameObject.Find("JustineOrdi").GetComponent<Ordinateur>();
 
-        Debug.Log(StephenOrdi);
+        InitStephen();
+        InitSteven();
+        InitEnrique();
+        InitSamantha();
+        InitGary();
+        InitAnnushka();
+        InitJustine();
+        InitGaetan();
+        InitMx();
 
-        InitStephenOrdi();
-        InitStevenOrdi();
-        InitEnriqueOrdi();
-        InitSamanthaOrdi();
-        InitGaryOrdi();
-        InitAnnushkaOrdi();
-        InitJustineOrdi();
 
-        Enrique.GetBrain().ToDo();
-        Samantha.GetBrain().ToDo();
-        Steven.GetBrain().ToDo();
-        Stephen.GetBrain().ToDo();
-        Justine.GetBrain().ToDo();
-        Annushka.GetBrain().ToDo();
-        Gary.GetBrain().ToDo();
-        Gaetan.GetBrain().ToDo();
-        MonsieurX.GetBrain().ToDo();
+        Debug.Log("Hey");
+
+
+
+
+
+       
 	}
 
-    public void InitStephenOrdi()
+    public void InitStephen()
     {
         List < Courriel > listC= new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
@@ -76,8 +85,9 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.LaFainDuMonde.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.LeMonde.fr", "29/02/2016 : 13.10"));
         StephenOrdi.initialise("StephenOrdi",listS,listC);
+        Stephen.GetBrain().ToDo();
     }
-    public void InitStevenOrdi()
+    public void InitSteven()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
@@ -87,8 +97,9 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.PrimiPrime.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.Calinours.fr", "29/02/2016 : 13.10"));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
+        Steven.GetBrain().ToDo();
     }
-    public void InitEnriqueOrdi()
+    public void InitEnrique()
     {
         List<Courriel> listC = new List<Courriel>();
         listC.Add(new Courriel("Garage automobile", "Titre : Civic immatriculé 756 JWB Message: Votre Civic est prête à être récupéré.Votre facture s’élève à 11, 876$ taxes incluses payable dans les trente(30) prochains jours."));
@@ -98,8 +109,9 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.CatchMen.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.XMen.ca", "29/02/2016 : 13.10"));
         EnriqueOrdi.initialise("EnriqueOrdi", listS, listC);
+        Enrique.GetBrain().ToDo();
     }
-    public void InitSamanthaOrdi()
+    public void InitSamantha()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
@@ -107,8 +119,9 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.FoudroiStyle.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.Sasasamouraille.ca", "29/02/2016 : 13.10"));
         SamanthaOrdi.initialise("SamanthaOrdi", listS, listC);
+        Samantha.GetBrain().ToDo();
     }
-    public void InitGaryOrdi()
+    public void InitGary()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
@@ -116,16 +129,18 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.WoW.com", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
+        Gary.GetBrain().ToDo();
     }
-    public void InitAnnushkaOrdi()
+    public void InitAnnushka()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
         listC.Add(new Courriel("International Student Center", "Titre : Message de bienvenue Message: Nous confirmons votre autorisation de travailler pour une durée de 3 mois, avec possibilité de prolongement conditionnel aux recommandations au sein de l’entreprise de M.Enrique Rodriguez. "));
         listC.Add(new Courriel("LinkedIn", "Titre : Steven a accepté votre demande de connexion Message: Vous pouvez désormais visualiser le profil de Steven ou démarrer une conversation. "));
         AnnushkaOrdi.initialise("AnnushkaOrdi", listS, listC);
+        Annushka.GetBrain().ToDo();
     }
-    public void InitJustineOrdi()
+    public void InitJustine()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
@@ -136,6 +151,21 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.ContratLegal.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.MaitreNabal.ca", "29/02/2016 : 13.10"));
         JustineOrdi.initialise("JustineOrdi", listS, listC);
+        Justine.GetBrain().ToDo();
+    }
+
+    public void InitGaetan()
+    {
+
+        Gaetan.GetCell().AddTexto("Yo man, bien ou bien chez toi?", "29/02/2016 16.20", "George Tron");
+
+        Gaetan.GetBrain().ToDo();
+    }
+
+    public void InitMx()
+    {
+        MonsieurX.GetBrain().ToDo();
     }
 
 }
+
