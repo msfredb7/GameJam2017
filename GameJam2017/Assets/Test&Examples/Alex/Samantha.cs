@@ -70,9 +70,15 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(550, Appel_M_X)); // 17h10 a 17h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 11h50 a 12h00
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 17h30 a 17h40
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, PrepareUnCofee)); // 17h40 a 18h00
 
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 18h00 a 18h05
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(605, PrepareUnCofee)); // 18h05 a 18h15
+
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionNord").position, personnage)); // 18h15 a 18h30
     }
 
     public void MakeTexto1()
@@ -153,6 +159,11 @@ public class Samantha : Brain {
     }
 
     public void Appel_M_X()
+    {
+
+    }
+
+    public void PrepareUnCofee()
     {
 
     }

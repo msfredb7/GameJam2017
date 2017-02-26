@@ -6,6 +6,17 @@ public class MonsieurX : Brain {
 
     public override void ToDo()
     {
-        // Tout les evennements qu'il devra faire
+        //ScenarioEventManager.AddEvent(new MoveScenarioEvent(-1, WayPoint.getWaypoint("OutOfTheMap").position, personnage)); // Start
+
+        //ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("InFaceOfSamanthaDesk").position, personnage)); // 18h00 a 18h05
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(605, DrinkCoffee)); // 18h05 a 18h15
+
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSud").position, personnage)); // 18h15 a 18h30
+    }
+
+    public void DrinkCoffee()
+    {
+
     }
 }
