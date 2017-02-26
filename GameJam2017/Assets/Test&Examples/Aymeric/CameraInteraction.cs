@@ -9,6 +9,8 @@ public class CameraInteraction : MonoBehaviour {
 
     enum CameraState {fix, following};
 
+    public AudioListener audio;
+
     public GameObject IUCamera1;
     public GameObject Camera1;
     private CameraState state1 = CameraState.fix;
@@ -108,31 +110,37 @@ public class CameraInteraction : MonoBehaviour {
 
     public void OnClickOutCamera()
     {
+        Debug.Log("Hey");
         selectedCamera = 0;
+        
     }
 
     private void selectCamera1()
     {
         IUCamera1.GetComponent<Image>().color = selectedColor;
         Camera1.GetComponent<AudioListener>().enabled = true;
+        audio.enabled = false;
     }
 
     private void selectCamera2()
     {
         IUCamera2.GetComponent<Image>().color = selectedColor;
         Camera2.GetComponent<AudioListener>().enabled = true;
+        audio.enabled = false;
     }
 
     private void deSelectCamera1()
     {
         IUCamera1.GetComponent<Image>().color = unSelectedColor;
         Camera1.GetComponent<AudioListener>().enabled = false;
+        audio.enabled = true;
     }
 
     private void deSelectCamera2()
     {
         IUCamera2.GetComponent<Image>().color = unSelectedColor;
         Camera2.GetComponent<AudioListener>().enabled = false;
+        audio.enabled = true;
     }
 
     #endregion
