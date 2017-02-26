@@ -140,7 +140,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         Cam1Border.color = selectedColor;
         //IUCamera1.GetComponent<Image>().color = selectedColor;
-        Camera1.GetComponent<AudioListener>().enabled = true;
+        Camera1.GetComponentInChildren<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
@@ -148,7 +148,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         Cam2Border.color = selectedColor;
         //IUCamera2.GetComponent<Image>().color = selectedColor;
-        Camera2.GetComponent<AudioListener>().enabled = true;
+        Camera2.GetComponentInChildren<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
@@ -156,7 +156,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         Cam1Border.color = unSelectedColor;
         //IUCamera1.GetComponent<Image>().color = unSelectedColor;
-        Camera1.GetComponent<AudioListener>().enabled = false;
+        Camera1.GetComponentInChildren<AudioListener>().enabled = false;
         audio.enabled = true;
     }
 
@@ -164,7 +164,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         Cam2Border.color = unSelectedColor;
         //IUCamera2.GetComponent<Image>().color = unSelectedColor;
-        Camera2.GetComponent<AudioListener>().enabled = false;
+        Camera2.GetComponentInChildren<AudioListener>().enabled = false;
         audio.enabled = true;
     }
 
