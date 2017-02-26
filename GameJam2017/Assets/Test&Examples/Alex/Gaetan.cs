@@ -24,7 +24,7 @@ public class Gaetan : Brain {
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(190, WayPoint.getWaypoint("WCBlue_Janitor2").position, personnage));
         //ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, GaetanSoloConv));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(210, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(205, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
 
         //12H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(275, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
