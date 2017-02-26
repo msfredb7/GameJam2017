@@ -35,15 +35,21 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(395, AppelMari2));
         //15H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(435, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
-
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(440, TurnTop));
         //16H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(480, WayPoint.getWaypoint("JustineDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(475, WayPoint.getWaypoint("JustineDesk").position, personnage));
 
         //17H
 
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
+    }
+
+   public void TurnTop()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 40);
     }
 
     public void Maquillage()
@@ -78,7 +84,7 @@ public class Justine : Brain {
         BulleManager.instance.StartCall(personnage,34);
 
         telephone.SayInTelephone("Allo?", false);
-        telephone.SayInTelephone("Bonjour c'est ta petite choupinette!", true,2);
+        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.", true,2);
         telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", false, 4);
         telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", true, 6);
         telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", false, 8);

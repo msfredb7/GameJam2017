@@ -70,6 +70,10 @@ public class Annushka : Brain {
         personnage.focus = enrique;
         enrique.focus = personnage;
 
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 13);
+
+
         BulleManager.instance.Say("Check mes pipes !", enrique, 3, 0);
         BulleManager.instance.Say("Pas très impressionnée...", personnage, 3,3);
         BulleManager.instance.Say("Pourtant j'passe \nmes journées à \nm'entrainer", enrique, 3,6);
@@ -92,7 +96,7 @@ public class Annushka : Brain {
 
     public void WorkingAtDesk()
     {
-        ClavierAnimation();
+        ClavierAnimation(10);
     }
 
     public void JasetteAvecGaetan()

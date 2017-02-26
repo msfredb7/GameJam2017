@@ -20,8 +20,8 @@ public class Bubble : MonoBehaviour {
         {
             GetComponent<AudioSource>().clip = audioclips.Pick();
             GetComponent<AudioSource>().Play();
-            Destroy(gameObject, time);
         }
+        Destroy(gameObject, time);
     }
 	void Update ()
     {

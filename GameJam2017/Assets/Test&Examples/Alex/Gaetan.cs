@@ -74,7 +74,7 @@ public class Gaetan : Brain {
     //10h55 à 11h05 : Utilise l’ordinateur de Annushka
     public void AnnushkaOrdiUse()
     {
-        ClavierAnimation();
+        ClavierAnimation(15);
     }
 
     //11h15 à 11h30 : Se parle seul dans la toilette des hommes
