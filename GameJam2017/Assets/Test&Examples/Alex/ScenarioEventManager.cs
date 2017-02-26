@@ -31,6 +31,11 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         }
     }
 
+    public void ClearAll()
+    {
+        events.Clear();
+    }
+
     void Update()
     {
         float currentTime = Time.time;
