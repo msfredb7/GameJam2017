@@ -31,13 +31,13 @@ public class DisplayObject : MonoBehaviour {
     public Text topInfo;
 
     public Sprite Computer;
-    public Sprite Door;
+    public Sprite feuilleImage;
     public Sprite Appel;
 
     private Personne UIPersonne;
     private Cell UICell;
     private Ordinateur UIOrdinateur;
-    private Registre UIRegistre;
+    private FeuillePapier UIFeuille;
     private AppelTéléphonique UIAppelTéléphonique;
     private FichierActif UIFichierActif;
 
@@ -74,8 +74,8 @@ public class DisplayObject : MonoBehaviour {
         }
         if (currentObjectType == 2)
         {
-            charFace.sprite = Door;
-            topInfo.text = "fonctionnalité non implanté";
+            charFace.sprite = feuilleImage;
+            topInfo.text = "Feuille de papier";
         }
     }
 
@@ -99,7 +99,7 @@ public class DisplayObject : MonoBehaviour {
         }
         if (currentObjectType == 2)
         {
-            if (currentCategoryTab == 0) DisplayAccès();
+            if (currentCategoryTab == 0) DisplayFeuille();
         }
         PrintTexts();
     }
@@ -154,13 +154,9 @@ public class DisplayObject : MonoBehaviour {
         }
     }
 
-    public void DisplayAccès()
+    public void DisplayFeuille()
     {
-        List<Entry> listRegistre = UIRegistre.GetEntries();
-        for (int i = 0; i < listRegistre.Count; i++)
-        {
-            texts.Add("Passage de: " + listRegistre[i].name + "\nHeure: " + listRegistre[i].hour);
-        }
+        texts.Add(UIFeuille.NoiceText());        
     }
 
     public void DisplayAppelTéléphonique()
@@ -215,10 +211,6 @@ public class DisplayObject : MonoBehaviour {
             if (UIOrdinateur != null) UIOrdinateur.contentUpdate.RemoveAllListeners();
             if (UIFichierActif != null) UIFichierActif.contentUpdate.RemoveAllListeners();
         }
-        if (currentObjectType == 2)
-        {
-            if (UIOrdinateur != null) UIRegistre.contentUpdate.RemoveAllListeners();
-        }
     }
 
     public void ActivateListener()
@@ -233,10 +225,6 @@ public class DisplayObject : MonoBehaviour {
         {
             if (UIOrdinateur != null) UIOrdinateur.contentUpdate.AddListener(newContent);
             if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
-        }
-        if (currentObjectType == 2)
-        {
-            if (UIOrdinateur != null) UIRegistre.contentUpdate.AddListener(newContent);
         }
     }
 
@@ -342,14 +330,14 @@ public class DisplayObject : MonoBehaviour {
         ChangeObject();
     }
 
-    public void GetRegister(Registre registre)
+    public void GetFeuille(FeuillePapier feuille)
     {
         DisableListener();
 
-        UIRegistre = registre;
+        UIFeuille = feuille;
         currentObjectType = 2;
         currentCategoryTab = 0;
-  
+
         ChangeObject();
     }
 

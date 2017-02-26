@@ -6,6 +6,8 @@ public class MonsieurX : Brain {
 
     public override void ToDo()
     {
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(-1, EventInitGame)); // Start
+
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(-1, WayPoint.getWaypoint("OutOfTheMap").position, personnage)); // Start
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(570,enableAccusation));
@@ -26,5 +28,10 @@ public class MonsieurX : Brain {
     {
         Debug.Log("AccusationEnabled");
         DisplayObject.instance.EnableAccusation();
+    }
+
+    public void EventInitGame()
+    {
+        DisplayObject.instance.GetCharacter(ScenarioManager.instance.Enrique);
     }
 }
