@@ -20,12 +20,12 @@ public struct SiteInternet
 [System.Serializable]
 public struct Courriel
 {
-    public string destinataire;
+    public string expediteur;
     public string text;
 
     public Courriel(string d, string t)
     {
-        destinataire = d;
+        expediteur = d;
         text = t;
     }
 }
@@ -74,21 +74,16 @@ public class Ordinateur : MonoBehaviour {
         contentUpdate.Invoke();
     }
 
-    public void AddSiteInternet(string adresse, string date)
+    public void AddSiteInternet(SiteInternet newSite)
     {
-        SiteInternet newSite = new SiteInternet();
-        newSite.date = date;
-        newSite.adresse = adresse;
         historique.Add(newSite);
 
         contentUpdate.Invoke();
     }
 
-    public void AddCourriel(string destinataire, string text)
+    public void AddCourriel(Courriel newCourriel)
     {
-        Courriel newCourriel = new Courriel();
-        newCourriel.destinataire = destinataire;
-        newCourriel.text = text;
+       
         courriels.Add(newCourriel);
 
         contentUpdate.Invoke();
