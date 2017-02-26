@@ -46,17 +46,27 @@ public class BulleManager : MonoBehaviour {
             return;
         }
 
+        MoveCamera(character);
+
         ChoisirBulle(text);
 
         Vector3 position = new Vector3((character.transform.position.x + currentOffsetX), currentBulle.transform.position.y, (character.transform.position.z + currentOffsetZ));
-
-        print(currentBulle.transform.position.y);
-
+        
         Bubble myBubble = Instantiate(currentBulle, position, currentBulle.transform.rotation);
 
         myBubble.gameObject.SetActive(true);
         myBubble.myText.GetComponent<TextMesh>().text = text;
         myBubble.SetValues(currentOffsetX, currentOffsetZ, character, time);
+    }
+
+    private void MoveCamera(Character character)
+    {
+        Personne tar1 = CameraInteraction.GetFocusedTarget(0);
+        Personne tar2 = CameraInteraction.GetFocusedTarget(1);
+        if (tar1 != null && tar1.focus == character)
+            CameraInteraction.FocusCharacter(0, (Personne)character);
+        if (tar2 != null && tar2.focus == character)
+            CameraInteraction.FocusCharacter(1, (Personne)character);
     }
 
     private void ChoisirBulle(string text)

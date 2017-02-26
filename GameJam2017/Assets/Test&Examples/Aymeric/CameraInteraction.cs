@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class CameraInteraction : MonoBehaviour {
+public class CameraInteraction : Singleton<CameraInteraction> {
 
     enum CameraState {fix, following};
 
@@ -13,10 +13,12 @@ public class CameraInteraction : MonoBehaviour {
 
     public GameObject IUCamera1;
     public GameObject Camera1;
+    public Image Cam1Border;
     private CameraState state1 = CameraState.fix;
 
     public GameObject IUCamera2;
     public GameObject Camera2;
+    public Image Cam2Border;
     private CameraState state2 = CameraState.fix;
 
     public Color selectedColor;
@@ -27,6 +29,20 @@ public class CameraInteraction : MonoBehaviour {
 
     public float maxDepY;
     public float minDepY;
+
+    static public Personne GetFocusedTarget(int index)
+    {
+        Transform follow = null;
+
+        if (index == 0)
+            follow = instance.Camera1.GetComponent<FollowObject>().inFollow;
+        else
+            follow = instance.Camera2.GetComponent<FollowObject>().inFollow;
+
+        if (follow != null && follow.GetComponent<Personne>() != null)
+            return follow.GetComponent<Personne>();
+        else return null;
+    }
 
 
     #region hoveredCamera
@@ -117,28 +133,32 @@ public class CameraInteraction : MonoBehaviour {
 
     private void selectCamera1()
     {
-        IUCamera1.GetComponent<Image>().color = selectedColor;
+        Cam1Border.color = selectedColor;
+        //IUCamera1.GetComponent<Image>().color = selectedColor;
         Camera1.GetComponent<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
     private void selectCamera2()
     {
-        IUCamera2.GetComponent<Image>().color = selectedColor;
+        Cam2Border.color = selectedColor;
+        //IUCamera2.GetComponent<Image>().color = selectedColor;
         Camera2.GetComponent<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
     private void deSelectCamera1()
     {
-        IUCamera1.GetComponent<Image>().color = unSelectedColor;
+        Cam1Border.color = unSelectedColor;
+        //IUCamera1.GetComponent<Image>().color = unSelectedColor;
         Camera1.GetComponent<AudioListener>().enabled = false;
         audio.enabled = true;
     }
 
     private void deSelectCamera2()
     {
-        IUCamera2.GetComponent<Image>().color = unSelectedColor;
+        Cam2Border.color = unSelectedColor;
+        //IUCamera2.GetComponent<Image>().color = unSelectedColor;
         Camera2.GetComponent<AudioListener>().enabled = false;
         audio.enabled = true;
     }
@@ -199,6 +219,24 @@ public class CameraInteraction : MonoBehaviour {
 
     #region ClickOnNPC
 
+    public static void FocusCharacter(int camIndex, Personne character)
+    {
+        if(camIndex == 0)
+        {
+            DisplayObject.instance.GetCharacter(character);
+            instance.Camera1.GetComponent<FollowObject>().follow(character.transform);
+            instance.state1 = CameraState.following;
+        }
+
+        else
+        {
+
+            DisplayObject.instance.GetCharacter(character);
+            instance.Camera2.GetComponent<FollowObject>().follow(character.transform);
+            instance.state2 = CameraState.following;
+        }
+    }
+
     private void OnMouseDown()
     {
        
@@ -218,9 +256,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
-                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
-                            Camera1.GetComponent<FollowObject>().follow(hit.collider.transform);
-                            state1 = CameraState.following;
+                            FocusCharacter(0, hit.collider.GetComponent<Personne>());
                         }
                         else
                         {
@@ -238,9 +274,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
-                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
-                            Camera2.GetComponent<FollowObject>().follow(hit.collider.transform);
-                            state2 = CameraState.following;
+                            FocusCharacter(1, hit.collider.GetComponent<Personne>());
                         }
                         else
                         {

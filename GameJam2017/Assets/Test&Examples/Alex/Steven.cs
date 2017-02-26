@@ -99,18 +99,32 @@ public class Steven : Brain {
     //Discussions
     public void DiscussionJustine()
     {
+        Personne just = ScenarioManager.instance.Justine;
+        personnage.focus = just;
+        just.focus = personnage;
+
         BulleManager.instance.Say("Désolé, c'était un\nappel important.", personnage);
         BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine,2,5);
         BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage,7,7);
         BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage,4,14);
+
+        just.SetFocusIn(null, 15);
+        personnage.SetFocusIn(null, 15);
     }
 
     public void DiscussionStephen()
     {
+        Personne steph = ScenarioManager.instance.Stephen;
+        personnage.focus = steph;
+        steph.focus = personnage;
+
         BulleManager.instance.Say("Écoute ca!\nJ'suis tellement tanné d'Enrique", ScenarioManager.instance.Stephen);
         BulleManager.instance.Say("Qu'est ce qu'il\n a fait encore?", personnage, 3, 5);
         BulleManager.instance.Say("Au lieu de me donner\nmon bonus, il a modifié\n sa Civic", ScenarioManager.instance.Stephen, 8);
         BulleManager.instance.Say("Urghh, ca me\nsurprend même pas...", personnage, 3, 13);
+
+        steph.SetFocusIn(null, 14);
+        personnage.SetFocusIn(null, 14);
     }
 
     public void DiscussionEnrique()
@@ -118,8 +132,15 @@ public class Steven : Brain {
 
     public void DiscussionStephen2()
     {
+        Personne steph = ScenarioManager.instance.Stephen;
+        personnage.focus = steph;
+        steph.focus = personnage;
+
         BulleManager.instance.Say("Tout est prêt\npour ce soir", personnage);
         BulleManager.instance.Say("Ca va être\ntout une surprise!", ScenarioManager.instance.Stephen, 5);
+
+        steph.SetFocusIn(null, 6);
+        personnage.SetFocusIn(null, 6);
     }
 
     public void DiscussionStephen3()
@@ -128,10 +149,17 @@ public class Steven : Brain {
     { }
     public void DiscussionAnnushka()
     {
+        Personne ann = ScenarioManager.instance.Annushka;
+        personnage.focus = ann;
+        ann.focus = personnage;
+
         BulleManager.instance.Say("Annunshka,\nn'oublies pas le colis ce\nsoir! C'est vraiment\nimportant pour nous", personnage);
         BulleManager.instance.Say("Quelle heure?", ScenarioManager.instance.Annushka, 2, 5);
         BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger cela", personnage, 7);
         BulleManager.instance.Say("D'accord", ScenarioManager.instance.Annushka, 2, 12);
+
+        ann.SetFocusIn(null, 11);
+        personnage.SetFocusIn(null, 11);
     }
     public void DiscussionGaétan()
     { }

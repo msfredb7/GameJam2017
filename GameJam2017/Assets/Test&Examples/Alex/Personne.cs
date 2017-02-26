@@ -4,13 +4,28 @@ using UnityEngine;
 using CCC.Manager;
 
 // Exemple de personnages
-public class Personne : Character {
+public class Personne : Character
+{
 
     private string nom;
     private string myDescription;
     public Sprite apparence;
+    public Personne focus = null;
     public Brain myBrain;
     private Cell myCell;
+
+    public void SetFocusIn(Personne focus, float time)
+    {
+        if (time <= 0)
+        {
+            this.focus = focus;
+        }
+        else
+            DelayManager.CallTo(delegate ()
+            {
+                this.focus = focus;
+            }, time);
+    }
 
     public void SetPersonne(string nom, string myDescription, Cell myCell)
     {

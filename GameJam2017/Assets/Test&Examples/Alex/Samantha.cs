@@ -90,10 +90,16 @@ public class Samantha : Brain {
 
     public void Drague1()
     {
-        Debug.LogWarning("dialog");
+        Personne mrX = ScenarioManager.instance.MonsieurX;
+        personnage.focus = mrX;
+        mrX.focus = personnage;
+
         BulleManager.instance.Say("Salut mon beau! \n Grosse journée en vue? \n Belle cravate en passant.",personnage, 5);
-        BulleManager.instance.Say("Merci Samantha, \n T'oublie pas de confirmer la réunion de ce soir?", ScenarioManager.instance.MonsieurX, 5, 5);
+        BulleManager.instance.Say("Merci Samantha, \n T'oublie pas de confirmer la réunion de ce soir?", mrX, 5, 5);
         BulleManager.instance.Say("Bien sûr que non, \n j'voudrais pas décevoir\n mon minou.", personnage, 5, 10);
+
+        mrX.SetFocusIn(null, 11);
+        personnage.SetFocusIn(null, 11);
     }
 
     public void TravailPersonnel()
