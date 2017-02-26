@@ -210,6 +210,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
+                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
                             Camera1.GetComponent<FollowObject>().follow(hit.collider.transform);
                             state1 = CameraState.following;
                         }
@@ -229,6 +230,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
+                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
                             Camera2.GetComponent<FollowObject>().follow(hit.collider.transform);
                             state2 = CameraState.following;
                         }

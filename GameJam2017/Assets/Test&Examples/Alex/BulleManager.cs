@@ -35,8 +35,17 @@ public class BulleManager : MonoBehaviour {
             instance = this;
     }
 
-    public void Say(string text, Character character, float time = 5)
+    public void Say(string text, Character character, float time = 5, float delay = 0)
     {
+        if(delay > 0)
+        {
+            DelayManager.CallTo(delegate ()
+            {
+                Say(text, character, time, 0);
+            }, delay);
+            return;
+        }
+
         ChoisirBulle(text);
 
         Vector3 position = new Vector3((character.transform.position.x + currentOffsetX), currentBulle.transform.position.y, (character.transform.position.z + currentOffsetZ));
