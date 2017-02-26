@@ -11,7 +11,7 @@ public class Enrique : Brain {
         //9H      
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(90, ConvStephen));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(116, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
-        
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(124, knockDoor));
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(146, WayPoint.getWaypoint("BossDesk").position, personnage));
@@ -56,6 +56,12 @@ public class Enrique : Brain {
 
         Stephen.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);
+    }
+
+    public void knockDoor()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 7);
     }
 
     //Conversation avec Justine (10h45) :

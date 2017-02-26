@@ -37,7 +37,7 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h20 a 10h30
                                                                                                                             // voir temps! Second à parler Donc doit timer Avec Annushka (Le temps est surement PAS BON de base)
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(165, DiscussionJustine)); // 10h30 a 11h00
+        //ScenarioEventManager.AddEvent(new ActionScenarioEvent(165, DiscussionJustine)); // 10h30 a 11h00
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(180, RelaxBureau)); // 11h00 a 11h15
 
@@ -229,7 +229,10 @@ public class Steven : Brain
     public void TravailPersonnel()
     { }
     public void CognePorte()
-    { }
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 6);
+    }
     public void CouleUnBronze()
     { }
     public void RelaxSalleManger()
