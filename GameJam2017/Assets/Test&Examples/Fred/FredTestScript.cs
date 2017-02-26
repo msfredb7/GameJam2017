@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FredTestScript : MonoBehaviour {
-    public Character character;
-    public Transform waypointA;
-    public Transform waypointB;
-    public Transform waypointC;
+    public PasswordWall passwordWallPrefab;
+    public Canvas parent;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            character.MoveTo(waypointA.position);
+            PasswordWall pass = Instantiate(passwordWallPrefab.gameObject, parent.transform).GetComponent<PasswordWall>();
+            pass.transform.localScale = Vector3.one;
+            pass.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+            pass.Init(Prout, "hello");
         }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            character.MoveTo(waypointB.position);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            character.MoveTo(waypointC.position);
-        }
+    }
+
+    void Prout()
+    {
+        print("prout");
     }
 }
