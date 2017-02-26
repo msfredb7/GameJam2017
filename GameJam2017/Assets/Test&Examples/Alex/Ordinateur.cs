@@ -32,6 +32,7 @@ public struct Courriel
 
 public class Ordinateur : MonoBehaviour {
     public UnityEvent contentUpdate = new UnityEvent();
+    public string password = "";
 
     private string nomOrdinateur;
     private List<SiteInternet> historique = new List<SiteInternet>();

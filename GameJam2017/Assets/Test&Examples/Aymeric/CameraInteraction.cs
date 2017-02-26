@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 
 
-public class CameraInteraction : Singleton<CameraInteraction> {
+public class CameraInteraction : Singleton<CameraInteraction>
+{
 
-    enum CameraState {fix, following};
+    enum CameraState { fix, following };
 
     public AudioListener audio;
 
@@ -29,6 +30,9 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     public float maxDepY;
     public float minDepY;
+
+    private PasswordWall currentPasswordWall = null;
+    private Ordinateur currentOrdiPassword = null;
 
     static public bool InstaceNotNull()
     {
@@ -66,7 +70,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     public void exit1()
     {
-        if(hoveredCamera!=2)
+        if (hoveredCamera != 2)
         {
             hoveredCamera = 0;
         }
@@ -74,7 +78,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     public void exit2()
     {
-        if(hoveredCamera!=1)
+        if (hoveredCamera != 1)
         {
             hoveredCamera = 0;
         }
@@ -94,24 +98,24 @@ public class CameraInteraction : Singleton<CameraInteraction> {
         }
         set
         {
-            if(value != _selectedCamera)
+            if (value != _selectedCamera)
             {
-                if(_selectedCamera == 1)
+                if (_selectedCamera == 1)
                 {
                     deSelectCamera1();
                 }
-                else if(_selectedCamera ==2)
+                else if (_selectedCamera == 2)
                 {
                     deSelectCamera2();
                 }
 
                 _selectedCamera = value;
 
-                if(_selectedCamera == 1)
+                if (_selectedCamera == 1)
                 {
                     selectCamera1();
                 }
-                else if(_selectedCamera == 2)
+                else if (_selectedCamera == 2)
                 {
                     selectCamera2();
                 }
@@ -133,7 +137,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         Debug.Log("Hey");
         selectedCamera = 0;
-        
+
     }
 
     private void selectCamera1()
@@ -175,11 +179,11 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         if (Input.GetAxis("Vertical") < 0)
         {
-            if(selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.z > minDepY)
+            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.z > minDepY)
             {
                 Camera1.transform.Translate(new Vector3(0, -0.1f, 0));
             }
-            else if(selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.z > minDepY)
+            else if (selectedCamera == 2 && state2 != CameraState.following && Camera2.transform.position.z > minDepY)
             {
                 Camera2.transform.Translate(new Vector3(0, -0.1f, 0));
             }
@@ -198,7 +202,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
         if (Input.GetAxis("Horizontal") < 0)
         {
-            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.x > minDepX )
+            if (selectedCamera == 1 && state1 != CameraState.following && Camera1.transform.position.x > minDepX)
             {
                 Camera1.transform.Translate(new Vector3(-0.1f, 0, 0));
             }
@@ -226,7 +230,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     public static void FocusCharacter(int camIndex, Personne character)
     {
-        if(camIndex == 0)
+        if (camIndex == 0)
         {
             DisplayObject.instance.GetCharacter(character);
             instance.Camera1.GetComponent<FollowObject>().follow(character.transform);
@@ -244,10 +248,10 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     private void OnMouseDown()
     {
-       
+
         if (Input.GetMouseButtonDown(0))
         {
-            if(hoveredCamera != selectedCamera)
+            if (hoveredCamera != selectedCamera)
             {
                 selectedCamera = hoveredCamera;
             }
@@ -265,9 +269,15 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                         }
                         else
                         {
-                            if(hit.collider.GetComponent<Ordinateur>() != null)
-                            { 
-                                DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
+                            if (hit.collider.GetComponent<Ordinateur>() != null)
+                            {
+                                if (hit.collider.GetComponent<Ordinateur>().password != "" && currentPasswordWall == null)
+                                {
+                                    currentOrdiPassword = hit.collider.GetComponent<Ordinateur>();
+                                    currentPasswordWall = PasswordWallSpawner.LaunchPasswordWall(OnSucceedPassword, currentOrdiPassword.password);
+                                }
+                                else
+                                    DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
                             }
                             Camera1.GetComponent<FollowObject>().stopFollow();
                             state1 = CameraState.fix;
@@ -289,7 +299,13 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                         {
                             if (hit.collider.GetComponent<Ordinateur>() != null)
                             {
-                                DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
+                                if (hit.collider.GetComponent<Ordinateur>().password != "" && currentPasswordWall == null)
+                                {
+                                    currentOrdiPassword = hit.collider.GetComponent<Ordinateur>();
+                                    currentPasswordWall = PasswordWallSpawner.LaunchPasswordWall(OnSucceedPassword, currentOrdiPassword.password);
+                                }
+                                else
+                                    DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
                             }
                             Camera2.GetComponent<FollowObject>().stopFollow();
                             state2 = CameraState.fix;
@@ -298,7 +314,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                 }
             }
         }
-            
+
     }
 
     #endregion
@@ -307,5 +323,12 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     {
         mouvementCamera();
         OnMouseDown();
+    }
+
+    private void OnSucceedPassword()
+    {
+        DisplayObject.instance.GetComputer(currentOrdiPassword);
+        currentOrdiPassword.password = "";
+        currentOrdiPassword = null;
     }
 }

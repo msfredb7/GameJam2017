@@ -21,8 +21,13 @@ public class Bubble : MonoBehaviour {
             GetComponent<AudioSource>().clip = audioclips.Pick();
             GetComponent<AudioSource>().Play();
         }
+    }
+
+    public void Init()
+    {
         Destroy(gameObject, time);
     }
+
 	void Update ()
     {
        transform.position = new Vector3((currentChar.transform.position.x + currentOffsetX), transform.position.y, (currentChar.transform.position.z + currentOffsetZ));
