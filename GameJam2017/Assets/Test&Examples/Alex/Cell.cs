@@ -72,6 +72,7 @@ public class Cell {
     public void SetMyCall(AppelTéléphonique myCall)
     {
         this.myCall = myCall;
+        contentUpdate.Invoke();
     }
 
     public AppelTéléphonique GetCurrentCall()
@@ -83,7 +84,14 @@ public class Cell {
     {
         if(delay == 0)
         {
-            myCall.AddMessageEmetteur(message);
+            if (emeteur)
+            {
+                myCall.AddMessageEmetteur(message);
+            }
+            else
+            {
+                myCall.AddMessageRecepteur(message);
+            }
         } else
         {
             DelayManager.CallTo(delegate ()
