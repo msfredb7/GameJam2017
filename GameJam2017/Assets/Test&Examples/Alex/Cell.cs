@@ -95,15 +95,16 @@ public class Cell {
             }
         } else
         {
+            AppelTéléphonique myCallT=myCall;
             DelayManager.CallTo(delegate ()
             {
                 if (emeteur)
                 {
-                    myCall.AddMessageEmetteur(message);
+                    myCallT.AddMessageEmetteur(message);
                 }
                 else
                 {
-                    myCall.AddMessageRecepteur(message);
+                    myCallT.AddMessageRecepteur(message);
                 }
             }, delay);
         }
