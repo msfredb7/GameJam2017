@@ -13,10 +13,12 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     public GameObject IUCamera1;
     public GameObject Camera1;
+    public Image Cam1Border;
     private CameraState state1 = CameraState.fix;
 
     public GameObject IUCamera2;
     public GameObject Camera2;
+    public Image Cam2Border;
     private CameraState state2 = CameraState.fix;
 
     public Color selectedColor;
@@ -131,28 +133,32 @@ public class CameraInteraction : Singleton<CameraInteraction> {
 
     private void selectCamera1()
     {
-        IUCamera1.GetComponent<Image>().color = selectedColor;
+        Cam1Border.color = selectedColor;
+        //IUCamera1.GetComponent<Image>().color = selectedColor;
         Camera1.GetComponent<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
     private void selectCamera2()
     {
-        IUCamera2.GetComponent<Image>().color = selectedColor;
+        Cam2Border.color = selectedColor;
+        //IUCamera2.GetComponent<Image>().color = selectedColor;
         Camera2.GetComponent<AudioListener>().enabled = true;
         audio.enabled = false;
     }
 
     private void deSelectCamera1()
     {
-        IUCamera1.GetComponent<Image>().color = unSelectedColor;
+        Cam1Border.color = unSelectedColor;
+        //IUCamera1.GetComponent<Image>().color = unSelectedColor;
         Camera1.GetComponent<AudioListener>().enabled = false;
         audio.enabled = true;
     }
 
     private void deSelectCamera2()
     {
-        IUCamera2.GetComponent<Image>().color = unSelectedColor;
+        Cam2Border.color = unSelectedColor;
+        //IUCamera2.GetComponent<Image>().color = unSelectedColor;
         Camera2.GetComponent<AudioListener>().enabled = false;
         audio.enabled = true;
     }
@@ -268,7 +274,7 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
-                            FocusCharacter(0, hit.collider.GetComponent<Personne>());
+                            FocusCharacter(1, hit.collider.GetComponent<Personne>());
                         }
                         else
                         {
