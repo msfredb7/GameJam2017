@@ -104,7 +104,7 @@ public class Samantha : Brain {
 
     public void TravailPersonnel()
     {
-        ClavierAnimation();
+        ClavierAnimation(20);
     }
 
     public void ParleAvecAnn()

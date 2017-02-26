@@ -227,7 +227,7 @@ public class Steven : Brain
     //Animations Fixe (ou marche dans le vide, dépendament)
     public void TravailPersonnel()
     {
-        ClavierAnimation();
+        ClavierAnimation(20);
     }
 
     public void CognePorte()

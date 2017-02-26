@@ -17,12 +17,14 @@ public abstract class Brain : MonoBehaviour {
 
     public abstract void ToDo();
 
-    public void ClavierAnimation()
+    public void ClavierAnimation(float delay)
     {
         if(ScenarioManager.instance.GetPC(personnage.nom) != null)
         {
             Vector3 position = ScenarioManager.instance.GetPC(personnage.nom).transform.position;
-            Instantiate(ScenarioManager.instance.particleClavier, position, ScenarioManager.instance.particleClavier.transform.rotation);
+            GameObject animation = Instantiate(ScenarioManager.instance.particleClavier, position, ScenarioManager.instance.particleClavier.transform.rotation);
+            animation.GetComponent<ComputerEmission>().delay = delay;
+            animation.GetComponent<ComputerEmission>().Init();
         }
     }
 }

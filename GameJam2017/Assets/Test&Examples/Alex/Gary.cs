@@ -77,6 +77,6 @@ public class Gary : Brain {
 
     public void Work()
     {
-        ClavierAnimation();
+        ClavierAnimation(630);
     }
 }

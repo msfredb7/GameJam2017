@@ -92,7 +92,7 @@ public class Annushka : Brain {
 
     public void WorkingAtDesk()
     {
-        ClavierAnimation();
+        ClavierAnimation(10);
     }
 
     public void JasetteAvecGaetan()
