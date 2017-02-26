@@ -18,11 +18,14 @@ public class DisplayObject : MonoBehaviour {
 
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
+    private GameObject accusationButton;
 
     public GameObject categoryTabButton;
     public GameObject tabLayoutGroup;
     public GameObject contentLayoutGroup;
     public GameObject textZone;
+    public GameObject Accusation;
+
     public Image charFace;
     public Text topInfo;
 
@@ -40,9 +43,12 @@ public class DisplayObject : MonoBehaviour {
     private int currentObjectType;
     private int currentCategoryTab;
 
+    private bool accusationEnabled;
+
     void Start()
     {
         instance = this;
+        accusationEnabled = false;
     }
 
 
@@ -141,7 +147,7 @@ public class DisplayObject : MonoBehaviour {
         List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
         for (int i = 0; i < listcourriel.Count; i++)
         {
-            texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
+            texts.Add("Expéditeur: " + listcourriel[i].expediteur + "\nContenu: " + listcourriel[i].text);
         }
     }
 
@@ -177,11 +183,11 @@ public class DisplayObject : MonoBehaviour {
         int nbtexts = texts.Count;
         for (int i = 0; i < nbtexts; i++)
         {
-            GameObject newTextZone = Instantiate(textZone);
+            GameObject newTextZone = Instantiate(textZone, contentLayoutGroup.transform);
             Text newText = newTextZone.GetComponentInChildren<Text>();
             newText.text = texts[i];
 
-            newTextZone.transform.SetParent(contentLayoutGroup.transform);
+            
             textZones.Add(newTextZone);
         }
         texts.Clear();
@@ -241,6 +247,7 @@ public class DisplayObject : MonoBehaviour {
         ChangeObject();
         ChangeTab(previousTab);
     }
+
 
     public void ChangeObject()
     {
@@ -346,4 +353,35 @@ public class DisplayObject : MonoBehaviour {
   
         ChangeObject();
     }
+
+    public void EnableAccusation()
+    {
+        accusationEnabled = true;
+    }
+
+
+    public void DisplayAccusation()
+    {
+        if (accusationEnabled)
+        {
+            if (currentObjectType == 0)
+            {
+                accusationButton = Instantiate(Accusation);
+                ClickAccusation newAccusation = accusationButton.GetComponent<ClickAccusation>();
+                newAccusation.clickAccusation.AddListener(MakeAccusation);
+            }
+            else Destroy(accusationButton);
+        }
+    }
+
+    public void MakeAccusation()
+    {
+        bool victory;
+        if (UIPersonne.GetNom() == "Enrique") victory = true;
+        else victory = false;
+
+
+        GameManager.EndGame(victory);
+    }
+
 }

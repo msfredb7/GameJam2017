@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Steven : Brain {
+public class Steven : Brain
+{
 
     public override void ToDo()
     {
-       
+
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 8h00 a 8h10
-         
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, TravailPersonnel)); // 8h10 a 8h30
                                                                                       //voir temps! 4 action 30 minutes
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
@@ -31,7 +32,7 @@ public class Steven : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(100, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 9h40 a 9h50
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(110, RelaxSalleManger)); // 9h50 a 10h10
-        
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(130, DiscussionStephen)); // 10h10 a 10h20
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h20 a 10h30
@@ -92,8 +93,8 @@ public class Steven : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, RelaxBureau)); // 17h40 a 18h20 
                                                                                   //DÉBUT ZONE VIDE
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionSteven").position, personnage)); // 18h20 a 18h30
-                                                                                                                                 //Discussion avec stephen (instigateur)                                                                                                                               
-                                                                                                                   //The End
+                                                                                                                                    //Discussion avec stephen (instigateur)                                                                                                                               
+                                                                                                                                    //The End
     }
 
     //Discussions
@@ -104,9 +105,9 @@ public class Steven : Brain {
         just.focus = personnage;
 
         BulleManager.instance.Say("Désolé, c'était un\nappel important.", personnage);
-        BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine,2,5);
-        BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage,7,7);
-        BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage,4,14);
+        BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine, 2, 5);
+        BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage, 7, 7);
+        BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage, 4, 14);
 
         just.SetFocusIn(null, 15);
         personnage.SetFocusIn(null, 15);
@@ -165,13 +166,64 @@ public class Steven : Brain {
     { }
     //Telephon
     public void phoneCall1()
-    { }
+    {
+        AppelTéléphonique newCall = new AppelTéléphonique("Steven", "Anonyme");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 18);
+
+        telephone.SayInTelephone("Oui allo?", false);
+        telephone.SayInTelephone("Yo, c'est Steven!", true, 2);
+        telephone.SayInTelephone("Toujours bon pour ce soir?", false, 4);
+        telephone.SayInTelephone("Oui", true, 6);
+        telephone.SayInTelephone("Aucun changement?", false, 8);
+        telephone.SayInTelephone("Non", true, 10);
+        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", false, 12);
+        telephone.SayInTelephone("Je comprends", true, 14);
+        telephone.SayInTelephone("Bonne chance", false, 16);
+        telephone.SayInTelephone("Merci", true, 18);
+
+        telephone.EndCall(18);
+    }
+
     public void phoneCallAnnushka()
     {
+        AppelTéléphonique newCall = new AppelTéléphonique("Steven", "Annushka");
+        personnage.SetMyCall(newCall);
 
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 10);
+
+        telephone.SayInTelephone("Oui allo?", false);
+        telephone.SayInTelephone("Salut Annushka, j’ai un service à te demander", true, 2);
+        telephone.SayInTelephone("Oui?", false, 4);
+        telephone.SayInTelephone("J’ai besoin que tu ramasses un colis ce soir", true, 6);
+        telephone.SayInTelephone("Quelle heure?", false, 8);
+        telephone.SayInTelephone("Je te reviens là-dessus !", true, 10);
+
+        telephone.EndCall(10);
     }
+
     public void phoneCall2()
-    { }
+    {
+        AppelTéléphonique newCall = new AppelTéléphonique("Steven", "Anonyme");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 6);
+
+        telephone.SayInTelephone("Oui allo?", false);
+        telephone.SayInTelephone("Tout est prêt pour ce soir", true, 2);
+        telephone.SayInTelephone("Livraison du colis à 18h00.", true, 4);
+        telephone.SayInTelephone("Parfait merci !", false, 6);
+
+        telephone.EndCall(6);
+    }
+
     //Animations Fixe (ou marche dans le vide, dépendament)
     public void TravailPersonnel()
     { }

@@ -8,8 +8,8 @@ public class Justine : Brain {
     {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("JustineDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(28, WayPoint.getWaypoint("StevenDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(30, ConversationSteven));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(25, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(25, ConversationSteven));
         //9H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(62, AppelMari));
@@ -51,7 +51,8 @@ public class Justine : Brain {
         steph.focus = personnage;
 
         BulleManager.instance.Say("Salut Steven", personnage,2);
-        BulleManager.instance.Say("J'ai un appel important,\n je reviens.", ScenarioManager.instance.Steven, delay:2);
+        BulleManager.instance.Say("Bon alors, comme j'avais commencé à t'expliquer hier...", ScenarioManager.instance.Steven, delay: 2);
+        BulleManager.instance.Say("J'ai un appel important,\n Désolé je reviens.", ScenarioManager.instance.Steven, delay:5);
 
         steph.SetFocusIn(null, 7);
         personnage.SetFocusIn(null, 7);
@@ -59,17 +60,33 @@ public class Justine : Brain {
 
     public void AppelMari()
     {
-        // TODO 
         AppelTéléphonique newCall = new AppelTéléphonique("Justine", "Mari");
         personnage.SetMyCall(newCall);
 
         Cell telephone = personnage.GetCell();
 
-        telephone.SayInTelephone("Allo?", false);
-        telephone.SayInTelephone("Salut", true,3);
-        telephone.SayInTelephone("Mais voyons", false, 5);
+        BulleManager.instance.StartCall(personnage,34);
 
-        telephone.EndCall(10);
+        telephone.SayInTelephone("Allo?", false);
+        telephone.SayInTelephone("Bonjour c'est ta petite choupinette!", true,2);
+        telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", false, 4);
+        telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", true, 6);
+        telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", false, 8);
+        telephone.SayInTelephone("C’est une surprise", true, 10);
+        telephone.SayInTelephone("Allez dit le moi", false, 12);
+        telephone.SayInTelephone("Non", true, 14);
+        telephone.SayInTelephone("Un indice allez", false, 16);
+        telephone.SayInTelephone("Non j’veux pas que tu devines", true, 18);
+        telephone.SayInTelephone("Je vais pas deviner avec un ptit indice", false, 20);
+        telephone.SayInTelephone("C’est ca que tu as dis la dernière fois aussi", true, 22);
+        telephone.SayInTelephone("Ohhhh t’es plate", false, 24);
+        telephone.SayInTelephone("Bon raccroche, je dois retourner travailler", true, 26);
+        telephone.SayInTelephone("Pourquoi je raccrocherais? C’est à ton tour", false, 28);
+        telephone.SayInTelephone("Non raccroche s’il te plait", true, 30);
+        telephone.SayInTelephone("Non toi raccroche", false, 32);
+        telephone.SayInTelephone("Non toi raccroche", true, 34);
+
+        telephone.EndCall(34);
     }
 
     public void ConversationGaetan()
@@ -112,6 +129,21 @@ public class Justine : Brain {
 
     public void AppelMari2()
     {
-        // TODO
+        AppelTéléphonique newCall = new AppelTéléphonique("Justine", "Mari");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 12);
+
+        telephone.SayInTelephone("Allo?", true);
+        telephone.SayInTelephone("Salut chérie, je me demandais tu rentrais à quelle heure ce soir?", false, 2);
+        telephone.SayInTelephone("Euh je sais pas honnêtement", true, 4);
+        telephone.SayInTelephone("Comment ça?", false, 6);
+        telephone.SayInTelephone("Bah je crois que Samantha vient de m’avouer que Enrique a organisé un party pour mon départ.", true, 8);
+        telephone.SayInTelephone("Amuses-toi bien alors, je t’aime!", false, 10);
+        telephone.SayInTelephone("Moi aussi mon petit minou chou d’amour adoré que j’aime plus que tout au monde et de l’univers tout entier", true, 12);
+
+        telephone.EndCall(12);
     }
 }
