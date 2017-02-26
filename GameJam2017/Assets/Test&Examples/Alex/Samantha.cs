@@ -206,7 +206,7 @@ public class Samantha : Brain {
         BulleManager.instance.StartCall(personnage, 10);
 
         telephone.SayInTelephone("Oui Allo?", false);
-        telephone.SayInTelephone("Bonjour M.X, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", true, 2);
+        telephone.SayInTelephone("Bonjour Luis, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", true, 2);
         telephone.SayInTelephone("Oui, je serais la à l'heure. C'est bien au 3ieme étape?", false, 4);
         telephone.SayInTelephone("Oui, 3ième étage.", true, 6);
         telephone.SayInTelephone("Parfait.", false, 8);

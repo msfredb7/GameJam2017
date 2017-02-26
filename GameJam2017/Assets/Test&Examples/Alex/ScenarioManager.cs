@@ -44,7 +44,7 @@ public class ScenarioManager : MonoBehaviour {
         Annushka.SetPersonne("Annushka", "Annushka est une jeune femme russe qui effectue un stage international au sein de l’entreprise.\n\nSon français laisse à désirer, mais elle arrive, du moins la plupart du temps, à se faire comprendre malgré tout. Annushka est une féministe très engagée et défend ardemment l’égalité des sexes en entreprise.", new Cell());
         Gary.SetPersonne("Gary", "Gary est l’informaticien de l’entreprise.\n\nAucun employé n’a déjà vu son visage, même pas le patron de l’entreprise, puisque Gary était déjà employé avant que Enrique devienne PDG. Des rumeurs supposent que le concierge a déjà aperçu brièvement la couleur de ses yeux, un soir de pleine lune lors de la dernière année bissextile.", new Cell());
         Gaetan.SetPersonne("Gaetan", "Gaétan est le concierge de l’édifice depuis près de 30 ans.\n\nD’origine musulmane, ses deux parents sont décédés il y a quelques années. Il passe la grande majorité de son temps dans les salles de bain de l’édifice ou dans son placard de conciergerie, ce qui explique ses comportements étranges.", new Cell());
-        MonsieurX.SetPersonne("MonsieurX", "Whore", new Cell());
+        MonsieurX.SetPersonne("Luis", "Aucune information disponible", new Cell());
 
         //Trouve les référence des ordinateurs et les initialises.
         StephenOrdi = GameObject.Find("StephenOrdi").GetComponent<Ordinateur>();
