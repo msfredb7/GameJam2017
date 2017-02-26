@@ -56,7 +56,9 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(545, AppelAuToilette)); // 17h05 a 17h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("PlacardConsierge").position, personnage)); // 17h30 a 17h45
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("PlacardConsierge_Visiteur").position, personnage)); // 17h30 a 17h45
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(570, TurnTop1));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(585, DemandePourGaetan)); // 17h45 a 18h00
 
