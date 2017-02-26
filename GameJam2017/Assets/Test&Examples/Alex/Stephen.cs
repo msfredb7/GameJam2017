@@ -36,10 +36,9 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(400, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
 
         //15H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("StephenDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("BossDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
         //16H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(510, WayPoint.getWaypoint("StephenDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(515, WayPoint.getWaypoint("BossDeck").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(525,StevenConv4 ));
         //17H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
