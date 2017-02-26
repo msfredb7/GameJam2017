@@ -104,5 +104,7 @@ public class BulleManager : MonoBehaviour {
         Bubble myBubble = Instantiate(currentBulle, position, currentBulle.transform.rotation);
 
         myBubble.SetValues(callOffsetX,callOffsetZ,character,time);
+
+        myBubble.Init();
     }
 }
