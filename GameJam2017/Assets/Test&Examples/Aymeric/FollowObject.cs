@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour {
 
-    Transform inFollow;
+    public Transform inFollow;
 
 
     public void Update()

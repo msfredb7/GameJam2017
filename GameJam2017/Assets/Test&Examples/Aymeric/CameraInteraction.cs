@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class CameraInteraction : MonoBehaviour {
+public class CameraInteraction : Singleton<CameraInteraction> {
 
     enum CameraState {fix, following};
 
@@ -27,6 +27,20 @@ public class CameraInteraction : MonoBehaviour {
 
     public float maxDepY;
     public float minDepY;
+
+    static public Personne GetFocusedTarget(int index)
+    {
+        Transform follow = null;
+
+        if (index == 0)
+            follow = instance.Camera1.GetComponent<FollowObject>().inFollow;
+        else
+            follow = instance.Camera2.GetComponent<FollowObject>().inFollow;
+
+        if (follow != null && follow.GetComponent<Personne>() != null)
+            return follow.GetComponent<Personne>();
+        else return null;
+    }
 
 
     #region hoveredCamera
@@ -199,6 +213,24 @@ public class CameraInteraction : MonoBehaviour {
 
     #region ClickOnNPC
 
+    public static void FocusCharacter(int camIndex, Personne character)
+    {
+        if(camIndex == 0)
+        {
+            DisplayObject.instance.GetCharacter(character);
+            instance.Camera1.GetComponent<FollowObject>().follow(character.transform);
+            instance.state1 = CameraState.following;
+        }
+
+        else
+        {
+
+            DisplayObject.instance.GetCharacter(character);
+            instance.Camera2.GetComponent<FollowObject>().follow(character.transform);
+            instance.state2 = CameraState.following;
+        }
+    }
+
     private void OnMouseDown()
     {
        
@@ -218,9 +250,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
-                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
-                            Camera1.GetComponent<FollowObject>().follow(hit.collider.transform);
-                            state1 = CameraState.following;
+                            FocusCharacter(0, hit.collider.GetComponent<Personne>());
                         }
                         else
                         {
@@ -238,9 +268,7 @@ public class CameraInteraction : MonoBehaviour {
                     {
                         if (hit.collider.GetComponent<Personne>() != null)
                         {
-                            DisplayObject.instance.GetCharacter(hit.collider.GetComponent<Personne>());
-                            Camera2.GetComponent<FollowObject>().follow(hit.collider.transform);
-                            state2 = CameraState.following;
+                            FocusCharacter(0, hit.collider.GetComponent<Personne>());
                         }
                         else
                         {
