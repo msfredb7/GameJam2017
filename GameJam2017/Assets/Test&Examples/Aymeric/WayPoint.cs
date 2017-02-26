@@ -20,7 +20,12 @@ public class WayPoint : MonoBehaviour {
 	
     public static Transform getWaypoint(string name)
     {
-        return instance.transform.Find(name);
+        Transform ret= instance.transform.Find(name);
+        if(ret == null)
+        {
+            Debug.Log("Fail to locate :" + name + "WayPoint");
+        }
+        return ret;
     }
 
 }
