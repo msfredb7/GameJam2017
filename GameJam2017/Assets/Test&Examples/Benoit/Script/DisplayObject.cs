@@ -18,7 +18,7 @@ public class DisplayObject : MonoBehaviour {
 
     private List<GameObject> categoryButton = new List<GameObject>();
     private List<GameObject> textZones = new List<GameObject>();
-    
+
     public GameObject categoryTabButton;
     public GameObject tabLayoutGroup;
     public GameObject contentLayoutGroup;
@@ -43,10 +43,9 @@ public class DisplayObject : MonoBehaviour {
     }
 
 
-
     public void ChangeTab(int tab)
     {
-        currentCategoryTab = tab;
+        if (tab != -1) currentCategoryTab = tab;  
         InstanciateTextZones();
     }
 
@@ -82,7 +81,7 @@ public class DisplayObject : MonoBehaviour {
         {
             if (currentCategoryTab == 0) DisplayHistorique();
             if (currentCategoryTab == 1) DisplayCourriel();
-           
+
         }
         if (currentObjectType == 2)
         {
@@ -166,13 +165,71 @@ public class DisplayObject : MonoBehaviour {
         }
     }
 
+    public void UpdateObjectContent()
+    {
+        if (currentObjectType == 0)
+        {
+            charFace.sprite = UIPersonne.apparence;
+            topInfo.text = UIPersonne.GetNom();
+        }
+        if (currentObjectType == 1)
+        {
+            charFace.sprite = Computer;
+        }
+        if (currentObjectType == 2)
+        {
+            charFace.sprite = Door;
+        }
+    }
+
+    public void DisableListener()
+    {
+        if (currentObjectType == 0)
+        {
+            UICell.contentUpdate.RemoveAllListeners();
+        }
+        if (currentObjectType == 1)
+        {
+            UIOrdinateur.contentUpdate.RemoveAllListeners();
+        }
+        if (currentObjectType == 2)
+        {
+            UIRegistre.contentUpdate.RemoveAllListeners();
+        }
+    }
+
+    public void ActivateListener()
+    {
+
+        if (currentObjectType == 0)
+        {
+            UICell.contentUpdate.AddListener(newContent);
+        }
+        if (currentObjectType == 1)
+        {
+            UIOrdinateur.contentUpdate.AddListener(newContent);
+        }
+        if (currentObjectType == 2)
+        {
+            UIRegistre.contentUpdate.AddListener(newContent);
+        }
+    }
+
+    public void newContent()
+    {
+        ChangeTab(currentCategoryTab);
+    }
 
     public void ChangeObject()
     {
+        DisableListener();
+
         UpdateHeader();
         DestroyCategoryTab();
         currentCategoryTab = 0;
-        InstanciateCategoryTab();    
+        InstanciateCategoryTab();
+
+        ActivateListener(); 
     }
 
 
