@@ -296,7 +296,7 @@ public class DisplayObject : MonoBehaviour {
 
         UIPersonne = personne;
         UICell = personne.GetCell();
-        //UIAppelTéléphonique = UICell.GetCurrentCall();
+        UIAppelTéléphonique = UICell.GetCurrentCall();
         currentObjectType = 0;
         currentCategoryTab = 0;
 
