@@ -9,6 +9,12 @@ public struct SiteInternet
 {
     public string adresse;
     public string date;
+
+    public SiteInternet(string a,string d)
+    {
+        adresse = a;
+        date = d;
+    }
 }
 
 [System.Serializable]
@@ -16,6 +22,12 @@ public struct Courriel
 {
     public string destinataire;
     public string text;
+
+    public Courriel(string d, string t)
+    {
+        destinataire = d;
+        text = t;
+    }
 }
 
 public class Ordinateur : MonoBehaviour {
