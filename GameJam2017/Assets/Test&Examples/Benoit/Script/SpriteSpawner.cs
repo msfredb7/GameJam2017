@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 
 public class SpriteSpawner : MonoBehaviour {
@@ -21,14 +22,18 @@ public class SpriteSpawner : MonoBehaviour {
 		
 	}
 
-    public void SpawnSprite(Sprite sprite, Vector2 Position, float scale = 1)
+    public void SpawnSprite(Sprite sprite, Vector3 Position, float scale = 1)
     {
         GameObject newSprite = Instantiate(instance.AnySprite);
 
-        newSprite.transform.position = new Vector3(Position.x, 10, Position.y);
+        newSprite.transform.position = new Vector3(Position.x, positionY, Position.z);
         newSprite.transform.localScale = Vector3.one * scale;
-        newSprite.GetComponent<SpriteRenderer>().sprite = sprite; 
+        newSprite.GetComponent<SpriteRenderer>().sprite = sprite;
+        newSprite.GetComponent<SpriteRenderer>().DOFade(0, 1).SetDelay(1.99f);
+        newSprite.transform.DOMoveZ(newSprite.transform.position.z + 1, 3).OnComplete(delegate()
+        {
+            Destroy(newSprite);
+        });
 
-        Destroy(newSprite, 3);
     }
 }

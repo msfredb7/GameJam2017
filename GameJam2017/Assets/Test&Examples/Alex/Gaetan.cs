@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Gaetan : Brain {
 
+    public Sprite coeur;
+
     public override void ToDo()
     {
         //8H
@@ -51,7 +53,7 @@ public class Gaetan : Brain {
 
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(610, EmbrasseEnrique));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(614, EmbrasseEnrique));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
@@ -120,7 +122,9 @@ public class Gaetan : Brain {
     //18h10 à 18h20 : Embrasse Enrique
     public void EmbrasseEnrique()
     {
-
+        Vector3 pos = (transform.position + ScenarioManager.instance.Enrique.transform.position) / 2;
+        pos += Vector3.forward;
+        SpriteSpawner.instance.SpawnSprite(coeur, pos);
     }
 
 }

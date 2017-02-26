@@ -3,19 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FredTestScript : MonoBehaviour {
-    public PasswordWall passwordWallPrefab;
-    public Canvas parent;
+    public Sprite spr;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            PasswordWallSpawner.LaunchPasswordWall(Prout, "hello");
+            SpriteSpawner.instance.SpawnSprite(spr, WayPoint.getWaypoint("BossDesk").position);
         }
-    }
-
-    void Prout()
-    {
-        print("prout");
     }
 }
