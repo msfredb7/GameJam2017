@@ -9,14 +9,13 @@ public class Gaetan : Brain {
     public override void ToDo()
     {
         //8H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("WCBlue").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(40, stephenConv));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("WCBlue_Janitor2").position, personnage));
         //9H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("WCRed").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(57, WayPoint.getWaypoint("WCRed_Janitor1").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(110, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
 
         //10H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("BossDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(150, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(165, StephenOrdinateurUse));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(175, AnnushkaOrdiUse));
@@ -57,11 +56,7 @@ public class Gaetan : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
 
-    //8h40 discution stephen?
-    public void stephenConv()
-    {
-
-    }
+    
 
     //9h10 discution Annuska ? TODO
 

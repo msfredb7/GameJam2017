@@ -10,7 +10,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, MakeTexto1));                                             // 8h10 a 8h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("BossDesk").position, personnage)); // 8h30 a 8h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 8h30 a 8h40
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(40, Drague1));                                           // 8h40 a 9h00
 
@@ -26,7 +26,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(135, Maquillage)); // 10h15 a 11h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("BossDesk").position, personnage)); // 11h00 a 11h20
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(200, Drague2)); // 11h20 a 11h50
 
@@ -38,7 +38,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, MakeTexto2)); // 12h35 a 13h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("BossDesk").position, personnage)); // 13h00 a 13h10
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 13h00 a 13h10
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h20
 
@@ -50,7 +50,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(365, ParleAvecJustine)); // 14h05 a 14h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("BossDesk").position, personnage)); // 14h30 a 14h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 14h30 a 14h40
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(400, Drague3)); // 14h40 a 15h30
 
@@ -90,15 +90,15 @@ public class Samantha : Brain {
 
     public void Drague1()
     {
-        Personne mrX = ScenarioManager.instance.MonsieurX;
-        personnage.focus = mrX;
-        mrX.focus = personnage;
+        Personne Enrique = ScenarioManager.instance.Enrique;
+        personnage.focus = Enrique;
+        Enrique.focus = personnage;
 
         BulleManager.instance.Say("Salut mon beau! \n Grosse journée en vue? \n Belle cravate en passant.",personnage, 5);
-        BulleManager.instance.Say("Merci Samantha, \n T'oublie pas de confirmer la réunion de ce soir?", mrX, 5, 5);
+        BulleManager.instance.Say("Merci Samantha, \n T'oublie pas de confirmer \nla réunion de ce soir?", Enrique, 5, 5);
         BulleManager.instance.Say("Bien sûr que non, \n j'voudrais pas décevoir\n mon minou.", personnage, 5, 10);
 
-        mrX.SetFocusIn(null, 11);
+        Enrique.SetFocusIn(null, 11);
         personnage.SetFocusIn(null, 11);
     }
 

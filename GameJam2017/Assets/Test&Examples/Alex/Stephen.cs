@@ -8,10 +8,10 @@ public class Stephen : Brain {
     {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StephenDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("WCBlue").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(40,GaetanConv));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(20, WayPoint.getWaypoint("WCBlue").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(35,GaetanConv));
         //9H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(75, WayPoint.getWaypoint("BossDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(75, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(120, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
@@ -34,7 +34,7 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(450, GaetanBlabla));
         //16H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(515, WayPoint.getWaypoint("BossDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(515, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
         //17H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(585, WayPoint.getWaypoint("StephenDesk").position, personnage));
@@ -52,9 +52,9 @@ public class Stephen : Brain {
 
         BulleManager.instance.Say("Salut Gaétan !\n Quoi de neuf?", personnage, 5);
         BulleManager.instance.Say("Hey, j’ai analysé\n la salle de bain\n et la ventilation mène\n directement à la \nsalle de réunion", ScenarioManager.instance.Gaetan, 5, 5);
-        BulleManager.instance.Say("Cool, mais inutile\n à savoir non?", personnage, 10, 10);
-        BulleManager.instance.Say("Non du tout !\n On pourrait tous\n mourir si quelqu’un\n lançait une attaque\n chimique à partir d’ici", ScenarioManager.instance.Gaetan, 5, 20);
-        BulleManager.instance.Say("T’es creep\n mon Gaétan.", personnage, 5, 25);
+        BulleManager.instance.Say("Cool, mais inutile\n à savoir non?", personnage, 5, 10);
+        BulleManager.instance.Say("Non du tout !\n On pourrait tous\n mourir si quelqu’un\n lançait une attaque\n chimique à partir d’ici", ScenarioManager.instance.Gaetan, 5, 15);
+        BulleManager.instance.Say("T’es creep\n mon Gaétan.", personnage, 5, 20);
 
         gaet.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);

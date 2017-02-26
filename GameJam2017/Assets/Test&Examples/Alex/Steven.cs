@@ -68,7 +68,7 @@ public class Steven : Brain
                                                                                                                                   //2ieme Discussion avec stephen (instigateur)
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(370, DiscussionStephen3)); // 14h10 a 14h45
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("BossDesk").position, personnage)); // 14h45 a 15h00
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 14h45 a 15h00
                                                                                                                           //Discussion avec Enrique (Instigateur -> ?)
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(420, DiscussionEnrique2)); // 15h00 a 15h30
 
