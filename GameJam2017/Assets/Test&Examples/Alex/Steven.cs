@@ -13,15 +13,15 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, TravailPersonnel)); // 8h10 a 8h30
                                                                                       //voir temps! 4 action 30 minutes
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(33, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(37, phoneCall1)); // 8h30 a 8h37
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(45, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 8h45 a 8h52
                                                                                                                            //Discussion avec Justinne (instigateur)
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(52, DiscussionJustine)); // 8h52 a 9h00
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(48, DiscussionJustine)); // 8h52 a 9h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 9h00 a 9h15
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(62, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 9h00 a 9h15
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(75, CognePorte)); // 9h15 a 9h20
 
@@ -104,10 +104,11 @@ public class Steven : Brain
         personnage.focus = just;
         just.focus = personnage;
 
-        BulleManager.instance.Say("Désolé, c'était un\nappel important.", personnage);
-        BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine, 2, 5);
-        BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage, 7, 7);
-        BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage, 4, 14);
+        BulleManager.instance.Say("Désolé, c'était vraiment\n urgent.", personnage,2,0);
+        BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine,2,2);
+        BulleManager.instance.Say("À partir de ce soir,\n tu perdras tes accès \n et devra me remettre \n ton téléphone de compagnie.", personnage,4,4);
+        BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage,3,8);
+        BulleManager.instance.Say("A plus tard !", personnage, 2, 11);
 
         just.SetFocusIn(null, 15);
         personnage.SetFocusIn(null, 15);
@@ -172,20 +173,20 @@ public class Steven : Brain
 
         Cell telephone = personnage.GetCell();
 
-        BulleManager.instance.StartCall(personnage, 18);
+        BulleManager.instance.StartCall(personnage, 10);
 
-        telephone.SayInTelephone("Oui allo?", false);
-        telephone.SayInTelephone("Yo, c'est Steven!", true, 2);
-        telephone.SayInTelephone("Toujours bon pour ce soir?", false, 4);
-        telephone.SayInTelephone("Oui", true, 6);
-        telephone.SayInTelephone("Aucun changement?", false, 8);
-        telephone.SayInTelephone("Non", true, 10);
-        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", false, 12);
-        telephone.SayInTelephone("Je comprends", true, 14);
-        telephone.SayInTelephone("Bonne chance", false, 16);
-        telephone.SayInTelephone("Merci", true, 18);
+   
+        telephone.SayInTelephone("Oui, ici Steven", true, 0);
+        telephone.SayInTelephone("Toujours bon pour ce soir?", false, 2);
+        telephone.SayInTelephone("Oui", true, 4);
+        telephone.SayInTelephone("Aucun changement?", false, 6);
+        telephone.SayInTelephone("Non", true, 8);
+        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", false, 10);
+        telephone.SayInTelephone("Je comprends", true, 12);
+        telephone.SayInTelephone("Bonne chance", false, 14);
+        telephone.SayInTelephone("Merci", true, 16);
 
-        telephone.EndCall(18);
+        telephone.EndCall(16);
     }
 
     public void phoneCallAnnushka()
