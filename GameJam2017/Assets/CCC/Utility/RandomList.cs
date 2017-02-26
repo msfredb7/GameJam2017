@@ -9,12 +9,7 @@ namespace CCC.Utility
     public class RandomList<T>
     {
         [SerializeField]
-        List<T> list;
-
-        public RandomList()
-        {
-            list = new List<T>();
-        }
+        List<T> list = new List<T>();
 
         //Returns a random element (from 0 to count -1). Then put the element at the end of the list, preventing it from being selected twice in a row.
         public T Pick()

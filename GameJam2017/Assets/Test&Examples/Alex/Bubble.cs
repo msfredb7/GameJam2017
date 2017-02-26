@@ -11,10 +11,13 @@ public class Bubble : MonoBehaviour {
     private Character currentChar;
 
     public GameObject myText;
+    public CCC.Utility.RandomAudioCliptList audioclips;
 
     private float time;
 
     void Start () {
+        GetComponent<AudioSource>().clip = audioclips.Pick();
+        GetComponent<AudioSource>().Play();
         Destroy(gameObject, time);
     }
 	void Update ()
