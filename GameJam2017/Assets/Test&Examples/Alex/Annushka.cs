@@ -184,14 +184,14 @@ public class Annushka : Brain {
 
         BulleManager.instance.StartCall(personnage, 14);
 
-        telephone.SayInTelephone("Oui Allo?", "Annuska");
-        telephone.SayInTelephone("Oui salut c'est moi", "Inconue", 2);
-        telephone.SayInTelephone("Comment se passe la mission?", "Inconue", 4);
-        telephone.SayInTelephone("Pas mission, stage", "Annuska", 6);
-        telephone.SayInTelephone("Et comment est ton patron?", "Inconue", 8);
-        telephone.SayInTelephone("Stupide, incompétent, macho, mérite la mort", "Annuska", 10);
-        telephone.SayInTelephone("Promet moi que tu ne feras rien de stupide.", "Inconue", 12);
-        telephone.SayInTelephone("Promis père.", "Annuska", 14);
+        telephone.SayInTelephone("Oui Allo?", "Annushka");
+        telephone.SayInTelephone("Oui salut c'est moi", "Anonyme", 2);
+        telephone.SayInTelephone("Comment se passe la mission?", "Anonyme", 4);
+        telephone.SayInTelephone("Pas mission, stage", "Annushka", 6);
+        telephone.SayInTelephone("Et comment est ton patron?", "Anonyme", 8);
+        telephone.SayInTelephone("Stupide, incompétent, macho, mérite la mort", "Annushka", 10);
+        telephone.SayInTelephone("Promet moi que tu ne feras rien de stupide.", "Anonyme", 12);
+        telephone.SayInTelephone("Promis père.", "Annushka", 14);
 
         telephone.EndCall(14);
     }

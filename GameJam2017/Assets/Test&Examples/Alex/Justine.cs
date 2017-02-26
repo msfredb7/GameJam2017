@@ -194,11 +194,11 @@ public class Justine : Brain {
         BulleManager.instance.StartCall(personnage, 12);
 
         telephone.SayInTelephone("Allo?", "Justine");
-        telephone.SayInTelephone("Salut chérie, je me demandais tu rentrais à quelle heure ce soir?", "Inconue", 2);
+        telephone.SayInTelephone("Salut chérie, je me demandais tu rentrais à quelle heure ce soir?", "Mari", 2);
         telephone.SayInTelephone("Euh je sais pas honnêtement", "Justine", 4);
-        telephone.SayInTelephone("Comment ça?", "Inconue", 6);
+        telephone.SayInTelephone("Comment ça?", "Mari", 6);
         telephone.SayInTelephone("Bah je crois que Samantha vient de m’avouer que Enrique a organisé un party pour mon départ.", "Justine", 8);
-        telephone.SayInTelephone("Amuses-toi bien alors, je t’aime!", "Inconue", 10);
+        telephone.SayInTelephone("Amuses-toi bien alors, je t’aime!", "Mari", 10);
         telephone.SayInTelephone("Moi aussi mon petit minou chou d’amour adoré que j’aime plus que tout au monde et de l’univers tout entier", "Justine", 12);
 
         telephone.EndCall(12);

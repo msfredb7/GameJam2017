@@ -255,11 +255,11 @@ public class Samantha : Brain {
         BulleManager.instance.StartCall(personnage, 10);
 
         telephone.SayInTelephone("Oui Allo?", "Samantha");
-        telephone.SayInTelephone("Bonjour Luis, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", "Luis", 2);
+        telephone.SayInTelephone("Bonjour Luis, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", "Anonyme", 2);
         telephone.SayInTelephone("Oui, je serais la à l'heure. C'est bien au 3ieme étape?", "Samantha", 4);
-        telephone.SayInTelephone("Oui, 3ième étage.", "Luis", 6);
+        telephone.SayInTelephone("Oui, 3ième étage.", "Anonyme", 6);
         telephone.SayInTelephone("Parfait.", "Samantha", 8);
-        telephone.SayInTelephone("Merci et au plaisir de vous rencontrer", "Luis", 10);
+        telephone.SayInTelephone("Merci et au plaisir de vous rencontrer", "Anonyme", 10);
 
         telephone.EndCall(10);
     }
