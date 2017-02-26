@@ -13,6 +13,8 @@ public class TransmissionManager : MonoBehaviour {
     private List<string> text = new List<string>();
     private int currentTransmission = 0;
 
+    public GameObject camera;
+
     private float initialY;
 
     public MusicManager musicManager;
@@ -47,6 +49,8 @@ public class TransmissionManager : MonoBehaviour {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(570, LastMinute));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(600, LastHint));
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(625, ZoomLuis));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(632, EndGame));
     }
@@ -135,5 +139,10 @@ public class TransmissionManager : MonoBehaviour {
     public void LastHint()
     {
         CreateTransmission("Information de derniere minute! Le mot de passe pour accéder à l'ordinateur de Gary est son code d'employé.", 0);
+    }
+
+    public void ZoomLuis()
+    {
+        camera.GetComponent<FollowObject>().follow(ScenarioManager.instance.MonsieurX.transform);
     }
 }
