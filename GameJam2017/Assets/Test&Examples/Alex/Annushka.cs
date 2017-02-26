@@ -63,9 +63,12 @@ public class Annushka : Brain {
 
     public void CogneChezGary()
     {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 6);
         personnage.Stop();
         personnage.Teleport(WayPoint.getWaypoint("InformaticienDesk").position);
         // Bruit de cognage?
+        
     }
 
     public void WorkingAtDesk()

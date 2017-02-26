@@ -42,7 +42,7 @@ public class Gaetan : Brain {
 
         //16H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, tocGary));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(510, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(490, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
 
 
@@ -93,7 +93,8 @@ public class Gaetan : Brain {
     //16h00 à 16h10 : Cogne sans réponse +Gaétan dit à Gary qu’il faudrait bien qu’il le laisse nettoyer son bureau un jour
     public void tocGary()
     {
-
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 11);
     }
 
     //17h15 à 17h30 : Croise Steven et lui précise qu’il est allergique au chocolat. Steven il lui assure qu’il n’y en a pas dans le gâteau de ce soir

@@ -26,11 +26,11 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(135, Maquillage)); // 10h15 a 11h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(165, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(200, Drague2)); // 11h20 a 11h50
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(184, Drague2)); // 11h20 a 11h50
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 11h50 a 12h00
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(210, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 11h50 a 12h00
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240, EcouteStephen)); // 12h00 a 12h30
 
@@ -119,7 +119,17 @@ public class Samantha : Brain {
 
     public void Drague2()
     {
+        Personne Enrique = ScenarioManager.instance.Enrique;
+        personnage.focus = Enrique;
+        Enrique.focus = personnage;
 
+        BulleManager.instance.Say("*Voix sensuelle* \nHola Enrique.", personnage, 3,0);
+        BulleManager.instance.Say("J'ai pas vraiment \nle temps Samantha", Enrique, 3, 3);
+        BulleManager.instance.Say("Oublie pas de \nconfirmer la réunion \nde ce soir", Enrique, 3, 6);
+        BulleManager.instance.Say("Non non \nInquiètes pas toi", personnage, 3, 9);
+ 
+        Enrique.SetFocusIn(null, 12);
+        personnage.SetFocusIn(null, 12);
     }
 
     public void EcouteStephen()

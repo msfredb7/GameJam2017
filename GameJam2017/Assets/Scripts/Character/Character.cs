@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CCC.Manager;
 
 [RequireComponent(typeof(MyAIPath))]
 public class Character : MonoBehaviour
@@ -20,6 +21,19 @@ public class Character : MonoBehaviour
     void Awake()
     {
         pather = GetComponent<MyAIPath>();
+    }
+
+    public void SetDirectionIn(Direction dir, float time)
+    {
+        if (time <= 0)
+        {
+            this.defaultDirection = dir;
+        }
+        else
+            DelayManager.CallTo(delegate ()
+            {
+                this.defaultDirection = dir;
+            }, time);
     }
 
     void Start()
