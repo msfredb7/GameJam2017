@@ -32,6 +32,8 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(165, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(172, TurnTop1));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(184, Drague2)); // 11h20 a 11h50
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(210, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 11h50 a 12h00
@@ -46,7 +48,14 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(301, TurnTop2));
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h20
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, MemoBoss)); // 13h10 a 13h15
+
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(315, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 13h15 a 13h20
+
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(317, Pre_RemoveMemoBoss)); // 13h10 a 13h15
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(318, RemoveMemoBoss)); // 13h10 a 13h15
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h20 a 13h30
 
@@ -78,7 +87,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(550, Appel_M_X)); // 17h10 a 17h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 17h30 a 17h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 17h30 a 17h40
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, PrepareUnCofee)); // 17h40 a 18h00
 
@@ -183,7 +192,17 @@ public class Samantha : Brain {
 
     public void MemoBoss()
     {
+        ScenarioManager.instance.FeuilleAmourSamantha.gameObject.SetActive(true);
+    }
 
+    public void Pre_RemoveMemoBoss()
+    {
+        BulleManager.instance.Say("Pfff...\n Enrique est à moi!", personnage, 2.5f, 0);
+    }
+
+    public void RemoveMemoBoss()
+    {
+        ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(false);
     }
 
     public void ParleAvecAnn2()

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gaetan : Brain {
-
+public class Gaetan : Brain
+{
+    public Sprite coeur;
     public override void ToDo()
     {
         //8H
@@ -14,6 +15,7 @@ public class Gaetan : Brain {
 
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(139, NoteDamour_BossDesk));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(155, StephenOrdinateurUse));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(168, WayPoint.getWaypoint("AnnushkaDesk").position, personnage));
@@ -42,27 +44,30 @@ public class Gaetan : Brain {
         //16H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, tocGary));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(490, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
 
 
         //17H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(555, ParleASteven));
 
         //18H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(574, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(610, EmbrasseEnrique));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
 
-    
-
-    //9h10 discution Annuska ? TODO
+    public void NoteDamour_BossDesk()
+    {
+        ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(true);
+    }
 
     //10h45 Utilise le bureau de stephen
     public void StephenOrdinateurUse()
     {
-
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
+        ScenarioManager.instance.StephenOrdi.AddFichierActif("Genealogie Enrique Rodriguez", "Enrique Rodriguez, aucune naissance de Enrique entre 1965 et 1985");
+        ClavierAnimation(15);
     }
 
     //10h52 Stephen le surprend et lui dis d’utiliser l’ordinateur de la stagiaire ? TODO
@@ -74,6 +79,8 @@ public class Gaetan : Brain {
     //10h55 à 11h05 : Utilise l’ordinateur de Annushka
     public void AnnushkaOrdiUse()
     {
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
+        ScenarioManager.instance.AnnushkaOrdi.AddFichierActif("Genealogie Enrique", "Enrique Rojo \n Enrique Lopez \n Enrique Picaso\n Enrique Lavabo");
         ClavierAnimation(15);
     }
 
@@ -103,18 +110,20 @@ public class Gaetan : Brain {
         personnage.focus = stev;
         stev.focus = personnage;
 
-        BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage);
-        BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5);
-        BulleManager.instance.Say("Ouff! C'est\nmon jour de chance en effet", personnage, 10);
+        BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage, 5, 0);
+        BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5, 5);
+        BulleManager.instance.Say("Ouff! C'est\nmon jour de chance \nen effet", personnage, 3, 10);
 
-        stev.SetFocusIn(null, 11);
-        personnage.SetFocusIn(null, 11);
+        stev.SetFocusIn(null, 13);
+        personnage.SetFocusIn(null, 12);
     }
 
     //18h10 à 18h20 : Embrasse Enrique
     public void EmbrasseEnrique()
     {
-
+        Vector3 pos = (transform.position + ScenarioManager.instance.Enrique.transform.position) / 2;
+        pos += Vector3.forward;
+        SpriteSpawner.instance.SpawnSprite(coeur, pos);
     }
 
 }
