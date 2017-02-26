@@ -52,7 +52,6 @@ public class Character : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
-        print("MOVING" + gameObject.name);
         pather.canMove = true;
         pather.SetTarget(position);
     }
