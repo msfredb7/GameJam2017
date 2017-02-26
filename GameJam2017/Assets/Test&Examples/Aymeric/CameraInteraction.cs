@@ -260,6 +260,10 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                         }
                         else
                         {
+                            if(hit.collider.GetComponent<Ordinateur>() != null)
+                            { 
+                                DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
+                            }
                             Camera1.GetComponent<FollowObject>().stopFollow();
                             state1 = CameraState.fix;
                         }
@@ -278,6 +282,10 @@ public class CameraInteraction : Singleton<CameraInteraction> {
                         }
                         else
                         {
+                            if (hit.collider.GetComponent<Ordinateur>() != null)
+                            {
+                                DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
+                            }
                             Camera2.GetComponent<FollowObject>().stopFollow();
                             state2 = CameraState.fix;
                         }
