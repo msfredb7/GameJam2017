@@ -18,7 +18,7 @@ public class Enrique : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(156, ConvJustine));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(195, WayPoint.getWaypoint("WCBlue").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, ConvStephen));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, ConvSteven));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(225, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
         //12H
 
@@ -91,10 +91,10 @@ public class Enrique : Brain {
         personnage.focus = Steven;
         Steven.focus = personnage;
 
-        BulleManager.instance.Say("Hey Enrique,\n Stephen m’a parlé\n de l’histoire du bonus\n pis de ta Civic", Steven, 5);
+        BulleManager.instance.Say("Hey Enrique,\n Stephen m’a parlé\n de l’histoire du bonus\n pis de ta Civic", Steven, 5, 0);
         BulleManager.instance.Say("J’veux pas te dire quoi faire,\n mais j’suis pas sûr que\n c’est la meilleure façon\n de garder tes employés", Steven, 5, 5);
         BulleManager.instance.Say("C’est moi le boss,\n j’fais ce que je veux.\n J’ai besoin de ma Civic pour\n me pogner des chickitas.", personnage, 5, 10);
-        BulleManager.instance.Say("Tu devrais surveiller ton attitude,\n à force de jouer avec le feu,\n on finit par se brûler", Steven, 5, 15);
+        BulleManager.instance.Say("Tu devrais surveiller ton \n attitude, à force de jouer\n avec le feu, on finit \npar se brûler", Steven, 5, 15);
 
         Steven.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);
