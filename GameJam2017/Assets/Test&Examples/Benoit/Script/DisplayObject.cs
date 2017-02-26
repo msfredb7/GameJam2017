@@ -374,9 +374,15 @@ public class DisplayObject : MonoBehaviour {
     public void MakeAccusation()
     {
         bool victory;
-        if (UIPersonne.GetNom() == "Enrique") victory = true;
-        else victory = false;
-
+        if (ScenarioManager.instance.Enrique == UIPersonne)
+        {
+            victory = true;
+        }
+        else
+        {
+            victory = false;
+        }
+        
 
         GameManager.EndGame(victory);
     }
