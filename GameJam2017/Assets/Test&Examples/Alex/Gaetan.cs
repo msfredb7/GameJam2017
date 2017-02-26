@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gaetan : Brain
-{
+public class Gaetan : Brain {
 
     public override void ToDo()
     {
@@ -15,7 +14,7 @@ public class Gaetan : Brain
 
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(139, NoteAmour_BossDesk));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(139, NoteDamour_BossDesk));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(155, StephenOrdinateurUse));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(168, WayPoint.getWaypoint("AnnushkaDesk").position, personnage));
@@ -56,20 +55,18 @@ public class Gaetan : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
-
-
-
-    //9h10 discution Annuska ? TODO
-
-
-    public void NoteAmour_BossDesk()
+    
+    public void NoteDamour_BossDesk()
     {
         ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(true);
     }
+
     //10h45 Utilise le bureau de stephen
     public void StephenOrdinateurUse()
     {
-
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com","30/02/2017 10.45"));
+        ScenarioManager.instance.StephenOrdi.AddFichierActif("Genealogie Enrique Rodriguez", "Enrique Rodriguez, aucune naissance de Enrique entre 1965 et 1985");
+        ClavierAnimation(15);
     }
 
     //10h52 Stephen le surprend et lui dis d’utiliser l’ordinateur de la stagiaire ? TODO
@@ -81,6 +78,8 @@ public class Gaetan : Brain
     //10h55 à 11h05 : Utilise l’ordinateur de Annushka
     public void AnnushkaOrdiUse()
     {
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
+        ScenarioManager.instance.AnnushkaOrdi.AddFichierActif("Genealogie Enrique", "Enrique Rojo \n Enrique Lopez \n Enrique Picaso\n Enrique Lavabo");
         ClavierAnimation(15);
     }
 
