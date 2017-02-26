@@ -90,7 +90,10 @@ public class Samantha : Brain {
 
     public void Drague1()
     {
-        BulleManager.instance.Say("\nSalut mon beau! \n Grosse journée en vue? \n Belle cravate en passant \n ;)",personnage,10);
+        Debug.LogWarning("dialog");
+        BulleManager.instance.Say("Salut mon beau! \n Grosse journée en vue? \n Belle cravate en passant.",personnage, 5);
+        BulleManager.instance.Say("Merci Samantha, \n T'oublie pas de confirmer la réunion de ce soir?", ScenarioManager.instance.MonsieurX, 5, 5);
+        BulleManager.instance.Say("Bien sûr que non, \n j'voudrais pas décevoir\n mon minou.", personnage, 5, 10);
     }
 
     public void TravailPersonnel()
