@@ -32,6 +32,8 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(165, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(172, TurnTop1));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(184, Drague2)); // 11h20 a 11h50
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(210, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 11h50 a 12h00
@@ -85,7 +87,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(550, Appel_M_X)); // 17h10 a 17h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 17h30 a 17h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("SalleDesEmployes_Samantha").position, personnage)); // 17h30 a 17h40
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, PrepareUnCofee)); // 17h40 a 18h00
 

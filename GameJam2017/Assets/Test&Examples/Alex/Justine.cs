@@ -23,6 +23,7 @@ public class Justine : Brain {
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Justine").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(232, TurnRight));
         //12H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed_Miroir").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, Maquillage));
@@ -52,7 +53,14 @@ public class Justine : Brain {
 
     }
 
-   public void TurnTop()
+    public void TurnRight()
+    {
+        personnage.defaultDirection = Character.Direction.Right;
+        personnage.SetDirectionIn(Character.Direction.Down, 40);
+    }
+
+
+    public void TurnTop()
     {
         personnage.defaultDirection = Character.Direction.Up;
         personnage.SetDirectionIn(Character.Direction.Down, 40);

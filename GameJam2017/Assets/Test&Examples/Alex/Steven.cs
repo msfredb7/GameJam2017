@@ -201,7 +201,7 @@ public class Steven : Brain
     //Telephon
     public void phoneCall1()
     {
-        AppelTéléphonique newCall = new AppelTéléphonique("Steven", "Anonyme");
+        AppelTéléphonique newCall = new AppelTéléphonique("Anonyme", "Steven");
         personnage.SetMyCall(newCall);
 
         Cell telephone = personnage.GetCell();
@@ -209,15 +209,15 @@ public class Steven : Brain
         BulleManager.instance.StartCall(personnage, 10);
 
    
-        telephone.SayInTelephone("Oui, ici Steven", true, 0);
-        telephone.SayInTelephone("Toujours bon pour ce soir?", false, 2);
-        telephone.SayInTelephone("Oui", true, 4);
-        telephone.SayInTelephone("Aucun changement?", false, 6);
-        telephone.SayInTelephone("Non", true, 8);
-        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", false, 10);
-        telephone.SayInTelephone("Je comprends", true, 12);
-        telephone.SayInTelephone("Bonne chance", false, 14);
-        telephone.SayInTelephone("Merci", true, 16);
+        telephone.SayInTelephone("Oui, ici Steven", false, 0);
+        telephone.SayInTelephone("Toujours bon pour ce soir?", true, 2);
+        telephone.SayInTelephone("Oui", false, 4);
+        telephone.SayInTelephone("Aucun changement?", true , 6);
+        telephone.SayInTelephone("Non", false, 8);
+        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", true, 10);
+        telephone.SayInTelephone("Je comprends", false, 12);
+        telephone.SayInTelephone("Bonne chance", true, 14);
+        telephone.SayInTelephone("Merci", false, 16);
 
         telephone.EndCall(16);
 
