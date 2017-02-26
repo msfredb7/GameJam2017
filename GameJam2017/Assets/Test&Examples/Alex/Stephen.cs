@@ -6,7 +6,7 @@ public class Stephen : Brain {
 
     public override void ToDo()
     {
-        //8H
+        //8H 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("WCBlue").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(40,GaetanConv));

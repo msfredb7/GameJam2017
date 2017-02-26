@@ -89,7 +89,7 @@ public class Steven : Brain {
                                                                                        //DÉBUT ZONE VIDE, J'AI PATCHER
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 17h30 a 17h40
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, RelaxBureau)); // 17h40 a 18h20
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(580, RelaxBureau)); // 17h40 a 18h20 
                                                                                   //DÉBUT ZONE VIDE
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionSud").position, personnage)); // 18h20 a 18h30
                                                                                                                                  //Discussion avec stephen (instigateur)                                                                                                                               
