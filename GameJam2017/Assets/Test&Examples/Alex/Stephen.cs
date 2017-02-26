@@ -19,6 +19,7 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(163,GaetanSurprise ));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(231, TurnLeft));
         //12H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240,DiscutionPrime));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCBlue").position, personnage));
@@ -28,8 +29,8 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310,TocGary ));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("StephenDesk").position, personnage));
         //14H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(400, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(361, TurnLeft1));
 
         //15H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("SalleEntrainement_Bench").position, personnage));
@@ -42,6 +43,19 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(585,AppelTel2 ));
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
+    }
+
+    public void TurnLeft1()
+    {
+        personnage.defaultDirection = Character.Direction.Left;
+        personnage.SetDirectionIn(Character.Direction.Down, 58);
+    }
+
+
+    public void TurnLeft()
+    {
+        personnage.defaultDirection = Character.Direction.Left;
+        personnage.SetDirectionIn(Character.Direction.Down, 38);
     }
 
     public void TurnTop1()

@@ -46,6 +46,8 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(220, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 11h40 a 11h50
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(230, TurnRight));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(230, RelaxSalleManger)); // 11h50 a 12h00
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240, Mange)); // 12h00 a 12h30
@@ -59,12 +61,16 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(305, phoneCall2)); // 13h05 a 13h20
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("StephenDesk").position, personnage)); // 12h20 a 12h30
-                                                                                                                             //Discussion avec stephen (instigateur)
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("StephenDesk_Visiteur").position, personnage)); // 12h20 a 12h30
+                                                                                                                                      //Discussion avec stephen (instigateur)
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(325, TurnTop1));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(330, DiscussionStephen2)); // 13h30 a 14h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 14h00 a 14h10                                                                                                                               //Discussion avec stephen (instigateur -> ?)                                                                                                                                  //Discussion avec stephen (instigateur)                                                                                                                                
-                                                                                                                                  //2ieme Discussion avec stephen (instigateur)
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 14h00 a 14h10                                                                                                                               //Discussion avec stephen (instigateur -> ?)                                                                                                                                  //Discussion avec stephen (instigateur)                                                                                                                                
+                                                                                                                                         //2ieme Discussion avec stephen (instigateur)
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(360, TurnRight));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(370, DiscussionStephen3)); // 14h10 a 14h45
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 14h45 a 15h00
@@ -89,6 +95,8 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("SalleReunionSud").position, personnage)); // 17h00 a 17h15
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(540, TurnTop1));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(555, DiscussionGaétan)); // 17h15 a 17h30
                                                                                        //DÉBUT ZONE VIDE, J'AI PATCHER
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(570, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 17h30 a 17h40
@@ -99,6 +107,13 @@ public class Steven : Brain
                                                                                                                                     //Discussion avec stephen (instigateur)                                                                                                                               
                                                                                                                                     //The End
     }
+
+    public void TurnRight()
+    {
+        personnage.defaultDirection = Character.Direction.Right;
+        personnage.SetDirectionIn(Character.Direction.Down, 39);
+    }
+
 
     public void TurnTop1()
     {
