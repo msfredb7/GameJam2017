@@ -5,6 +5,7 @@ using CCC.Manager;
 
 public class MusicManager : MonoBehaviour {
 
+    public AudioSource mouseSound;
     public AudioSource audio;
     public float delay;
 
@@ -16,6 +17,14 @@ public class MusicManager : MonoBehaviour {
         {
             audio.Play();
         },delay);
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseSound.Play();
+        }
     }
 
     public void PlayLastMinuteSong()
