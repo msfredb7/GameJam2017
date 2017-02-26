@@ -18,13 +18,13 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(70, TravailPersonnel)); // 9h10 a 9h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 9h30 a 9h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk_Visiteur").position, personnage)); // 9h30 a 9h40
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(100, ParleAvecAnn)); // 9h40 a 10h10
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("WCRed").position, personnage)); // 10h10 a 10h15
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(117, WayPoint.getWaypoint("WCRed").position, personnage)); // 10h10 a 10h15
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(135, Maquillage)); // 10h15 a 11h00
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(124, Maquillage)); // 10h15 a 11h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(165, WayPoint.getWaypoint("BossDesk_Visiteur1").position, personnage)); // 11h00 a 11h20
 
@@ -109,12 +109,23 @@ public class Samantha : Brain {
 
     public void ParleAvecAnn()
     {
+        personnage.focus = ScenarioManager.instance.Annushka;
+        ScenarioManager.instance.Annushka.focus = personnage;
 
+
+        BulleManager.instance.Say("Là on va mettre\n quelque chose au \nclair Annishma", personnage, 4,0);
+        BulleManager.instance.Say("Annushka, mon \nnom est Annushka", ScenarioManager.instance.Annushka, 3, 4);
+        BulleManager.instance.Say("Même affaire... \nEnrique c'est mon \nchérie donc pas \ntouche!", personnage, 5, 7);
+        BulleManager.instance.Say("Toi pouvoir le \ngarder, moi pas \ninteressé par gros \nmacho", ScenarioManager.instance.Annushka, 5, 12);
+
+        ScenarioManager.instance.Annushka.SetFocusIn(null, 17);
+        personnage.SetFocusIn(null, 17);
     }
 
     public void Maquillage()
     {
-
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 42);
     }
 
     public void Drague2()
