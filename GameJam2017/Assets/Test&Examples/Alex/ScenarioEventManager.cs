@@ -12,6 +12,8 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
 
     private static float start;
 
+    public bool executeEarlyActionEvent = true;
+
     protected void Start()
     {
         start = Time.time;
@@ -25,7 +27,14 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
         {
             if (events[i].Time() < startTime)
             {
-                events[i].FastExecute();
+                if(events[i] is ActionScenarioEvent)
+                {
+                    if(executeEarlyActionEvent)
+                        events[i].FastExecute();
+                }
+                else
+                    events[i].FastExecute();
+
                 events.Remove(events[i]);
             }
         }
