@@ -6,6 +6,10 @@ public class ScenarioManager : MonoBehaviour {
 
     public static ScenarioManager instance;
 
+    public FeuillePapier FeuillePlan;
+    public FeuillePapier FeuilleAmourGaetan;
+    public FeuillePapier FeuilleAmourSamantha;
+
     //public Ordinateur computer1;
     public Ordinateur StephenOrdi;
     public Ordinateur StevenOrdi;
@@ -128,7 +132,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.WoW.com", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
-        GaryOrdi.AddFichierActif("Rapport", "PDG de la compagnie Petrolus, depuis près de 20 ans, Luis est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays.");
+        GaryOrdi.AddFichierActif("Rapport Incomplé", "PDG de la compagnie Petrolus, depuis près de 20 ans, Luis est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays.");
         Gary.GetCell().AddTexto("Calling all capitale pilote! We got a Titan tackled in 7RM, all reinforcement needed!","30/02/2017 2.30","CEO Init");
         Gary.GetBrain().ToDo();
     }

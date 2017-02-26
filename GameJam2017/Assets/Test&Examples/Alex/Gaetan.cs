@@ -54,15 +54,14 @@ public class Gaetan : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
-
     
-
-    //9h10 discution Annuska ? TODO
-
+    
     //10h45 Utilise le bureau de stephen
     public void StephenOrdinateurUse()
     {
-
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com","30/02/2017 10.45"));
+        ScenarioManager.instance.StephenOrdi.AddFichierActif("Genealogie Enrique Rodriguez", "Enrique Rodriguez, aucune naissance de Enrique entre 1965 et 1985");
+        ClavierAnimation(15);
     }
 
     //10h52 Stephen le surprend et lui dis d’utiliser l’ordinateur de la stagiaire ? TODO
@@ -74,6 +73,8 @@ public class Gaetan : Brain {
     //10h55 à 11h05 : Utilise l’ordinateur de Annushka
     public void AnnushkaOrdiUse()
     {
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
+        ScenarioManager.instance.AnnushkaOrdi.AddFichierActif("Genealogie Enrique", "Enrique Rojo \n Enrique Lopez \n Enrique Picaso\n Enrique Lavabo");
         ClavierAnimation(15);
     }
 
