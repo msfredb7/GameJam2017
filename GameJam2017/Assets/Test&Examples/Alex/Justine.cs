@@ -9,6 +9,8 @@ public class Justine : Brain {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(25, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage));
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(27, TurnTop));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(27, ConversationSteven));
 
         //9H
@@ -17,6 +19,7 @@ public class Justine : Brain {
 
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(142, TurnTop));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Justine").position, personnage));
@@ -25,11 +28,14 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, Maquillage));
         //13H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("PlacardConsierge_Visiteur").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(301, TurnTop));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, ConversationGaetan));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(330, WayPoint.getWaypoint("WCRed").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(340, WayPoint.getWaypoint("JustineDesk").position, personnage));
         //14H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SamanthaDesk_Visiteur").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(361, TurnTop));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(368, ConversationSamantha));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(395, AppelMari2));
@@ -84,7 +90,7 @@ public class Justine : Brain {
         BulleManager.instance.StartCall(personnage,34);
 
         telephone.SayInTelephone("Allo?", false);
-        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.", true,2);
+        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.f", true,2);
         telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", false, 4);
         telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", true, 6);
         telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", false, 8);
