@@ -6,15 +6,14 @@ public class Samantha : Brain {
 
     public override void ToDo()
     {
-        /*
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 8h
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, MakeTexto1));                                             // 8h10
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 8h00 a 8h10
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, MakeTexto1));                                             // 8h10 a 8h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("BossDesk").position, personnage)); // 8h30
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, Drague1));                                           // 8h40
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("BossDesk").position, personnage)); // 8h30 a 8h40
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(40, Drague1));                                           // 8h40 a 9h00
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage));
-        */
+        //ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 9h00
+        
     }
 
     public void MakeTexto1()
@@ -26,6 +25,6 @@ public class Samantha : Brain {
 
     public void Drague1()
     {
-        BulleManager.instance.Say("Salut mon beau, grosse journée en vue? Belle cravate en passant ;)",personnage);
+        BulleManager.instance.Say("\nSalut mon beau! \n Grosse journée en vue? \n Belle cravate en passant \n ;)",personnage,10);
     }
 }

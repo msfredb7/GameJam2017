@@ -49,6 +49,10 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
                 events[i].Execute();
                 events.Remove(events[i]);
             }
+            else
+            {
+                break;
+            }
         }
     }
 
