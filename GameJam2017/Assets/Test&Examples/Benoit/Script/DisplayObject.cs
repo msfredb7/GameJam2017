@@ -141,7 +141,7 @@ public class DisplayObject : MonoBehaviour {
         List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
         for (int i = 0; i < listcourriel.Count; i++)
         {
-            texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
+ // texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
         }
     }
 

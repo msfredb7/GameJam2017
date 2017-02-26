@@ -12,13 +12,13 @@ public class Steven : Brain {
          
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, TravailPersonnel)); // 8h10 a 8h30
                                                                                       //voir temps! 4 action 30 minutes
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(33, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(37, phoneCall1)); // 8h30 a 8h37
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(45, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 8h45 a 8h52
                                                                                                                            //Discussion avec Justinne (instigateur)
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(52, DiscussionJustine)); // 8h52 a 9h00
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(48, DiscussionJustine)); // 8h52 a 9h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 9h00 a 9h15
 
@@ -103,9 +103,9 @@ public class Steven : Brain {
         personnage.focus = just;
         just.focus = personnage;
 
-        BulleManager.instance.Say("Désolé, c'était un\nappel important.", personnage);
+        BulleManager.instance.Say("Désolé, c'était vraiment\n urgent.", personnage);
         BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine,2,5);
-        BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage,7,7);
+        BulleManager.instance.Say("À partir de ce soir,\n tu perdras tes accès \n et devra me remettre \n ton téléphone de compagnie.", personnage,7,7);
         BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage,4,14);
 
         just.SetFocusIn(null, 15);
