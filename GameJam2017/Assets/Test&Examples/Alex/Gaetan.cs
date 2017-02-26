@@ -15,15 +15,16 @@ public class Gaetan : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(110, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
 
         //10H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(150, WayPoint.getWaypoint("StephenDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(165, StephenOrdinateurUse));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(155, StephenOrdinateurUse));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(168, WayPoint.getWaypoint("AnnushkaDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(175, AnnushkaOrdiUse));
 
         //11H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(185, WayPoint.getWaypoint("WCBlue").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, GaetanSoloConv));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(210, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(190, WayPoint.getWaypoint("WCBlue_Janitor2").position, personnage));
+        //ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, GaetanSoloConv));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(205, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
 
         //12H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(275, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));

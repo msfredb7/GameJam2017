@@ -20,7 +20,7 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 9h30 a 9h35
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage)); // 10h10 a 10h30
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage)); // 10h10 a 10h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(150, RencontreAvecSteven)); // 10h30 a 11h00
 
@@ -83,11 +83,11 @@ public class Annushka : Brain {
         personnage.focus = gaet;
         gaet.focus = personnage;
 
-        BulleManager.instance.Say("Ça va bien \nlà-dedans?", ScenarioManager.instance.Gaetan, 5);
+        BulleManager.instance.Say("Ça va bien \nlà-dedans?", ScenarioManager.instance.Gaetan, 5, 0);
         BulleManager.instance.Say("Qui parle à moi?", personnage, 3,5);
         BulleManager.instance.Say("C’est moi Gaétan \nle concierge, c’est \nla première fois que \nnous avons la chance de parler", ScenarioManager.instance.Gaetan, 5 , 8);
-        BulleManager.instance.Say(": Pas sur que être \nune chance…", personnage, 5,13);
-        BulleManager.instance.Say("Allez je vous laisse \ntranquille,\n bonne journée", ScenarioManager.instance.Gaetan, 5,17);
+        BulleManager.instance.Say("Pas sur que être \nune chance…", personnage, 5,13);
+        BulleManager.instance.Say("Allez je vous laisse \ntranquille,\n bonne journée", ScenarioManager.instance.Gaetan, 5,18);
 
         gaet.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);
