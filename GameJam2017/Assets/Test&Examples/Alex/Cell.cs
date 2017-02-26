@@ -81,31 +81,17 @@ public class Cell {
         return myCall;
     }
 
-    public void SayInTelephone(string message, bool emeteur, float delay = 0)
+    public void SayInTelephone(string messageIn, string parleurIn, float delay = 0)
     {
-        if(delay == 0)
+        if (delay == 0)
         {
-            if (emeteur)
-            {
-                myCall.AddMessageEmetteur(message);
-            }
-            else
-            {
-                myCall.AddMessageRecepteur(message);
-            }
+            myCall.AddMessage(messageIn, parleurIn);
         } else
         {
             AppelTéléphonique myCallT=myCall;
             DelayManager.CallTo(delegate ()
             {
-                if (emeteur)
-                {
-                    myCallT.AddMessageEmetteur(message);
-                }
-                else
-                {
-                    myCallT.AddMessageRecepteur(message);
-                }
+                myCall.AddMessage(messageIn, parleurIn);
             }, delay);
         }
     }
