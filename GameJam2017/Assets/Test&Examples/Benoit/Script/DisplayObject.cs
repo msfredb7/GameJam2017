@@ -198,12 +198,20 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisableListener()
     {
-        UICell.contentUpdate.RemoveAllListeners();
-        UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
-        UIOrdinateur.contentUpdate.RemoveAllListeners();
-        UIFichierActif.contentUpdate.RemoveAllListeners();
-        UIRegistre.contentUpdate.RemoveAllListeners();
-
+        if (currentObjectType == 0)
+        {
+            UICell.contentUpdate.RemoveAllListeners();
+            UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
+        }
+        if (currentObjectType == 1)
+        {
+            UIOrdinateur.contentUpdate.RemoveAllListeners();
+            UIFichierActif.contentUpdate.RemoveAllListeners();
+        }
+        if (currentObjectType == 2)
+        {
+            UIRegistre.contentUpdate.RemoveAllListeners();
+        }
     }
 
     public void ActivateListener()
@@ -227,12 +235,13 @@ public class DisplayObject : MonoBehaviour {
 
     public void newContent()
     {
-        ChangeTab(currentCategoryTab);
+        int previousTab = currentCategoryTab; //Change object met le tab à cuurentCatTab à 0
+        ChangeObject();
+        ChangeTab(previousTab);
     }
 
     public void ChangeObject()
     {
-        DisableListener();
 
         UpdateHeader();
         DestroyCategoryTab();
@@ -283,6 +292,8 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetCharacter(Personne personne)
     {
+        DisableListener();
+
         UIPersonne = personne;
         UICell = personne.GetCell();
         //UIAppelTéléphonique = UICell.GetCurrentCall();
@@ -294,6 +305,8 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetComputer(Ordinateur ordinateur)
     {
+        DisableListener();
+
         UIOrdinateur = ordinateur;
         UIFichierActif = ordinateur.GetFichierActif();
         currentObjectType = 1;
@@ -304,22 +317,12 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetRegister(Registre registre)
     {
+        DisableListener();
+
         UIRegistre = registre;
         currentObjectType = 2;
         currentCategoryTab = 0;
   
         ChangeObject();
     }
-
-    public void GetAppelTéléphonique(AppelTéléphonique appeltéléphonique)
-    {
-
-        currentObjectType = 3;
-        currentCategoryTab = 0;
-
-        ChangeObject();
-    }
-
-
-
 }
