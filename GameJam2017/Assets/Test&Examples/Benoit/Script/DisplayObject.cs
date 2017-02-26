@@ -244,7 +244,11 @@ public class DisplayObject : MonoBehaviour {
         Debug.Log("update");
 
         int previousTab = currentCategoryTab; //Change object met le tab à cuurentCatTab à 0
-        ChangeObject();
+
+        UpdateHeader();
+        InstanciateCategoryTab();
+        InstanciateTextZones();
+
         ChangeTab(previousTab);
     }
 
@@ -257,7 +261,6 @@ public class DisplayObject : MonoBehaviour {
             if (UIAppelTéléphonique != null)
             {
                 UIAppelTéléphonique.contentUpdate.AddListener(newContent);
-                Debug.Log("Tel Setter");
             }
         }
 
@@ -267,13 +270,7 @@ public class DisplayObject : MonoBehaviour {
             if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
         }
         
-
-
-        if (UIAppelTéléphonique == null) Debug.Log("tel existe");
-        else Debug.Log("tel n'existe pas");
-
         UpdateHeader();
-        DestroyCategoryTab();
         currentCategoryTab = 0;
         InstanciateCategoryTab();
 
