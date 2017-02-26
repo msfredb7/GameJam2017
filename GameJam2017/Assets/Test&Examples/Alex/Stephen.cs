@@ -31,16 +31,22 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(400, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
 
         //15H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(450, GaetanBlabla));
-        //16H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(515, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(420, WayPoint.getWaypoint("SalleEntrainement_Bench").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(435, GaetanBlabla));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(472, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(473, TurnTop));
         //17H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(508, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(585, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(585,AppelTel2 ));
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
+    }
+
+    public void TurnTop()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 140);
     }
 
     //8h40 à 9h15 : Toilettes des hommes et discussion avec Gaétan
@@ -133,8 +139,8 @@ public class Stephen : Brain {
         BulleManager.instance.Say("Attends quoi?\n T’aimes les hommes?", personnage, 5, 10);
         BulleManager.instance.Say("Pas les hommes,\n 1 seul…", ScenarioManager.instance.Gaetan, 5, 15);
 
-        gaet.SetFocusIn(null, 16);
-        personnage.SetFocusIn(null, 16);
+        gaet.SetFocusIn(null, 20);
+        personnage.SetFocusIn(null, 20);
     }
 
     //17h45 à 18h00 : Appel téléphonique sur le fait qu’il ignore l’identité du dirigeant qui vient visiter ce soir. Il aurait aimé ça le savoir pour faire ses recherches et l’impressionner et espérer obtenir un meilleur poste à la direction (PREUVE INNOCENCE)
