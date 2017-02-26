@@ -68,7 +68,9 @@ public class Steven : Brain
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(370, DiscussionStephen3)); // 14h10 a 14h45
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage)); // 14h45 a 15h00
-                                                                                                                          //Discussion avec Enrique (Instigateur -> ?)
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(410, TurnTop));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(420, DiscussionEnrique2)); // 15h00 a 15h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(450, WayPoint.getWaypoint("SalleEntrainement").position, personnage)); // 15h30 a 15h40
@@ -95,6 +97,14 @@ public class Steven : Brain
                                                                                                                                     //Discussion avec stephen (instigateur)                                                                                                                               
                                                                                                                                     //The End
     }
+
+    public void TurnTop()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 46);
+    }
+
+
 
     //Discussions
     public void DiscussionJustine()
@@ -156,7 +166,7 @@ public class Steven : Brain
 
         BulleManager.instance.Say("Annunshka,\nn'oublies pas le colis ce\nsoir! C'est vraiment\nimportant pour nous", personnage);
         BulleManager.instance.Say("Quelle heure?", ScenarioManager.instance.Annushka, 2, 5);
-        BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger cela", personnage, 7);
+        BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger\n cela", personnage, 7);
         BulleManager.instance.Say("D'accord", ScenarioManager.instance.Annushka, 2, 12);
 
         ann.SetFocusIn(null, 11);
