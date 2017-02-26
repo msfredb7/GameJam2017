@@ -70,11 +70,6 @@ public class DisplayObject : MonoBehaviour {
             charFace.sprite = Door;
             topInfo.text = "fonctionnalité non implanté";
         }
-        if (currentObjectType == 3)
-        {
-            charFace.sprite = Appel;
-            topInfo.text = "Appel de " + UIAppelTéléphonique.GetNomEmetteur();
-        }
     }
 
     public void InstanciateTextZones()
@@ -86,6 +81,7 @@ public class DisplayObject : MonoBehaviour {
             if (currentCategoryTab == 0) DisplayDescription();
             if (currentCategoryTab == 1) DisplayAppel();      //historique
             if (currentCategoryTab == 2) DisplaySMS();
+            if (currentCategoryTab == 3) DisplayAppelTéléphonique();
         }
         if (currentObjectType == 1)
         {
@@ -97,10 +93,6 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 2)
         {
             if (currentCategoryTab == 0) DisplayAccès();
-        }
-        if (currentObjectType == 3)
-        {
-            if (currentCategoryTab == 0) DisplayAppelTéléphonique(); //conversation courant
         }
         PrintTexts();
     }
@@ -206,23 +198,12 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisableListener()
     {
-        if (currentObjectType == 0)
-        {
-            UICell.contentUpdate.RemoveAllListeners();
-        }
-        if (currentObjectType == 1)
-        {
-            UIOrdinateur.contentUpdate.RemoveAllListeners();
-            UIFichierActif.contentUpdate.RemoveAllListeners();
-        }
-        if (currentObjectType == 2)
-        {
-            UIRegistre.contentUpdate.RemoveAllListeners();
-        }
-        if (currentObjectType == 3)
-        {
-            UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
-        }
+        UICell.contentUpdate.RemoveAllListeners();
+        UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
+        UIOrdinateur.contentUpdate.RemoveAllListeners();
+        UIFichierActif.contentUpdate.RemoveAllListeners();
+        UIRegistre.contentUpdate.RemoveAllListeners();
+
     }
 
     public void ActivateListener()
@@ -231,6 +212,7 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 0)
         {
             UICell.contentUpdate.AddListener(newContent);
+            UIAppelTéléphonique.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 1)
         {
@@ -240,10 +222,6 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 2)
         {
             UIRegistre.contentUpdate.AddListener(newContent);
-        }
-        if (currentObjectType == 3)
-        {
-            UIAppelTéléphonique.contentUpdate.AddListener(newContent);
         }
     }
 
@@ -281,7 +259,8 @@ public class DisplayObject : MonoBehaviour {
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
         {
-            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { } //skip fichier actif si null
+            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { }             //skip fichier actif si null
+            else if (currentObjectType == 0 && i == 2 && UIAppelTéléphonique == null) { }   //skip appel courant si null
             else
             {
                 GameObject newButton = Instantiate(categoryTabButton);
@@ -306,6 +285,7 @@ public class DisplayObject : MonoBehaviour {
     {
         UIPersonne = personne;
         UICell = personne.GetCell();
+        //UIAppelTéléphonique = UICell.GetCurrentCall();
         currentObjectType = 0;
         currentCategoryTab = 0;
 
@@ -333,7 +313,7 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetAppelTéléphonique(AppelTéléphonique appeltéléphonique)
     {
-        UIAppelTéléphonique = appeltéléphonique;
+
         currentObjectType = 3;
         currentCategoryTab = 0;
 
