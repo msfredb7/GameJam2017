@@ -17,7 +17,7 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(172,GaetanSurprise ));
         //11H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
         //12H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240,DiscutionPrime));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCBlue").position, personnage));
@@ -84,9 +84,9 @@ public class Stephen : Brain {
         sam.focus = ann;
 
         BulleManager.instance.Say("J’en reviens pas\n que Enrique a\n dépensé mon bonus\n pour modifier\n sa Civic", personnage, 5);
-        BulleManager.instance.Say(" J’ai doublé les\n chiffres de l’entreprise pis\n j’recois pas une cenne", personnage, 5, 5);
+        BulleManager.instance.Say("J’ai doublé les\n chiffres de l’entreprise pis\n j’recois pas une cenne", personnage, 5, 5);
         BulleManager.instance.Say("J’mériterais\n au moins 10 000$", personnage, 5, 10);
-        BulleManager.instance.Say(": Moi avec 10 000$,\n j’macheterais de nouveaux\n implants mamaires", ScenarioManager.instance.Samantha, 5, 15);
+        BulleManager.instance.Say("Moi avec 10 000$,\n j’macheterais de nouveaux\n implants mamaires", ScenarioManager.instance.Samantha, 5, 15);
         BulleManager.instance.Say("Tu vois déjà pas\n tes pieds… Toi pas trouver\n ça assez gros?", ScenarioManager.instance.Annushka, 5, 20);
 
         sam.SetFocusIn(null, 21);
