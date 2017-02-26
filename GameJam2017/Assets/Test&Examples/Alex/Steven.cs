@@ -29,11 +29,11 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(95, CouleUnBronze)); // 9h35 a 9h40
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(100, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 9h40 a 9h50
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(100, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 9h40 a 9h50
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(110, RelaxSalleManger)); // 9h50 a 10h10
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(125, DiscussionStephen)); // 10h05 a 10h20
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(121, DiscussionStephen)); // 10h05 a 10h20
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h20 a 10h30
                                                                                                                             // voir temps! Second à parler Donc doit timer Avec Annushka (Le temps est surement PAS BON de base)
@@ -41,7 +41,7 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(180, RelaxBureau)); // 11h00 a 11h15
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(195, WayPoint.getWaypoint("WCBlue").position, personnage)); // 11h15 a 11h20
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(195, WayPoint.getWaypoint("WCBlue_Miroir").position, personnage)); // 11h15 a 11h20
                                                                                                                         //Discussion avec Enriquer (Instigateur -> ? )
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(200, DiscussionEnrique)); // 11h20 a 11h40
 
