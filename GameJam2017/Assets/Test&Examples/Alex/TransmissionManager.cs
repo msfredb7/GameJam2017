@@ -40,7 +40,9 @@ public class TransmissionManager : MonoBehaviour {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(450, Reminder3));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(570, LastMinute));
-        
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(600, LastHint));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
     }
 
@@ -119,5 +121,10 @@ public class TransmissionManager : MonoBehaviour {
     public void Reminder3()
     {
         CreateTransmission("N'hésitez pas à fouiller dans les ordinateurs et les cellulaires ainsi que de lire les mémos pour découvrir des informations cruciales à votre enquête", 0);
+    }
+
+    public void LastHint()
+    {
+        CreateTransmission("Information de derniere minute! Le mot de passe pour accéder à l'ordinateur de Gary est son code d'employé.", 0);
     }
 }

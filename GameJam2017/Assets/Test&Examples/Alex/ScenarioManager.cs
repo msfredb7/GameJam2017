@@ -28,6 +28,8 @@ public class ScenarioManager : MonoBehaviour {
     public Personne Gaetan;
     public Personne MonsieurX;
 
+    public GameObject particleClavier;
+
     void Awake ()
     {
         if (instance == null)
@@ -167,5 +169,27 @@ public class ScenarioManager : MonoBehaviour {
         MonsieurX.GetBrain().ToDo();
     }
 
+    public Ordinateur GetPC(string name)
+    {
+        switch (name)
+        {
+            case "Enrique":
+                return EnriqueOrdi;
+            case "Samantha":
+                return SamanthaOrdi;
+            case "Gary":
+                return GaryOrdi;
+            case "Steven":
+                return StevenOrdi;
+            case "Stephen":
+                return StephenOrdi;
+            case "Justine":
+                return JustineOrdi;
+            case "Annushka":
+                return AnnushkaOrdi;
+            default:
+                return null;
+        }
+    }
 }
 
