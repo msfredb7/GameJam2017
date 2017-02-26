@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using CCC.Manager;
-using UnityEditor.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
@@ -15,7 +13,7 @@ public class EndGame : MonoBehaviour {
     {
         MasterManager.Sync();
 
-        if(EditorSceneManager.GetActiveScene().name == "GameWin")
+        if(Scenes.Exists("GameWin"))
         {
             DelayManager.CallTo(delegate ()
             {

@@ -88,10 +88,10 @@ public class Cell {
             myCall.AddMessage(messageIn, parleurIn);
         } else
         {
-            AppelTéléphonique myCallT=myCall;
+            AppelTéléphonique tempCall = myCall;
             DelayManager.CallTo(delegate ()
             {
-                myCall.AddMessage(messageIn, parleurIn);
+                tempCall.AddMessage(messageIn, parleurIn);
             }, delay);
         }
     }

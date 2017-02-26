@@ -68,8 +68,10 @@ public class ScenarioManager : MonoBehaviour {
         InitJustine();
         InitGaetan();
         InitMx();
- 
-	}
+
+
+      
+    }
 
     public void InitStephen()
     {
