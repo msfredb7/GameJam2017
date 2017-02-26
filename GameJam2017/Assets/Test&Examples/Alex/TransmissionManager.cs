@@ -73,7 +73,7 @@ public class TransmissionManager : MonoBehaviour {
     public void LastMinute()
     {
         musicManager.PlayLastMinuteSong();
-        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 minutes!",0);
+        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 heures!",0);
     }
 
     public void EndGame()
@@ -93,7 +93,7 @@ public class TransmissionManager : MonoBehaviour {
 
     public void WarningCinqmin()
     {
-        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 5 minutes!", 0);
+        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 5 heures!", 0);
     }
 
     public void RabaisMcDo()

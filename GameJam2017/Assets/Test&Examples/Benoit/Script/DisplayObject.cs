@@ -106,7 +106,7 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisplayDescription()
     {
-        texts.Add(UIPersonne.GetNom());
+        texts.Add(UIPersonne.GetDescription());
     }
 
     public List<string> texts = new List<string>();
