@@ -130,12 +130,12 @@ public class Stephen : Brain {
 
         BulleManager.instance.StartCall(personnage, 10);
 
-        telephone.SayInTelephone("Oui allo?", false);
-        telephone.SayInTelephone("Hey c'est Stephen", true, 2);
-        telephone.SayInTelephone("As-tu des informations sur la réunion de ce soir à me fournir?", true, 4);
-        telephone.SayInTelephone("Je n’ai pas réussi à accéder aux dossiers de ton entreprise. Ils sont trop bien protégés", false, 6);
-        telephone.SayInTelephone("Ça c’est la faute de Gary ! J’vais essayer de m’arranger avec lui.", true, 8);
-        telephone.SayInTelephone("Fais vite, sinon ton plan va échouer", false, 10);
+        telephone.SayInTelephone("Oui allo?", "Gary");
+        telephone.SayInTelephone("Hey c'est Stephen", "Stephen", 2);
+        telephone.SayInTelephone("As-tu des informations sur la réunion de ce soir à me fournir?", "Gary", 4);
+        telephone.SayInTelephone("Je n’ai pas réussi à accéder aux dossiers de ton entreprise. Ils sont trop bien protégés", "Stephen", 6);
+        telephone.SayInTelephone("Ça c’est la faute de Gary ! J’vais essayer de m’arranger avec lui.", "Gary", 8);
+        telephone.SayInTelephone("Fais vite, sinon ton plan va échouer", "Stephen", 10);
 
         telephone.EndCall(10);
     }
@@ -174,12 +174,12 @@ public class Stephen : Brain {
 
         BulleManager.instance.StartCall(personnage, 10);
 
-        telephone.SayInTelephone("Oui allo?", false);
-        telephone.SayInTelephone("C'est Stephen!", true, 2);
-        telephone.SayInTelephone("As-tu réussi à obtenir ce que tu voulais", false, 4);
-        telephone.SayInTelephone("Non, le geek me demande 1000$ pour son foutu document", true, 6);
-        telephone.SayInTelephone("Donne lui, ça vaut la peine", false, 8);
-        telephone.SayInTelephone("J’ai pas 1000$ sur moi pis j’ai pas le temps d’aller le retirer avant 18h30…", true, 10);
+        telephone.SayInTelephone("Oui allo?", "Gary");
+        telephone.SayInTelephone("C'est Stephen!", "Stephen", 2);
+        telephone.SayInTelephone("As-tu réussi à obtenir ce que tu voulais", "Gary", 4);
+        telephone.SayInTelephone("Non, le geek me demande 1000$ pour son foutu document", "Stephen", 6);
+        telephone.SayInTelephone("Donne lui, ça vaut la peine", "Gary", 8);
+        telephone.SayInTelephone("J’ai pas 1000$ sur moi pis j’ai pas le temps d’aller le retirer avant 18h30…", "Stephen", 10);
 
         telephone.EndCall(10);
     }

@@ -206,19 +206,20 @@ public class Steven : Brain
 
         Cell telephone = personnage.GetCell();
 
-        BulleManager.instance.StartCall(personnage, 10);
+        BulleManager.instance.StartCall(personnage, 16);
 
    
-        telephone.SayInTelephone("Oui, ici Steven", false, 0);
-        telephone.SayInTelephone("Toujours bon pour ce soir?", true, 2);
-        telephone.SayInTelephone("Oui", false, 4);
-        telephone.SayInTelephone("Aucun changement?", true , 6);
-        telephone.SayInTelephone("Non", false, 8);
-        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", true, 10);
-        telephone.SayInTelephone("Je comprends", false, 12);
-        telephone.SayInTelephone("Bonne chance", true, 14);
-        telephone.SayInTelephone("Merci", false, 16);
+        telephone.SayInTelephone("Oui, ici Steven", "Steven", 0);
+        telephone.SayInTelephone("Toujours bon pour ce soir?", "Inconu", 2);
+        telephone.SayInTelephone("Oui", "Steven", 4);
+        telephone.SayInTelephone("Aucun changement?", "Inconu", 6);
+        telephone.SayInTelephone("Non", "Steven", 8);
+        telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", "Inconu", 10);
+        telephone.SayInTelephone("Je comprends", "Steven", 12);
+        telephone.SayInTelephone("Bonne chance", "Inconu", 14);
+        telephone.SayInTelephone("Merci", "Steven", 16);
 
+        
         telephone.EndCall(16);
 
         personnage.GetCell().AddCall("Anonyme","30/02/2017");
@@ -233,12 +234,12 @@ public class Steven : Brain
 
         BulleManager.instance.StartCall(personnage, 10);
 
-        telephone.SayInTelephone("Oui allo?", false);
-        telephone.SayInTelephone("Salut Annushka, j’ai un service à te demander", true, 2);
-        telephone.SayInTelephone("Oui?", false, 4);
-        telephone.SayInTelephone("J’ai besoin que tu ramasses un colis ce soir", true, 6);
-        telephone.SayInTelephone("Quelle heure?", false, 8);
-        telephone.SayInTelephone("Je te reviens là-dessus !", true, 10);
+        telephone.SayInTelephone("Oui allo?", "Annushka");
+        telephone.SayInTelephone("Salut Annushka, j’ai un service à te demander", "Steven", 2);
+        telephone.SayInTelephone("Oui?", "Annushka", 4);
+        telephone.SayInTelephone("J’ai besoin que tu ramasses un colis ce soir", "Steven", 6);
+        telephone.SayInTelephone("Quelle heure?", "Annushka", 8);
+        telephone.SayInTelephone("Je te reviens là-dessus !", "Steven", 10);
 
         telephone.EndCall(10);
     }
@@ -252,10 +253,10 @@ public class Steven : Brain
 
         BulleManager.instance.StartCall(personnage, 6);
 
-        telephone.SayInTelephone("Oui allo?", false);
-        telephone.SayInTelephone("Tout est prêt pour ce soir", true, 2);
-        telephone.SayInTelephone("Livraison du colis à 18h00.", true, 4);
-        telephone.SayInTelephone("Parfait merci !", false, 6);
+        telephone.SayInTelephone("Oui allo?", "Steven");
+        telephone.SayInTelephone("Tout est prêt pour ce soir", "Anonyme", 2);
+        telephone.SayInTelephone("Livraison du colis à 18h00.", "Anonyme", 4);
+        telephone.SayInTelephone("Parfait merci !", "Steven", 6);
 
         telephone.EndCall(6);
     }

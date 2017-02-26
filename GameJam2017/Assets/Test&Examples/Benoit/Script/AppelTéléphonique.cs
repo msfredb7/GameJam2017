@@ -13,50 +13,23 @@ public class AppelTéléphonique
     private string nomEmetteur;
     private string nomRecepteur;
     
-    private List<string> MessageEmetteur;
-    private List<string> MessageRecepteur;
+    public List<string> Message;
+    public List<string> Parleur;
     //IMPORTANT-> altérnance 1message/1message entre emetteur recepteur et le recepteur commence TJRS, TJRS, TJRS
 
 
     public AppelTéléphonique(string _nomEmetteur, string _nomRecepteur)
     {
-        MessageEmetteur = new List<string>();
-        MessageRecepteur = new List<string>();
+        Message = new List<string>();
+        Parleur = new List<string>();
         this.nomEmetteur = _nomEmetteur;
         this.nomRecepteur = _nomRecepteur;
     }
 
-    public string GetNomEmetteur()
+    public void AddMessage(string mIn,string pIn)
     {
-        return nomEmetteur;
-    }
-
-    public string GetNomRecepteur()
-    {
-        return nomRecepteur;
-    }
-
-    public List<string> GetMessageEmetteur()
-    {
-        return MessageEmetteur;
-    }
-
-    public List<string> GetMessageRecepteur()
-    {
-        return MessageRecepteur;
-    }
-
-    public void AddMessageEmetteur(string message)
-    {
-        MessageEmetteur.Add(message);
-
-        contentUpdate.Invoke();
-    }
-
-    public void AddMessageRecepteur(string message)
-    {
-        MessageRecepteur.Add(message);
-
+        Message.Add(mIn);
+        Parleur.Add(pIn);
         contentUpdate.Invoke();
     }
 }
