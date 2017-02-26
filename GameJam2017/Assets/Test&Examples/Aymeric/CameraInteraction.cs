@@ -30,6 +30,11 @@ public class CameraInteraction : Singleton<CameraInteraction> {
     public float maxDepY;
     public float minDepY;
 
+    static public bool InstaceNotNull()
+    {
+        return instance != null;
+    }
+
     static public Personne GetFocusedTarget(int index)
     {
         Transform follow = null;

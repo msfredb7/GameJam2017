@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e4b96d96ec49c7341a2d73fc7b23ed50
+timeCreated: 1488096298
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ARMY RUST
+  fontNames:
+  - ARMY RUST
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
