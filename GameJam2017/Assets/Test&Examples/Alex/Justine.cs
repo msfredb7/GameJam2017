@@ -17,11 +17,13 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(62, AppelMari));
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(98, TravailPersonnel));
         //10H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(142, TurnTop));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("JustineDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, TravailPersonnel));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Justine").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(232, TurnRight));
         //12H
@@ -40,18 +42,41 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(368, ConversationSamantha));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(395, AppelMari2));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(400, TravailPersonnel1));
         //15H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(435, WayPoint.getWaypoint("BossDesk_Visiteur2").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(440, TurnTop));
         //16H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(475, WayPoint.getWaypoint("JustineDesk").position, personnage));
-
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(490, TravailPersonnel3));
         //17H
 
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
     }
+
+    public void TravailPersonnel3()
+    {
+        ClavierAnimation(125);
+    }
+
+    public void TravailPersonnel2()
+    {
+        ClavierAnimation(25);
+    }
+
+    public void TravailPersonnel1()
+    {
+        ClavierAnimation(35);
+    }
+
+    public void TravailPersonnel()
+    {
+        ClavierAnimation(42);
+    }
+
+
 
     public void TurnRight()
     {

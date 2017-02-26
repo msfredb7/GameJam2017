@@ -26,7 +26,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(100, ParleAvecAnn)); // 9h40 a 10h10
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(117, WayPoint.getWaypoint("WCRed").position, personnage)); // 10h10 a 10h15
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(117, WayPoint.getWaypoint("WCRed_Miroir").position, personnage)); // 10h10 a 10h15
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(124, Maquillage)); // 10h15 a 11h00
 
@@ -41,6 +41,8 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240, EcouteStephen)); // 12h00 a 12h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(263, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 12h30 a 12h35
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(270, TravailPersonnel1)); // 12h00 a 12h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, MakeTexto2)); // 12h35 a 13h00
 
@@ -57,7 +59,9 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(318, RemoveMemoBoss)); // 13h10 a 13h15
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h20 a 13h30
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("AnnushkaDesk_Visiteur").position, personnage)); // 13h20 a 13h30
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(325, TurnTop1));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(330, ParleAvecAnn2)); // 13h30 a 13h55
 
@@ -80,6 +84,8 @@ public class Samantha : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(487.5f, WayPoint.getWaypoint("StephenDesk").position, personnage)); // 16h07 a 16h15
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(495, InviteStephen)); // 16h15 a 16h45
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(500, TravailPersonnel));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(525, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 16h45 a 16h50
 
@@ -111,7 +117,6 @@ public class Samantha : Brain {
     }
 
 
-
     public void TurnTop()
     {
         personnage.defaultDirection = Character.Direction.Up;
@@ -137,6 +142,11 @@ public class Samantha : Brain {
 
         Enrique.SetFocusIn(null, 11);
         personnage.SetFocusIn(null, 11);
+    }
+
+    public void TravailPersonnel1()
+    {
+        ClavierAnimation(30);
     }
 
     public void TravailPersonnel()
