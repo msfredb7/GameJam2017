@@ -60,6 +60,7 @@ public class Justine : Brain {
 
     public void TravailPersonnel3()
     {
+        ScenarioManager.instance.JustineOrdi.AddFichierActif("Accord de partenariat : Petrolus  ", "En signant cet accord, vous vous engagez à respecter l'ensemble des conditions énoncées en annexe.");
         ClavierAnimation(125);
     }
 
