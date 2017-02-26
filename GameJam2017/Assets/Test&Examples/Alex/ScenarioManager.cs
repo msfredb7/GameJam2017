@@ -68,12 +68,16 @@ public class ScenarioManager : MonoBehaviour {
     {
         List < Courriel > listC= new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listC.Add(new Courriel("Destinataire : Marketing Online", "Titre : Résumé de votre dernière campagne publicitaire (#098-1) Message: Votre dernière campagne publicitaire a généré 1082 % plus de clics qu’à l’habitude.Nous vous remercions de la confiance accordée à Marketing Online. "));
+        listC.Add(new Courriel("Destinataire : EB GAMES", "Titre : Votre infolettre mensuel Message: Passez en boutique pour bénéficier de rabais exceptionnels sur les nouveautés.Échangez votre Xbox One(avec un minimum de 14 jeux et 3 mannettes) pour obtenir un crédit - magasin de 50$ sur la Nintendo Switch. "));
         StephenOrdi.initialise("StephenOrdi",listS,listC);
     }
     public void InitStevenOrdi()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listC.Add(new Courriel("Destinataire : Ressources Humaines Canada", "Titre : Conditions de travail Message: En réponse à vos précédentes requêtes, nous vous confirmons que les motifs évoqués par vos employés ne sont pas suffisant pour ouvrir une enquête interne sur votre PDG. "));
+        listC.Add(new Courriel("LinkedIn", "Titre : Nouvelle connexion Message: Annushka désire rejoindre votre réseau LinkedIn.Nous vous suggérons de n’accepter les invitations des personnes que vous connaissez personnellement. "));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
     }
     public void InitEnriqueOrdi()
@@ -100,12 +104,17 @@ public class ScenarioManager : MonoBehaviour {
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listC.Add(new Courriel("International Student Center", "Titre : Message de bienvenue Message: Nous confirmons votre autorisation de travailler pour une durée de 3 mois, avec possibilité de prolongement conditionnel aux recommandations au sein de l’entreprise de M.Enrique Rodriguez. "));
+        listC.Add(new Courriel("LinkedIn", "Titre : Steven a accepté votre demande de connexion Message: Vous pouvez désormais visualiser le profil de Steven ou démarrer une conversation. "));
         AnnushkaOrdi.initialise("AnnushkaOrdi", listS, listC);
     }
     public void InitJustineOrdi()
     {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
+        listC.Add(new Courriel("Destinataire : Ordre comptable agréé (CPA)", "Titre : Plainte #134-02-111 Message: Madame, nous vous rappelons l’importance de répondre dans les plus brefs délais à notre précédent message.Votre ancien employeur, M.Milton, ayant déposé une plainte contre vous, il est dans votre devoir de formuler votre version des faits rapidement. "));
+        listC.Add(new Courriel("Votre concessionnaire BMW", "Titre : Livraison - BMW 3 Series 2017 Message: Nous avons le plaisir de vous annoncer que votre BMW 3 Series 2017 vient tout juste d’arriver à notre succursale.Vous pouvez passer dès ce soir la récupérer, tel que demandé, nous l’avons décoré d’un ruban rouge. "));
+        listC.Add(new Courriel("Destinataire : M.Milton", "Titre : Fraude fiscale Message: Puisque tu ne retournes pas mes appels, j’ai officiellement déposé une plainte à ton ordre professionnel.J’ai toutes les preuves nécessaires pour te poursuivre en justice.Je te conseille de me rendre ce que tu m’as volé pendant les 5 dernières années + intérêt de 10 % +dédommagement de 50 000$. "));
         JustineOrdi.initialise("JustineOrdi", listS, listC);
     }
 
