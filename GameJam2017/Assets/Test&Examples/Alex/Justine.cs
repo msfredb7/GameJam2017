@@ -21,7 +21,8 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Justine").position, personnage));
         //12H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed_Miroir").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, Maquillage));
         //13H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("PlacardConsierge_Visiteur").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310, ConversationGaetan));
@@ -44,6 +45,14 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
     }
+
+    public void Maquillage()
+    {
+        personnage.defaultDirection = Character.Direction.Up;
+        personnage.SetDirectionIn(Character.Direction.Down, 30);
+    }
+
+
 
     public void ConversationSteven()
     {

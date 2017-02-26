@@ -13,7 +13,7 @@ public class Enrique : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(116, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(124, knockDoor));
         //10H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("SalleEntrainement_Bench").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(146, WayPoint.getWaypoint("BossDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(156, ConvJustine));
         //11H
@@ -24,10 +24,10 @@ public class Enrique : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(245, WayPoint.getWaypoint("BossDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(250, GaryCall));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(280, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(280, WayPoint.getWaypoint("SalleEntrainement_Bench").position, personnage));
         //13H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("BossDesk").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(350, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(350, WayPoint.getWaypoint("SalleEntrainement_Bench").position, personnage));
         //14H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(395, WayPoint.getWaypoint("BossDesk").position, personnage));
         //15H

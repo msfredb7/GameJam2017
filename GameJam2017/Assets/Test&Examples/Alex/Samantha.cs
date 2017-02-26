@@ -37,7 +37,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(240, EcouteStephen)); // 12h00 a 12h30
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 12h30 a 12h35
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(263, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 12h30 a 12h35
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(275, MakeTexto2)); // 12h35 a 13h00
 
