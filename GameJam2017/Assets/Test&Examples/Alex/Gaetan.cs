@@ -41,7 +41,6 @@ public class Gaetan : Brain {
         //15H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
 
-
         //16H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, tocGary));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(510, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
@@ -49,6 +48,7 @@ public class Gaetan : Brain {
 
 
         //17H
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(555, ParleASteven));
 
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
@@ -99,6 +99,14 @@ public class Gaetan : Brain {
     public void tocGary()
     {
 
+    }
+
+    //17h15 à 17h30 : Croise Steven et lui précise qu’il est allergique au chocolat. Steven il lui assure qu’il n’y en a pas dans le gâteau de ce soir
+    public void ParleASteven()
+    {
+        BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage);
+        BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5);
+        BulleManager.instance.Say("Ouff! C'est\nmon jour de chance en effet", personnage, 10);
     }
 
     //18h10 à 18h20 : Embrasse Enrique

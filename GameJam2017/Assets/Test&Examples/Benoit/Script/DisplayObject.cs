@@ -28,11 +28,14 @@ public class DisplayObject : MonoBehaviour {
 
     public Sprite Computer;
     public Sprite Door;
+    public Sprite Appel;
 
     private Personne UIPersonne;
     private Cell UICell;
     private Ordinateur UIOrdinateur;
     private Registre UIRegistre;
+    private AppelTéléphonique UIAppelTéléphonique;
+    private FichierActif UIFichierActif;
 
     private int currentObjectType;
     private int currentCategoryTab;
@@ -60,10 +63,17 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             charFace.sprite = Computer;
+            topInfo.text = UIOrdinateur.GetNomOrdinateur();
         }
         if (currentObjectType == 2)
         {
             charFace.sprite = Door;
+            topInfo.text = "fonctionnalité non implanté";
+        }
+        if (currentObjectType == 3)
+        {
+            charFace.sprite = Appel;
+            topInfo.text = "Appel de " + UIAppelTéléphonique.GetNomEmetteur();
         }
     }
 
@@ -74,18 +84,23 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 0)
         {
             if (currentCategoryTab == 0) DisplayDescription();
-            if (currentCategoryTab == 1) DisplayAppel();
+            if (currentCategoryTab == 1) DisplayAppel();      //historique
             if (currentCategoryTab == 2) DisplaySMS();
         }
         if (currentObjectType == 1)
         {
             if (currentCategoryTab == 0) DisplayHistorique();
             if (currentCategoryTab == 1) DisplayCourriel();
+            if (currentCategoryTab == 2) DisplayFichierActif();
 
         }
         if (currentObjectType == 2)
         {
             if (currentCategoryTab == 0) DisplayAccès();
+        }
+        if (currentObjectType == 3)
+        {
+            if (currentCategoryTab == 0) DisplayAppelTéléphonique(); //conversation courant
         }
         PrintTexts();
     }
@@ -94,7 +109,6 @@ public class DisplayObject : MonoBehaviour {
     {
         texts.Add(UIPersonne.GetNom());
     }
-
 
     public List<string> texts = new List<string>();
 
@@ -115,6 +129,12 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Date: " + listSMS[i].date + "\nDestinaire: " + listSMS[i].destinataire + "\nContenu: " + listSMS[i].text);
         }
     }
+
+    public void DisplayFichierActif()
+    {
+        texts.Add("Nom du fichier: " + UIFichierActif.GetNomFichier() + "\n\n" + UIFichierActif.GetContenuFicher());
+    }
+
     public void DisplayHistorique()
     {
         List<SiteInternet> listSites = UIOrdinateur.GetHistorique();
@@ -123,6 +143,7 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Adresse: " + listSites[i].adresse + "\nContenu: " + listSites[i].date);
         }
     }
+
     public void DisplayCourriel()
     {
         List<Courriel> listcourriel = UIOrdinateur.GetCourriels();
@@ -131,12 +152,30 @@ public class DisplayObject : MonoBehaviour {
             texts.Add("Destinataire: " + listcourriel[i].destinataire + "\nContenu: " + listcourriel[i].text);
         }
     }
+
     public void DisplayAccès()
     {
         List<Entry> listRegistre = UIRegistre.GetEntries();
         for (int i = 0; i < listRegistre.Count; i++)
         {
             texts.Add("Passage de: " + listRegistre[i].name + "\nHeure: " + listRegistre[i].hour);
+        }
+    }
+
+    public void DisplayAppelTéléphonique()
+    {
+        List<string> messageEmetteur = UIAppelTéléphonique.GetMessageEmetteur();
+        List<string> messageRecepteur = UIAppelTéléphonique.GetMessageRecepteur();
+        string nomEmetteur = UIAppelTéléphonique.GetNomEmetteur();
+        string nomRecepteur = UIAppelTéléphonique.GetNomRecepteur();
+
+        for (int i = 0; i < messageRecepteur.Count; i++)
+        {
+            texts.Add(nomRecepteur + ": \n" + nomRecepteur[i]);
+            if (i < messageEmetteur.Count)
+            {
+                texts.Add(nomEmetteur + ": \n" + messageEmetteur[i]);
+            }
         }
     }
 
@@ -165,23 +204,6 @@ public class DisplayObject : MonoBehaviour {
         }
     }
 
-    public void UpdateObjectContent()
-    {
-        if (currentObjectType == 0)
-        {
-            charFace.sprite = UIPersonne.apparence;
-            topInfo.text = UIPersonne.GetNom();
-        }
-        if (currentObjectType == 1)
-        {
-            charFace.sprite = Computer;
-        }
-        if (currentObjectType == 2)
-        {
-            charFace.sprite = Door;
-        }
-    }
-
     public void DisableListener()
     {
         if (currentObjectType == 0)
@@ -191,10 +213,15 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             UIOrdinateur.contentUpdate.RemoveAllListeners();
+            UIFichierActif.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 2)
         {
             UIRegistre.contentUpdate.RemoveAllListeners();
+        }
+        if (currentObjectType == 3)
+        {
+            UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
         }
     }
 
@@ -208,10 +235,15 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             UIOrdinateur.contentUpdate.AddListener(newContent);
+            UIFichierActif.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 2)
         {
             UIRegistre.contentUpdate.AddListener(newContent);
+        }
+        if (currentObjectType == 3)
+        {
+            UIAppelTéléphonique.contentUpdate.AddListener(newContent);
         }
     }
 
@@ -248,19 +280,23 @@ public class DisplayObject : MonoBehaviour {
         DestroyCategoryTab();
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
-        { 
-            GameObject newButton = Instantiate(categoryTabButton);
-            Text newText = newButton.GetComponentInChildren<Text>();
+        {
+            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { } //skip fichier actif si null
+            else
+            {
+                GameObject newButton = Instantiate(categoryTabButton);
+                Text newText = newButton.GetComponentInChildren<Text>();
 
-            newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
+                newButton.GetComponent<ClickCategoryTab>().numeroButton = i;
 
-            newButton.transform.SetParent(tabLayoutGroup.transform);
-            newText.text = listObjets[currentObjectType].categoryName[i];
+                newButton.transform.SetParent(tabLayoutGroup.transform);
+                newText.text = listObjets[currentObjectType].categoryName[i];
 
-            ClickCategoryTab newTab = newButton.GetComponent<ClickCategoryTab>();
-            newTab.tabClicked.AddListener(ChangeTab);
+                ClickCategoryTab newTab = newButton.GetComponent<ClickCategoryTab>();
+                newTab.tabClicked.AddListener(ChangeTab);
 
-            categoryButton.Add(newButton);
+                categoryButton.Add(newButton);
+            }
         }
 
         InstanciateTextZones();
@@ -279,6 +315,7 @@ public class DisplayObject : MonoBehaviour {
     public void GetComputer(Ordinateur ordinateur)
     {
         UIOrdinateur = ordinateur;
+        UIFichierActif = ordinateur.GetFichierActif();
         currentObjectType = 1;
         currentCategoryTab = 0;
 
@@ -291,6 +328,15 @@ public class DisplayObject : MonoBehaviour {
         currentObjectType = 2;
         currentCategoryTab = 0;
   
+        ChangeObject();
+    }
+
+    public void GetAppelTéléphonique(AppelTéléphonique appeltéléphonique)
+    {
+        UIAppelTéléphonique = appeltéléphonique;
+        currentObjectType = 3;
+        currentCategoryTab = 0;
+
         ChangeObject();
     }
 

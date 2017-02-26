@@ -14,15 +14,11 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 8h30 a 8h45
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(45, WorkingAtDesk)); // 8h45 a 9h00
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("WCRed").position, personnage)); // 9h00 a 9h05
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(65, JasetteAvecGaetan)); // 9h05 a 9h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 9h30 a 9h35
-
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(95, TempLibre)); // 9h35 a 10h10
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h10 a 10h30
 
@@ -30,41 +26,25 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("WCRed").position, personnage)); // 11h00 a 11h10
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, FaitPopo)); // 11h10 a 11h25
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(205, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 11h25 a 11h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, DiscussionAvecStephen)); //11h30 a 11h50
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 11h50 a 12h00
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(240, EcouteStephen)); // 12h00 a 12h30
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed").position, personnage)); // 12h30 a 12h40
-
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(280, DiscussionTelephonique)); // 12h40 a 13h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h00 a 13h20
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(320, TempLibre)); // 13h20 a 13h30
-
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(330, DiscussionAvecSamantha)); // 13h30 a 13h55
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(355, WayPoint.getWaypoint("SalleEntrainement").position, personnage)); // 13h55 a 14h05
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(365, EntrainementAvecEnrique)); // 14h05 a 14h50
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(410, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 14h50 a 15h00
-
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(420, ProblemeAvecOrdinateur)); // 15h00 a 15h15
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(435, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 15h15 a 15h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(450, CogneChezGary)); // 15h30 a 15h45
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 15h45 a 16h00
-
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, WorkingAtDesk)); // 16h00 a 17h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("WCRed").position, personnage)); // 17h00 a 17h05
 
@@ -96,43 +76,28 @@ public class Annushka : Brain {
 
     public void JasetteAvecGaetan()
     {
-        // TODO : DIALOGUE
+        BulleManager.instance.Say("Ça va bien là-dedans?", ScenarioManager.instance.Gaetan, 5);
+        BulleManager.instance.Say("Qui parle à moi?", personnage, 5,5);
+        BulleManager.instance.Say("C’est moi Gaétan le concierge, c’est la première fois que nous avons la chance de parler", ScenarioManager.instance.Gaetan, 10 , 10);
+        BulleManager.instance.Say(": Pas sur que être une chance…", personnage, 5,20);
+        BulleManager.instance.Say("Allez je vous laisse tranquille, bonne journée", ScenarioManager.instance.Gaetan, 5,25);
+
     }
 
-    public void TempLibre()
-    {
-        personnage.Stop();
-    }
+
 
     public void RencontreAvecSteven()
     {
-        personnage.Stop();
-    }
-
-    public void FaitPopo()
-    {
-        personnage.Stop();
-        // popo ?
+        BulleManager.instance.Say("Avais-tu des questions sur la compagnie?", ScenarioManager.instance.Steven, 5);
+        BulleManager.instance.Say("Oui, pourquoi Samantha travailler ici?", ScenarioManager.instance.Annushka, 5, 5);
+        BulleManager.instance.Say("Bonne question, c’est Enrique qui a insisté pour l’engager", ScenarioManager.instance.Steven, 10, 10);
+        BulleManager.instance.Say("Pas très surprenant… Pas plus macho que lui", ScenarioManager.instance.Annushka, 5, 20);
+        BulleManager.instance.Say("Je ne te le fais pas dire !", ScenarioManager.instance.Steven, 5, 25);
     }
 
     public void DiscussionAvecStephen()
     {
-        // TODO : DIALOGUE
-    }
 
-    public void EcouteStephen()
-    {
-        // dialogue gerer par stephen?
-    }
-
-    public void DiscussionTelephonique()
-    {
-        // TODO : Dialogue
-    }
-
-    public void DiscussionAvecSamantha()
-    {
-        // TODO : Dialogue
     }
 
     public void EntrainementAvecEnrique()
@@ -142,21 +107,29 @@ public class Annushka : Brain {
 
     public void ProblemeAvecOrdinateur()
     {
-        // TODO : Dialogue
+        BulleManager.instance.Say("Saletée de machine !!!!!", personnage, 5);
     }
 
     public void AppelAuToilette()
     {
-        // TODO : Dialogue
+        BulleManager.instance.Say("***Comment se passe la mission?***", ScenarioManager.instance.Annushka, 5);
+        BulleManager.instance.Say("Pas mission, stage", ScenarioManager.instance.Annushka, 5, 5);
+        BulleManager.instance.Say("***Et comment est ton patron?***", ScenarioManager.instance.Annushka, 5, 10);
+        BulleManager.instance.Say("Stupide, incompétent, macho, mérite la mort.", ScenarioManager.instance.Annushka, 10, 15);
+        BulleManager.instance.Say("***Promet moi que tu ne feras rien de stupide***", ScenarioManager.instance.Annushka, 5, 25);
+        BulleManager.instance.Say("Promis père", ScenarioManager.instance.Annushka, 5, 30);
     }
 
     public void DemandePourGaetan()
     {
+        BulleManager.instance.Say("Besoin débarrer salle entrainement", ScenarioManager.instance.Annushka, 5);
+        BulleManager.instance.Say("Aucun problème, suis-moi", ScenarioManager.instance.Gaetan, 5, 5);
+        BulleManager.instance.Say("Merci monsieur.", ScenarioManager.instance.Annushka, 5, 10);
 
     }
 
     public void OuvertureDuColis()
     {
-
+        BulleManager.instance.Say("Miam bon gâteau à la vanille!", ScenarioManager.instance.Annushka, 10);
     }
 }
