@@ -124,6 +124,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.WoW.com", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
+        GaryOrdi.AddFichierActif("Rapport", "PDG de la compagnie X, depuis près de 20 ans, M.X est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays.");
         Gary.GetBrain().ToDo();
     }
     public void InitAnnushka()
