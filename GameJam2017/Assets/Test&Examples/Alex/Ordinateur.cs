@@ -28,7 +28,7 @@ public class Ordinateur : MonoBehaviour {
     private FichierActif fichierActif;
 
 
-    public Ordinateur(string nomOrdinateur, List<SiteInternet> historique, List<Courriel> courriels)
+    public void initialise(string nomOrdinateur, List<SiteInternet> historique, List<Courriel> courriels)
     {
         this.nomOrdinateur = nomOrdinateur;
         this.historique = historique;
