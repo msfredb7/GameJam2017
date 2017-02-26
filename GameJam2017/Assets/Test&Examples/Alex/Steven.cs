@@ -196,6 +196,8 @@ public class Steven : Brain
         telephone.SayInTelephone("Merci", true, 16);
 
         telephone.EndCall(16);
+
+        personnage.GetCell().AddCall("Anonyme","30/02/2017");
     }
 
     public void phoneCallAnnushka()
