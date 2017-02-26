@@ -5,6 +5,7 @@ using CCC.Manager;
 
 public class MusicManager : MonoBehaviour {
 
+    public AudioSource notificationSound;
     public AudioSource mouseSound;
     public AudioSource audio;
     public float delay;
@@ -31,5 +32,10 @@ public class MusicManager : MonoBehaviour {
     {
         audio.Stop();
         lastsong.Play();
+    }
+
+    public void PlayNotification()
+    {
+        notificationSound.Play();
     }
 }

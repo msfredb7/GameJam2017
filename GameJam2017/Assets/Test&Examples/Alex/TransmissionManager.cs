@@ -17,6 +17,8 @@ public class TransmissionManager : MonoBehaviour {
     void Start ()
     {
         // Voici tous les messages qu'on va envoyer au joueur!
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(0, NouvellePizzeria));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(570, LastMinute));
         
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
@@ -33,6 +35,7 @@ public class TransmissionManager : MonoBehaviour {
     void SendTransmission()
     {
         transmissionCanvas.SetActive(true);
+        musicManager.PlayNotification();
         messageText.text = text[currentTransmission];
         currentTransmission++;
         DelayManager.CallTo(EndTransmission, timeOfTransmition);
@@ -53,5 +56,10 @@ public class TransmissionManager : MonoBehaviour {
     public void EndGame()
     {
         GameManager.EndGame(false);
+    }
+
+    public void NouvellePizzeria()
+    {
+        CreateTransmission("Attention, nous avons eu comme information qu'une nouvelle pizzeria viens d'ouvrir au coin de la cue!", 0);
     }
 }
