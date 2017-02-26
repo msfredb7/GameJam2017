@@ -8,7 +8,6 @@ public class Steven : Brain
     public override void ToDo()
     {
 
-
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 8h00 a 8h10
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, TravailPersonnel)); // 8h10 a 8h30
@@ -227,7 +226,10 @@ public class Steven : Brain
 
     //Animations Fixe (ou marche dans le vide, dépendament)
     public void TravailPersonnel()
-    { }
+    {
+        ClavierAnimation();
+    }
+
     public void CognePorte()
     {
         personnage.defaultDirection = Character.Direction.Up;

@@ -92,8 +92,7 @@ public class Annushka : Brain {
 
     public void WorkingAtDesk()
     {
-        personnage.Stop();
-        // Bruit, animation work ?
+        ClavierAnimation();
     }
 
     public void JasetteAvecGaetan()

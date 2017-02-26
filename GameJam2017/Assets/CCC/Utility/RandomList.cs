@@ -46,6 +46,11 @@ namespace CCC.Utility
             list[topIndex] = list[index];
             list[index] = temp;
         }
+
+        public List<T> GetList()
+        {
+            return list;
+        }
     }
     [System.Serializable]
     public class RandomIntList : RandomList<int> { }
