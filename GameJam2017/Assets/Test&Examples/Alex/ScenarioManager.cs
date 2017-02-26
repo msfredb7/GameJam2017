@@ -6,6 +6,10 @@ public class ScenarioManager : MonoBehaviour {
 
     public static ScenarioManager instance;
 
+    public FeuillePapier FeuillePlan;
+    public FeuillePapier FeuilleAmourGaetan;
+    public FeuillePapier FeuilleAmourSamantha;
+
     //public Ordinateur computer1;
     public Ordinateur StephenOrdi;
     public Ordinateur StevenOrdi;
