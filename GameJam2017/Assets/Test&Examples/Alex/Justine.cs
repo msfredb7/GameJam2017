@@ -10,6 +10,7 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(25, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(27, ConversationSteven));
+
         //9H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(62, AppelMari));
