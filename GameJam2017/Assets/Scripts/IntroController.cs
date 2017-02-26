@@ -134,7 +134,7 @@ public class IntroController : MonoBehaviour {
 
     void LaunchMainScene()
     {
-        Scenes.Load("Main");
+        Scenes.Load("Controls");
     }
 
 }
