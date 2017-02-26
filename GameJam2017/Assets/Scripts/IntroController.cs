@@ -80,6 +80,7 @@ public class IntroController : MonoBehaviour {
     {
         stage = 2;
         print("stage 2");
+        SoundManager.StopMusic();
         frontFade.DOFade(1, 0.75f).OnComplete(delegate()
         {
             content.SetActive(false);

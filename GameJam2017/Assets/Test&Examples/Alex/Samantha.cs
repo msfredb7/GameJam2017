@@ -217,6 +217,18 @@ public class Samantha : Brain {
 
     public void ParleAvecAnn2()
     {
+        Personne Annu = ScenarioManager.instance.Annushka;
+        personnage.focus = Annu;
+        Annu.focus = personnage;
+
+        BulleManager.instance.Say("J’pensais avoir \nété clair Manoushka", personnage, 3, 0);
+        BulleManager.instance.Say("Annushka, mon nom\n est Annushka", Annu, 3, 3);
+        BulleManager.instance.Say("Même affaire…\n Ça fait 1 journée t’es\n là pis t’essayes déjà\n de séduire mon Enrique", personnage, 3, 6);
+        BulleManager.instance.Say("Moi pas sûr\n de comprendre", Annu, 3, 9);
+        BulleManager.instance.Say("Essaye pas,\n j’ai trouvé la note que t’as laissé\n sur le bureau de Enrique\n* Jette la note sur le sol *", personnage, 3, 9);
+
+        Annu.SetFocusIn(null, 12);
+        personnage.SetFocusIn(null, 12);
 
     }
 
