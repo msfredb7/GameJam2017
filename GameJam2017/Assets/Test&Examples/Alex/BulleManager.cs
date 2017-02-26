@@ -14,6 +14,7 @@ public class BulleManager : MonoBehaviour {
     public Bubble petiteBulle;
     public Bubble moyenneBulle;
     public Bubble grosseBulle;
+    public Bubble callBulle;
 
     private Bubble currentBulle;
 
@@ -25,6 +26,9 @@ public class BulleManager : MonoBehaviour {
 
     public float bigOffsetX = 5.84f;
     public float bigOffsetZ = 7.63f;
+
+    public float callOffsetX = 0.98f;
+    public float callOffsetZ = 1.06f;
 
     private float currentOffsetX;
     private float currentOffsetZ;
@@ -87,5 +91,16 @@ public class BulleManager : MonoBehaviour {
             currentOffsetZ = bigOffsetZ;
             currentBulle = grosseBulle;
         }
+    }
+
+    public void StartCall(Character character, float time)
+    {
+        currentBulle = callBulle;
+
+        Vector3 position = new Vector3((character.transform.position.x + currentOffsetX), currentBulle.transform.position.y, (character.transform.position.z + currentOffsetZ));
+
+        Bubble myBubble = Instantiate(currentBulle, position, currentBulle.transform.rotation);
+
+        myBubble.SetValues(callOffsetX,callOffsetZ,character,time);
     }
 }

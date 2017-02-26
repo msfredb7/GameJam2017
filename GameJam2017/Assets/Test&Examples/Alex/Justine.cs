@@ -59,11 +59,12 @@ public class Justine : Brain {
 
     public void AppelMari()
     {
-        // TODO 
         AppelTéléphonique newCall = new AppelTéléphonique("Justine", "Mari");
         personnage.SetMyCall(newCall);
 
         Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage,10);
 
         telephone.SayInTelephone("Allo?", false);
         telephone.SayInTelephone("Salut", true,3);
