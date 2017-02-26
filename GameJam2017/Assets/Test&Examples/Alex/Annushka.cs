@@ -30,7 +30,7 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("WCRed").position, personnage)); // 11h00 a 11h10
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(190, FaitPopo)); // 11h10 a 11h25
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(195, FaitPopo)); // 11h10 a 11h25
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(205, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 11h25 a 11h30
 

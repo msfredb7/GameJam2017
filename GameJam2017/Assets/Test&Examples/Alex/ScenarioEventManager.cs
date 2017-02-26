@@ -36,7 +36,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     {
         float currentTime = Time.time;
 
-        print((currentTime - start));
+        
 
         if (events.Count <= 0) return;
 
