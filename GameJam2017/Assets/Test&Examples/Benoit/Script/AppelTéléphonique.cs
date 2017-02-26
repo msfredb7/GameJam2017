@@ -12,14 +12,16 @@ public class AppelTéléphonique
 
     private string nomEmetteur;
     private string nomRecepteur;
-
-    private List<string> MessageEmetteur = new List<string>();
-    private List<string> MessageRecepteur = new List<string>();
+    
+    private List<string> MessageEmetteur;
+    private List<string> MessageRecepteur;
     //IMPORTANT-> altérnance 1message/1message entre emetteur recepteur et le recepteur commence TJRS, TJRS, TJRS
 
 
     public AppelTéléphonique(string _nomEmetteur, string _nomRecepteur)
     {
+        MessageEmetteur = new List<string>();
+        MessageRecepteur = new List<string>();
         this.nomEmetteur = _nomEmetteur;
         this.nomRecepteur = _nomRecepteur;
     }
