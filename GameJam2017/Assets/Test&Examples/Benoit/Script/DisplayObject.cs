@@ -161,18 +161,12 @@ public class DisplayObject : MonoBehaviour {
 
     public void DisplayAppelTéléphonique()
     {
-        List<string> messageEmetteur = UIAppelTéléphonique.GetMessageEmetteur();
-        List<string> messageRecepteur = UIAppelTéléphonique.GetMessageRecepteur();
-        string nomEmetteur = UIAppelTéléphonique.GetNomEmetteur();
-        string nomRecepteur = UIAppelTéléphonique.GetNomRecepteur();
+        List<string> ListMessage = UIAppelTéléphonique.Message;
+        List<string> ListParleur = UIAppelTéléphonique.Parleur;
 
-        for (int i = 0; i < messageRecepteur.Count; i++)
+        for (int i = 0; i < ListMessage.Count; i++)
         {
-            texts.Add(nomRecepteur + ": \n" + messageRecepteur[i]);
-            if (i < messageEmetteur.Count)
-            {
-                texts.Add(nomEmetteur + ": \n" + messageEmetteur[i]);
-            }
+            texts.Add(ListParleur[i] + ": \n" + ListMessage[i]);
         }
     }
 

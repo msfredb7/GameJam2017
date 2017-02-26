@@ -38,7 +38,9 @@ public class Justine : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(340, WayPoint.getWaypoint("JustineDesk").position, personnage));
         //14H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SamanthaDesk_Visiteur").position, personnage));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(361, TurnTop));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(368, ConversationSamantha));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(390, WayPoint.getWaypoint("JustineDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(395, AppelMari2));
@@ -122,24 +124,24 @@ public class Justine : Brain {
 
         BulleManager.instance.StartCall(personnage,34);
 
-        telephone.SayInTelephone("Allo?", false);
-        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.f", true,2);
-        telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", false, 4);
-        telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", true, 6);
-        telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", false, 8);
-        telephone.SayInTelephone("C’est une surprise", true, 10);
-        telephone.SayInTelephone("Allez dit le moi", false, 12);
-        telephone.SayInTelephone("Non", true, 14);
-        telephone.SayInTelephone("Un indice allez", false, 16);
-        telephone.SayInTelephone("Non j’veux pas que tu devines", true, 18);
-        telephone.SayInTelephone("Je vais pas deviner avec un ptit indice", false, 20);
-        telephone.SayInTelephone("C’est ca que tu as dis la dernière fois aussi", true, 22);
-        telephone.SayInTelephone("Ohhhh t’es plate", false, 24);
-        telephone.SayInTelephone("Bon raccroche, je dois retourner travailler", true, 26);
-        telephone.SayInTelephone("Pourquoi je raccrocherais? C’est à ton tour", false, 28);
-        telephone.SayInTelephone("Non raccroche s’il te plait", true, 30);
-        telephone.SayInTelephone("Non toi raccroche", false, 32);
-        telephone.SayInTelephone("Non toi raccroche", true, 34);
+        telephone.SayInTelephone("Allo?", "Inconue");
+        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.f", "Justine",2);
+        telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", "Inconue", 4);
+        telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", "Justine", 6);
+        telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", "Inconue", 8);
+        telephone.SayInTelephone("C’est une surprise", "Justine", 10);
+        telephone.SayInTelephone("Allez dit le moi", "Inconue", 12);
+        telephone.SayInTelephone("Non", "Justine", 14);
+        telephone.SayInTelephone("Un indice allez", "Inconue", 16);
+        telephone.SayInTelephone("Non j’veux pas que tu devines", "Justine", 18);
+        telephone.SayInTelephone("Je vais pas deviner avec un ptit indice", "Inconue", 20);
+        telephone.SayInTelephone("C’est ca que tu as dis la dernière fois aussi", "Justine", 22);
+        telephone.SayInTelephone("Ohhhh t’es plate", "Inconue", 24);
+        telephone.SayInTelephone("Bon raccroche, je dois retourner travailler", "Justine", 26);
+        telephone.SayInTelephone("Pourquoi je raccrocherais? C’est à ton tour", "Inconue", 28);
+        telephone.SayInTelephone("Non raccroche s’il te plait", "Justine", 30);
+        telephone.SayInTelephone("Non toi raccroche", "Inconue", 32);
+        telephone.SayInTelephone("Non toi raccroche", "Justine", 34);
 
         telephone.EndCall(34);
     }
@@ -191,13 +193,13 @@ public class Justine : Brain {
 
         BulleManager.instance.StartCall(personnage, 12);
 
-        telephone.SayInTelephone("Allo?", true);
-        telephone.SayInTelephone("Salut chérie, je me demandais tu rentrais à quelle heure ce soir?", false, 2);
-        telephone.SayInTelephone("Euh je sais pas honnêtement", true, 4);
-        telephone.SayInTelephone("Comment ça?", false, 6);
-        telephone.SayInTelephone("Bah je crois que Samantha vient de m’avouer que Enrique a organisé un party pour mon départ.", true, 8);
-        telephone.SayInTelephone("Amuses-toi bien alors, je t’aime!", false, 10);
-        telephone.SayInTelephone("Moi aussi mon petit minou chou d’amour adoré que j’aime plus que tout au monde et de l’univers tout entier", true, 12);
+        telephone.SayInTelephone("Allo?", "Justine");
+        telephone.SayInTelephone("Salut chérie, je me demandais tu rentrais à quelle heure ce soir?", "Mari", 2);
+        telephone.SayInTelephone("Euh je sais pas honnêtement", "Justine", 4);
+        telephone.SayInTelephone("Comment ça?", "Mari", 6);
+        telephone.SayInTelephone("Bah je crois que Samantha vient de m’avouer que Enrique a organisé un party pour mon départ.", "Justine", 8);
+        telephone.SayInTelephone("Amuses-toi bien alors, je t’aime!", "Mari", 10);
+        telephone.SayInTelephone("Moi aussi mon petit minou chou d’amour adoré que j’aime plus que tout au monde et de l’univers tout entier", "Justine", 12);
 
         telephone.EndCall(12);
     }
