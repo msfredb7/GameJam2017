@@ -10,7 +10,7 @@ public class Steven : Brain
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 8h00 a 8h10
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(10, TravailPersonnel)); // 8h10 a 8h30
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(15, TravailPersonnel)); // 8h10 a 8h30
                                                                                       //voir temps! 4 action 30 minutes
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(33, WayPoint.getWaypoint("StevenPhoneCall").position, personnage)); // 8h30 a 8h37
 
@@ -263,7 +263,7 @@ public class Steven : Brain
     //Animations Fixe (ou marche dans le vide, dépendament)
     public void TravailPersonnel()
     {
-        ClavierAnimation(20);
+        ClavierAnimation(15);
     }
 
     public void CognePorte()
