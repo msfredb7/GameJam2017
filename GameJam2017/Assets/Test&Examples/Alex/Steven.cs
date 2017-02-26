@@ -81,7 +81,7 @@ public class Steven : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(515, WayPoint.getWaypoint("StephenDesk").position, personnage)); // 16h35 a 16h45
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(525, DiscussionStephen4)); // 16h45 a 17h00
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(525, DiscussionAnnushka)); // 16h45 a 17h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(540, WayPoint.getWaypoint("SalleReunionSud").position, personnage)); // 17h00 a 17h15
 
@@ -98,26 +98,50 @@ public class Steven : Brain {
 
     //Discussions
     public void DiscussionJustine()
-    { }
+    {
+        BulleManager.instance.Say("Désolé, c'était un\nappel important.", personnage);
+        BulleManager.instance.Say("Pas de problème", ScenarioManager.instance.Justine,2,5);
+        BulleManager.instance.Say("Les projets de l’entreprise\ndoivent rester confidentiels,\nà partir de ce soir, tu perdras\ntes accès et devra remettre\nton téléphone de compagnie.", personnage,7,7);
+        BulleManager.instance.Say("Signe ici et\ntu peux retourner travailler", personnage,4,14);
+    }
+
     public void DiscussionStephen()
-    { }
+    {
+        BulleManager.instance.Say("Écoute ca!\nJ'suis tellement tanné d'Enrique", ScenarioManager.instance.Stephen);
+        BulleManager.instance.Say("Qu'est ce qu'il\n a fait encore?", personnage, 3, 5);
+        BulleManager.instance.Say("Au lieu de me donner\nmon bonus, il a modifié\n sa Civic", ScenarioManager.instance.Stephen, 8);
+        BulleManager.instance.Say("Urghh, ca me\nsurprend même pas...", personnage, 3, 13);
+    }
+
     public void DiscussionEnrique()
     { }
+
     public void DiscussionStephen2()
-    { }
+    {
+        BulleManager.instance.Say("Tout est prêt\npour ce soir", personnage);
+        BulleManager.instance.Say("Ca va être\ntout une surprise!", ScenarioManager.instance.Stephen, 5);
+    }
+
     public void DiscussionStephen3()
     { }
     public void DiscussionEnrique2()
     { }
-    public void DiscussionStephen4()
-    { }
+    public void DiscussionAnnushka()
+    {
+        BulleManager.instance.Say("Annunshka,\nn'oublies pas le colis ce\nsoir! C'est vraiment\nimportant pour nous", personnage);
+        BulleManager.instance.Say("Quelle heure?", ScenarioManager.instance.Annushka, 2, 5);
+        BulleManager.instance.Say("18h30! La salle\nd’entrainement sera verrouillée,\ndemande à Gaétan d’arranger cela", personnage, 7);
+        BulleManager.instance.Say("D'accord", ScenarioManager.instance.Annushka, 2, 12);
+    }
     public void DiscussionGaétan()
     { }
     //Telephon
     public void phoneCall1()
     { }
     public void phoneCallAnnushka()
-    { }
+    {
+
+    }
     public void phoneCall2()
     { }
     //Animations Fixe (ou marche dans le vide, dépendament)
