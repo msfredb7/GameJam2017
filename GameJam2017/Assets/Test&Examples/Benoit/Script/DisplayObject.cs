@@ -219,17 +219,17 @@ public class DisplayObject : MonoBehaviour {
 
         if (currentObjectType == 0)
         {
-            UICell.contentUpdate.AddListener(newContent);
-            UIAppelTéléphonique.contentUpdate.AddListener(newContent);
+            if (UICell != null) UICell.contentUpdate.AddListener(newContent);
+            if (UIAppelTéléphonique != null) UIAppelTéléphonique.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 1)
         {
-            UIOrdinateur.contentUpdate.AddListener(newContent);
-            UIFichierActif.contentUpdate.AddListener(newContent);
+            if (UIOrdinateur != null) UIOrdinateur.contentUpdate.AddListener(newContent);
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 2)
         {
-            UIRegistre.contentUpdate.AddListener(newContent);
+            if (UIOrdinateur != null) UIRegistre.contentUpdate.AddListener(newContent);
         }
     }
 
