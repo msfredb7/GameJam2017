@@ -183,11 +183,11 @@ public class DisplayObject : MonoBehaviour {
         int nbtexts = texts.Count;
         for (int i = 0; i < nbtexts; i++)
         {
-            GameObject newTextZone = Instantiate(textZone);
+            GameObject newTextZone = Instantiate(textZone, contentLayoutGroup.transform);
             Text newText = newTextZone.GetComponentInChildren<Text>();
             newText.text = texts[i];
 
-            newTextZone.transform.SetParent(contentLayoutGroup.transform);
+            
             textZones.Add(newTextZone);
         }
         texts.Clear();
