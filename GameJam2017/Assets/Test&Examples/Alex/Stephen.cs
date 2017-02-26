@@ -96,10 +96,21 @@ public class Stephen : Brain {
     //12h40 à 13h00 : Appel téléphonique sur un numéro anonyme. Il demande des informations sur la réunion de ce soir
     public void AppelTel()
     {
-        BulleManager.instance.Say("As-tu des informations\n sur la réunion de ce\n soir à me fournir?", ScenarioManager.instance.Stephen, 5);
-        BulleManager.instance.Say("***Je n’ai pas\n réussi à accéder aux\n dossiers de ton entreprise.\n Ils sont trop bien protégés***", ScenarioManager.instance.Stephen, 5, 5);
-        BulleManager.instance.Say("Ça c’est la faute de Gary !\n J’vais essayer de\n m’arranger avec lui.", ScenarioManager.instance.Stephen, 5, 10);
-        BulleManager.instance.Say("***Fais vite,\n sinon ton plan va échouer***", ScenarioManager.instance.Stephen, 5, 15);
+        AppelTéléphonique newCall = new AppelTéléphonique("Stephen", "Anonyme");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 10);
+
+        telephone.SayInTelephone("Oui allo?", false);
+        telephone.SayInTelephone("Hey c'est Stephen", true, 2);
+        telephone.SayInTelephone("As-tu des informations sur la réunion de ce soir à me fournir?", true, 4);
+        telephone.SayInTelephone("Je n’ai pas réussi à accéder aux dossiers de ton entreprise. Ils sont trop bien protégés", false, 6);
+        telephone.SayInTelephone("Ça c’est la faute de Gary ! J’vais essayer de m’arranger avec lui.", true, 8);
+        telephone.SayInTelephone("Fais vite, sinon ton plan va échouer", false, 10);
+
+        telephone.EndCall(10);
     }
 
     //13h10 à 13h20 : Cogne à la porte, sans réponse
@@ -127,9 +138,20 @@ public class Stephen : Brain {
     //17h45 à 18h00 : Appel téléphonique sur le fait qu’il ignore l’identité du dirigeant qui vient visiter ce soir. Il aurait aimé ça le savoir pour faire ses recherches et l’impressionner et espérer obtenir un meilleur poste à la direction (PREUVE INNOCENCE)
     public void AppelTel2()
     {
-        BulleManager.instance.Say("***As-tu réussi\n à obtenir ce que\n tu voulais***", ScenarioManager.instance.Stephen, 5);
-        BulleManager.instance.Say("Non, le geek\n me demande 1000$ pour\n son foutu document", ScenarioManager.instance.Stephen, 5, 5);
-        BulleManager.instance.Say("***Donne lui,\n ça vaut la peine***", ScenarioManager.instance.Stephen, 5, 10);
-        BulleManager.instance.Say("J’ai pas 1000$\n sur moi pis j’ai\n pas le temps d’aller\n le retirer avant 18h30…", ScenarioManager.instance.Stephen, 5, 15);
+        AppelTéléphonique newCall = new AppelTéléphonique("Stephen", "Anonyme");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 10);
+
+        telephone.SayInTelephone("Oui allo?", false);
+        telephone.SayInTelephone("C'est Stephen!", true, 2);
+        telephone.SayInTelephone("As-tu réussi à obtenir ce que tu voulais", false, 4);
+        telephone.SayInTelephone("Non, le geek me demande 1000$ pour son foutu document", true, 6);
+        telephone.SayInTelephone("Donne lui, ça vaut la peine", false, 8);
+        telephone.SayInTelephone("J’ai pas 1000$ sur moi pis j’ai pas le temps d’aller le retirer avant 18h30…", true, 10);
+
+        telephone.EndCall(10);
     }
 }

@@ -125,12 +125,23 @@ public class Annushka : Brain {
 
     public void AppelAuToilette()
     {
-        BulleManager.instance.Say("***Comment se passe\n la mission?***", ScenarioManager.instance.Annushka, 5);
-        BulleManager.instance.Say("Pas mission, stage", ScenarioManager.instance.Annushka, 5, 5);
-        BulleManager.instance.Say("***Et comment est\n ton patron?***", ScenarioManager.instance.Annushka, 5, 10);
-        BulleManager.instance.Say("Stupide, incompétent,\n macho, mérite la mort.", ScenarioManager.instance.Annushka, 10, 15);
-        BulleManager.instance.Say("***Promet moi \nque tu ne feras\n rien de stupide***", ScenarioManager.instance.Annushka, 5, 25);
-        BulleManager.instance.Say("Promis père", ScenarioManager.instance.Annushka, 5, 30);
+        AppelTéléphonique newCall = new AppelTéléphonique("Annushka", "Anonyme");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 14);
+
+        telephone.SayInTelephone("Oui Allo?", false);
+        telephone.SayInTelephone("Oui salut c'est moi", true, 2);
+        telephone.SayInTelephone("Comment se passe la mission?", false, 4);
+        telephone.SayInTelephone("Pas mission, stage", true, 6);
+        telephone.SayInTelephone("Et comment est ton patron?", false, 8);
+        telephone.SayInTelephone("Stupide, incompétent, macho, mérite la mort", true, 10);
+        telephone.SayInTelephone("Promet moi que tu ne feras rien de stupide.", false, 12);
+        telephone.SayInTelephone("Promis père.", false, 14);
+
+        telephone.EndCall(14);
     }
 
     public void DemandePourGaetan()
