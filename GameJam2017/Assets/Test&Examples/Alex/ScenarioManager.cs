@@ -7,6 +7,8 @@ public class ScenarioManager : MonoBehaviour {
     public static ScenarioManager instance;
 
     //public Ordinateur computer1;
+    public Ordinateur computer1;
+
 
     //public Registre registre1;
 

@@ -21,6 +21,7 @@ public class TransmissionManager : MonoBehaviour {
         */
         
         CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 minutes!", 570);
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
     }
 
     // Creer la transmission pour plus tard
@@ -43,5 +44,10 @@ public class TransmissionManager : MonoBehaviour {
     void EndTransmission()
     {
         transmissionCanvas.SetActive(false);
+    }
+
+    public void EndGame()
+    {
+        //GameManager.EndGame();
     }
 }

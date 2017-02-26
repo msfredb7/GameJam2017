@@ -36,7 +36,7 @@ public class Enrique : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(510, appelGary));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(530, appelSamantha));
         //18H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionNord").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionEnrique").position, personnage));
     }
 
     public void TocPorteGary()

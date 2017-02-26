@@ -40,7 +40,7 @@ public class Justine : Brain {
         //17H
 
         //18H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
     }
 

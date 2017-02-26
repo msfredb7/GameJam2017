@@ -200,17 +200,17 @@ public class DisplayObject : MonoBehaviour {
     {
         if (currentObjectType == 0)
         {
-            UICell.contentUpdate.RemoveAllListeners();
-            UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
+            if (UICell != null) UICell.contentUpdate.RemoveAllListeners();
+            if (UIAppelTéléphonique != null) UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 1)
         {
-            UIOrdinateur.contentUpdate.RemoveAllListeners();
-            UIFichierActif.contentUpdate.RemoveAllListeners();
+            if (UIOrdinateur != null) UIOrdinateur.contentUpdate.RemoveAllListeners();
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 2)
         {
-            UIRegistre.contentUpdate.RemoveAllListeners();
+            if (UIOrdinateur != null) UIRegistre.contentUpdate.RemoveAllListeners();
         }
     }
 
