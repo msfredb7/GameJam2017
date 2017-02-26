@@ -86,12 +86,12 @@ public class DisplayObject : MonoBehaviour {
             if (currentCategoryTab == 0) DisplayDescription();
             if (currentCategoryTab == 1) DisplayAppel();      //historique
             if (currentCategoryTab == 2) DisplaySMS();
-            if (currentCategoryTab == 3) DisplayFichierActif();
         }
         if (currentObjectType == 1)
         {
             if (currentCategoryTab == 0) DisplayHistorique();
             if (currentCategoryTab == 1) DisplayCourriel();
+            if (currentCategoryTab == 2) DisplayFichierActif();
 
         }
         if (currentObjectType == 2)
@@ -213,6 +213,7 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             UIOrdinateur.contentUpdate.RemoveAllListeners();
+            UIFichierActif.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 2)
         {
@@ -234,6 +235,7 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 1)
         {
             UIOrdinateur.contentUpdate.AddListener(newContent);
+            UIFichierActif.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 2)
         {
@@ -279,7 +281,7 @@ public class DisplayObject : MonoBehaviour {
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
         {
-            if (currentObjectType == 0 && i == 3 && UIFichierActif == null) { } //affiche pas fichier si aucun fichier
+            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { } //skip fichier actif si null
             else
             {
                 GameObject newButton = Instantiate(categoryTabButton);
@@ -313,6 +315,7 @@ public class DisplayObject : MonoBehaviour {
     public void GetComputer(Ordinateur ordinateur)
     {
         UIOrdinateur = ordinateur;
+        UIFichierActif = ordinateur.GetFichierActif();
         currentObjectType = 1;
         currentCategoryTab = 0;
 
