@@ -242,6 +242,8 @@ public class DisplayObject : MonoBehaviour {
 
     public void ChangeObject()
     {
+        if (currentObjectType == 0)  UIAppelTéléphonique = UICell.GetCurrentCall();  
+        if (currentObjectType == 1)  UIFichierActif = UIOrdinateur.GetFichierActif();
 
         UpdateHeader();
         DestroyCategoryTab();
@@ -250,7 +252,6 @@ public class DisplayObject : MonoBehaviour {
 
         ActivateListener(); 
     }
-
 
 
     public void DestroyCategoryTab()
