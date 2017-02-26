@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gaetan : Brain {
-
+public class Gaetan : Brain
+{
     public Sprite coeur;
-
     public override void ToDo()
     {
         //8H
@@ -45,19 +44,19 @@ public class Gaetan : Brain {
         //16H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(480, tocGary));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(490, WayPoint.getWaypoint("SalleDesEmployes").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(530, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
 
 
         //17H
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(555, ParleASteven));
 
         //18H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(614, EmbrasseEnrique));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(574, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(610, EmbrasseEnrique));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
-    
+
     public void NoteDamour_BossDesk()
     {
         ScenarioManager.instance.FeuilleAmourGaetan.gameObject.SetActive(true);
@@ -66,7 +65,7 @@ public class Gaetan : Brain {
     //10h45 Utilise le bureau de stephen
     public void StephenOrdinateurUse()
     {
-        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com","30/02/2017 10.45"));
+        ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
         ScenarioManager.instance.StephenOrdi.AddFichierActif("Genealogie Enrique Rodriguez", "Enrique Rodriguez, aucune naissance de Enrique entre 1965 et 1985");
         ClavierAnimation(15);
     }
@@ -111,12 +110,12 @@ public class Gaetan : Brain {
         personnage.focus = stev;
         stev.focus = personnage;
 
-        BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage);
-        BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5);
-        BulleManager.instance.Say("Ouff! C'est\nmon jour de chance en effet", personnage, 10);
+        BulleManager.instance.Say("Hey Steven!\nJ'avais oublié de te\ndire, mais je suis allergique\nau chocolat.", personnage, 5, 0);
+        BulleManager.instance.Say("T'es chanceux Gaétan,\nj'ai choisi un gâteau\nà la vanille.", ScenarioManager.instance.Steven, 5, 5);
+        BulleManager.instance.Say("Ouff! C'est\nmon jour de chance \nen effet", personnage, 3, 10);
 
-        stev.SetFocusIn(null, 11);
-        personnage.SetFocusIn(null, 11);
+        stev.SetFocusIn(null, 13);
+        personnage.SetFocusIn(null, 12);
     }
 
     //18h10 à 18h20 : Embrasse Enrique
