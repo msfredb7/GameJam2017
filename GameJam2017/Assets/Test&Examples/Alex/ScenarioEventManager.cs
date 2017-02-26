@@ -78,4 +78,9 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
             return 0;
         }
     }
+
+    public float GetSeconds()
+    {
+        return (Time.time - start);
+    }
 }
