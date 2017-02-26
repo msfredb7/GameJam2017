@@ -79,6 +79,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.LaFainDuMonde.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.LeMonde.fr", "29/02/2016 : 13.10"));
         StephenOrdi.initialise("StephenOrdi",listS,listC);
+        Stephen.GetCell().AddTexto("Papa, j'ai trouvé un doudou, je peux le garder pour ce soir.", "29/02/2016 19.00", "Maya");
         Stephen.GetBrain().ToDo();
     }
     public void InitSteven()
@@ -92,6 +93,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.Calinours.fr", "29/02/2016 : 13.10"));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
         StevenOrdi.AddFichierActif("RH", "Enrique Nom de jeune fille de la mère: Flores Date de naissance: 1980 - 08 - 01 Code employé: MasterChief \nGaétan Nom de jeune fille de la mère: Tremblay Date de naissance: 1980 - 07 - 15 Code employé: JanitorMan \nJustine Nom de jeune fille de la mère: Lavoie Date de naissance: 1987 - 09 - 21 Code employé: Juju87 \nSteven Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Stephen \nStephen Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Steven \nGary Nom de jeune fille de la mère: Loiselle Date de naissance: 1990 - 05 - 04 Code employé: G4R1TH3B055360N0SC0P3 \nAnnushkra Nom de jeune fille de la mère: Abakoumov Date de naissance: 1982 - 11 - 12 Code employé: LaStagiaireRusse \n Samantha :Nom de jeune fille de la mère: Lagarce Date de naissance: 1989 - 04 - 15 Code employé: SexyLady");
+        Steven.GetCell().AddTexto("Papa, j'ai perdu mon doudou, tu peux regarder si il est pas avec toi?", "29/02/2017 18.30", "Lola");
         Steven.GetBrain().ToDo();
     }
     public void InitEnrique()
@@ -104,6 +106,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.CatchMen.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.XMen.ca", "29/02/2016 : 13.10"));
         EnriqueOrdi.initialise("EnriqueOrdi", listS, listC);
+        Enrique.GetCell().AddTexto("Ouesh mon poto, près pour remettre la balle au centre ce soir?", "29/02/2017", "Gladius");
         Enrique.GetBrain().ToDo();
     }
     public void InitSamantha()
@@ -114,6 +117,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.FoudroiStyle.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.Sasasamouraille.ca", "29/02/2016 : 13.10"));
         SamanthaOrdi.initialise("SamanthaOrdi", listS, listC);
+        Samantha.GetCell().AddTexto("Olala, j'ai croisé un homme aujourd'hui, il est juste TROPPPPPPP BEAU <3", "30/02/2017 8.05", "NianCat");
         Samantha.GetBrain().ToDo();
     }
     public void InitGary()
@@ -125,6 +129,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
         GaryOrdi.AddFichierActif("Rapport", "PDG de la compagnie X, depuis près de 20 ans, M.X est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays.");
+        Gary.GetCell().AddTexto("Calling all capitale pilote! We got a Titan tackled in 7RM, all reinforcement needed!","30/02/2017 2.30","CEO Init");
         Gary.GetBrain().ToDo();
     }
     public void InitAnnushka()
@@ -134,6 +139,7 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("International Student Center", "Titre : Message de bienvenue Message: Nous confirmons votre autorisation de travailler pour une durée de 3 mois, avec possibilité de prolongement conditionnel aux recommandations au sein de l’entreprise de M.Enrique Rodriguez. "));
         listC.Add(new Courriel("LinkedIn", "Titre : Steven a accepté votre demande de connexion Message: Vous pouvez désormais visualiser le profil de Steven ou démarrer une conversation. "));
         AnnushkaOrdi.initialise("AnnushkaOrdi", listS, listC);
+        Justine.GetCell().AddTexto("Alors, ce stage? Tu me tien au courant de comment se passe ton premier jour?", "30/02/2017 7.50", "Maman");
         Annushka.GetBrain().ToDo();
     }
     public void InitJustine()
@@ -147,6 +153,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.ContratLegal.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.MaitreNabal.ca", "29/02/2016 : 13.10"));
         JustineOrdi.initialise("JustineOrdi", listS, listC);
+        Justine.GetCell().AddTexto("Je pense que le paragraph 5 du code du travail Wallonien peut me faire gagner pas mal d'argent demain soir", "29/02/2016 16.40", "Illidiana");
         Justine.GetBrain().ToDo();
     }
 
