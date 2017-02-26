@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Annushka : Brain {
 
+    public GameObject particleClavier;
+    public GameObject currentParticle;
+
     public override void ToDo()
     {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 8h a 8h10
@@ -74,7 +77,8 @@ public class Annushka : Brain {
     public void WorkingAtDesk()
     {
         personnage.Stop();
-        // Bruit, animation work ?
+        Vector3 position = ScenarioManager.instance.SamanthaOrdi.transform.position;
+        currentParticle = Instantiate(particleClavier, position, particleClavier.transform.rotation);
     }
 
     public void JasetteAvecGaetan()

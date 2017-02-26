@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Samantha : Brain {
 
+    public GameObject particleClavier;
+    public GameObject currentParticle;
+
     public override void ToDo()
     {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("SamanthaDesk").position, personnage)); // 8h00 a 8h10
@@ -104,7 +107,8 @@ public class Samantha : Brain {
 
     public void TravailPersonnel()
     {
-        // haha
+        Vector3 position = ScenarioManager.instance.SamanthaOrdi.transform.position;
+        currentParticle = Instantiate(particleClavier, position, particleClavier.transform.rotation);
     }
 
     public void ParleAvecAnn()
