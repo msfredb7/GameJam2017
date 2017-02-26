@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Gaetan : Brain {
 
-
-
     public override void ToDo()
     {
         //8H
@@ -32,12 +30,11 @@ public class Gaetan : Brain {
 
         //13h
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(300, GaetanPogneCul));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(330, WayPoint.getWaypoint("WCRed_Janitor1").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(330, WayPoint.getWaypoint("WCRed").position, personnage));
 
         //14H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("SalleEntrainement_Talk").position, personnage));
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(435, TurnTop));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(405, WayPoint.getWaypoint("SalleEntrainement").position, personnage));
 
         //15H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(465, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
@@ -59,13 +56,6 @@ public class Gaetan : Brain {
     }
 
     
-    public void TurnTop()
-    {
-        personnage.defaultDirection = Character.Direction.Up;
-        personnage.SetDirectionIn(Character.Direction.Down, 21);
-    }
-
-
 
     //9h10 discution Annuska ? TODO
 
@@ -84,7 +74,7 @@ public class Gaetan : Brain {
     //10h55 à 11h05 : Utilise l’ordinateur de Annushka
     public void AnnushkaOrdiUse()
     {
-
+        ClavierAnimation();
     }
 
     //11h15 à 11h30 : Se parle seul dans la toilette des hommes

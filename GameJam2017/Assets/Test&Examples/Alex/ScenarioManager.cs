@@ -28,6 +28,8 @@ public class ScenarioManager : MonoBehaviour {
     public Personne Gaetan;
     public Personne MonsieurX;
 
+    public GameObject particleClavier;
+
     void Awake ()
     {
         if (instance == null)
@@ -62,15 +64,7 @@ public class ScenarioManager : MonoBehaviour {
         InitJustine();
         InitGaetan();
         InitMx();
-
-
-        Debug.Log("Hey");
-
-
-
-
-
-       
+ 
 	}
 
     public void InitStephen()
@@ -97,6 +91,7 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.PrimiPrime.fr", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.Calinours.fr", "29/02/2016 : 13.10"));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
+        StevenOrdi.AddFichierActif("RH", "Enrique Nom de jeune fille de la mère: Flores Date de naissance: 1980 - 08 - 01 Code employé: MasterChief \nGaétan Nom de jeune fille de la mère: Tremblay Date de naissance: 1980 - 07 - 15 Code employé: JanitorMan \nJustine Nom de jeune fille de la mère: Lavoie Date de naissance: 1987 - 09 - 21 Code employé: Juju87 \nSteven Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Stephen \nStephen Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Steven \nGary Nom de jeune fille de la mère: Loiselle Date de naissance: 1990 - 05 - 04 Code employé: G4R1TH3B055360N0SC0P3 \nAnnushkra Nom de jeune fille de la mère: Abakoumov Date de naissance: 1982 - 11 - 12 Code employé: LaStagiaireRusse \n Samantha :Nom de jeune fille de la mère: Lagarce Date de naissance: 1989 - 04 - 15 Code employé: SexyLady");
         Steven.GetBrain().ToDo();
     }
     public void InitEnrique()
@@ -167,5 +162,27 @@ public class ScenarioManager : MonoBehaviour {
         MonsieurX.GetBrain().ToDo();
     }
 
+    public Ordinateur GetPC(string name)
+    {
+        switch (name)
+        {
+            case "Enrique":
+                return EnriqueOrdi;
+            case "Samantha":
+                return SamanthaOrdi;
+            case "Gary":
+                return GaryOrdi;
+            case "Steven":
+                return StevenOrdi;
+            case "Stephen":
+                return StephenOrdi;
+            case "Justine":
+                return JustineOrdi;
+            case "Annushka":
+                return AnnushkaOrdi;
+            default:
+                return null;
+        }
+    }
 }
 

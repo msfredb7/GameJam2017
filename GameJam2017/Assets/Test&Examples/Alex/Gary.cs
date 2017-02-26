@@ -8,6 +8,8 @@ public class Gary : Brain {
     {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(-1, WayPoint.getWaypoint("InformaticienInsideDesk").position,personnage));
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(5, Work));
+
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(30, SendCourrielToAnn));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(75, SendCourrielToSteven));
@@ -71,5 +73,10 @@ public class Gary : Brain {
     public void SendCourrielToStephen3()
     {
         ScenarioManager.instance.StephenOrdi.AddCourriel(new Courriel("Garry", "Titre : Délai expiré Message: Malheureusement, tu n’as pas satisfait les conditions.Je ne te remettrai malheureusement pas le rapport contenant les informations.Tu peux toujours essayer de pirater mon ordinateur pour l’obtenir.Personne n’a jamais réussi, donc bonne chance! "));
+    }
+
+    public void Work()
+    {
+        ClavierAnimation();
     }
 }

@@ -16,9 +16,12 @@ public class Bubble : MonoBehaviour {
     private float time;
 
     void Start () {
-        GetComponent<AudioSource>().clip = audioclips.Pick();
-        GetComponent<AudioSource>().Play();
-        Destroy(gameObject, time);
+        if(audioclips.GetList().Count > 0)
+        {
+            GetComponent<AudioSource>().clip = audioclips.Pick();
+            GetComponent<AudioSource>().Play();
+            Destroy(gameObject, time);
+        }
     }
 	void Update ()
     {

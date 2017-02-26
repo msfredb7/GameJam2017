@@ -14,6 +14,10 @@ public class MoveScenarioEvent : ScenarioEvent {
         this.startTime = startTime;
         this.position = position;
         this.personnage = personnage;
+        if(personnage == null)
+        {
+            Debug.LogError("MoveEvent" + position + " " + startTime);
+        }
     }
 
     public void Execute()
