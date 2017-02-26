@@ -55,6 +55,7 @@ public class Cell {
         nouveauSMS.text = text;
         nouveauSMS.date = date;
         nouveauSMS.destinataire = destinataire;
+        historiqueTextos.Add(nouveauSMS);
 
         contentUpdate.Invoke();
     }
