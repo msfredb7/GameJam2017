@@ -27,10 +27,12 @@ public class GameManager : Singleton<GameManager> {
         if (Win)
         {
             DelayManager.StopAll();
+            // Autres animations
             Scenes.Load("GameWin");
         } else
         {
             DelayManager.StopAll();
+            // Autres animations
             Scenes.Load("GameOver");
         }
     }
