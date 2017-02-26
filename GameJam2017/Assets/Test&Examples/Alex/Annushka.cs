@@ -10,17 +10,17 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(10, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 8h10 a 8h20
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(20, CogneChezGary)); // 8h20 a 8h30
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(25, CogneChezGary)); // 8h20 a 8h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(30, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 8h30 a 8h45
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(60, WayPoint.getWaypoint("WCRed").position, personnage)); // 9h00 a 9h05
 
-        ScenarioEventManager.AddEvent(new ActionScenarioEvent(65, JasetteAvecGaetan)); // 9h05 a 9h30
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(72, JasetteAvecGaetan)); // 9h05 a 9h30
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 9h30 a 9h35
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("StevenDesk").position, personnage)); // 10h10 a 10h30
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(130, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage)); // 10h10 a 10h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(150, RencontreAvecSteven)); // 10h30 a 11h00
 
@@ -30,7 +30,7 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, DiscussionAvecStephen)); //11h30 a 11h50
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes").position, personnage)); // 11h50 a 12h00
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Annushka").position, personnage)); // 11h50 a 12h00
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(270, WayPoint.getWaypoint("WCRed").position, personnage)); // 12h30 a 12h40
 
@@ -81,10 +81,10 @@ public class Annushka : Brain {
         gaet.focus = personnage;
 
         BulleManager.instance.Say("Ça va bien \nlà-dedans?", ScenarioManager.instance.Gaetan, 5);
-        BulleManager.instance.Say("Qui parle à moi?", personnage, 5,5);
-        BulleManager.instance.Say("C’est moi Gaétan \nle concierge, c’est \nla première fois que \nnous avons la chance de parler", ScenarioManager.instance.Gaetan, 10 , 10);
-        BulleManager.instance.Say(": Pas sur que être \nune chance…", personnage, 5,20);
-        BulleManager.instance.Say("Allez je vous laisse \ntranquille,\n bonne journée", ScenarioManager.instance.Gaetan, 5,25);
+        BulleManager.instance.Say("Qui parle à moi?", personnage, 3,5);
+        BulleManager.instance.Say("C’est moi Gaétan \nle concierge, c’est \nla première fois que \nnous avons la chance de parler", ScenarioManager.instance.Gaetan, 5 , 8);
+        BulleManager.instance.Say(": Pas sur que être \nune chance…", personnage, 5,13);
+        BulleManager.instance.Say("Allez je vous laisse \ntranquille,\n bonne journée", ScenarioManager.instance.Gaetan, 5,17);
 
         gaet.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);
