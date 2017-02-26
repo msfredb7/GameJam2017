@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class FollowObject : MonoBehaviour {
 
-    Transform inFollow;
+    public Transform inFollow;
+    public float speed = 10;
 
 
     public void Update()
     {
         if(inFollow != null)
         {
-            transform.position = inFollow.position + new Vector3(0, 10, 0);
+            Vector3 target = new Vector3(inFollow.position.x, transform.position.y, inFollow.position.z);
+            Vector3 dir = target - transform.position;
+            if (dir.magnitude > 1)
+                dir.Normalize();
+
+            transform.position += dir * speed * Time.deltaTime;
         }
         
     }

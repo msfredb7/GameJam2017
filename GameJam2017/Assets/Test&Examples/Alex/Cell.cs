@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using CCC.Manager;
 
+[System.Serializable]
 public struct Call
 {
     public string date;
     public string destinataire;
 }
 
+[System.Serializable]
 public struct SMS
 {
     public string text;
@@ -17,17 +20,21 @@ public struct SMS
 }
 
 public class Cell {
+    public UnityEvent contentUpdate = new UnityEvent();
 
     private List<SMS> historiqueTextos = new List<SMS>();
     private List<Call> historiqueAppels = new List<Call>();
 
+    private AppelTéléphonique myCall;
+
     public Cell()
     {
-
+        myCall = null;
     }
 
     public Cell(List<SMS> historiqueTextos, List<Call> historiqueAppels)
     {
+        myCall = null;
         this.historiqueAppels = historiqueAppels;
         this.historiqueTextos = historiqueTextos;
     }
@@ -48,6 +55,8 @@ public class Cell {
         nouveauSMS.text = text;
         nouveauSMS.date = date;
         nouveauSMS.destinataire = destinataire;
+
+        contentUpdate.Invoke();
     }
 
     public void AddCall(string destinataire, string date, float time = 0)
@@ -56,5 +65,53 @@ public class Cell {
         nouveauCall.destinataire = destinataire;
         nouveauCall.date = date;
         historiqueAppels.Add(nouveauCall);
+
+        contentUpdate.Invoke();
+    }
+
+    public void SetMyCall(AppelTéléphonique myCall)
+    {
+        this.myCall = myCall;
+    }
+
+    public AppelTéléphonique GetCurrentCall()
+    {
+        return myCall;
+    }
+
+    public void SayInTelephone(string message, bool emeteur, float delay = 0)
+    {
+        if(delay == 0)
+        {
+            myCall.AddMessageEmetteur(message);
+        } else
+        {
+            DelayManager.CallTo(delegate ()
+            {
+                if (emeteur)
+                {
+                    myCall.AddMessageEmetteur(message);
+                }
+                else
+                {
+                    myCall.AddMessageRecepteur(message);
+                }
+            }, delay);
+        }
+    }
+
+    public void EndCall(float delay)
+    {
+        if (delay == 0)
+        {
+            myCall = null;
+        }
+        else
+        {
+            DelayManager.CallTo(delegate ()
+            {
+                myCall = null;
+            }, delay);
+        }
     }
 }

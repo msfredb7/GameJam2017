@@ -26,10 +26,6 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
             {
                 events[i].FastExecute();
                 events.Remove(events[i]);
-            } else if (events[i].Time() == startTime)
-            {
-                events[i].Execute();
-                events.Remove(events[i]);
             }
         }
     }
@@ -38,6 +34,7 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
     {
         float currentTime = Time.time;
 
+        
 
         if (events.Count <= 0) return;
 
@@ -49,6 +46,10 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
             {
                 events[i].Execute();
                 events.Remove(events[i]);
+            }
+            else
+            {
+                break;
             }
         }
     }
@@ -74,5 +75,10 @@ public class ScenarioEventManager : Singleton<ScenarioEventManager> {
                 return -1;
             return 0;
         }
+    }
+
+    public float GetSeconds()
+    {
+        return (Time.time - start);
     }
 }

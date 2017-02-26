@@ -12,7 +12,7 @@ public class FredTestScript : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            character.Teleport(waypointA.position);
+            character.MoveTo(waypointA.position);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -20,7 +20,7 @@ public class FredTestScript : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            character.Teleport(waypointC.position);
+            character.MoveTo(waypointC.position);
         }
     }
 }

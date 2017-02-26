@@ -8,7 +8,7 @@ public class AlexTestScript : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.C))
         {
-
+            ScenarioManager.instance.Enrique.MoveTo(WayPoint.getWaypoint("WCBlue").position);
         }
     }
 }

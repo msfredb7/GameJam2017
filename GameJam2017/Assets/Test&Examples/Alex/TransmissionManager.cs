@@ -15,9 +15,13 @@ public class TransmissionManager : MonoBehaviour {
     void Start ()
     {
         // Voici tous les messages qu'on va envoyer au joueur!
-        /*CreateTransmission("Une nouvelle pizzeria vient d'ouvrir au coin de la rue",2);
-        CreateTransmission("test2", 8);
-        CreateTransmission("test3", 14);*/
+
+        /*
+        CreateTransmission("Une nouvelle pizzeria vient d'ouvrir au coin de la rue",2);
+        */
+        
+        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 minutes!", 570);
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
     }
 
     // Creer la transmission pour plus tard
@@ -40,5 +44,10 @@ public class TransmissionManager : MonoBehaviour {
     void EndTransmission()
     {
         transmissionCanvas.SetActive(false);
+    }
+
+    public void EndGame()
+    {
+        //GameManager.EndGame();
     }
 }

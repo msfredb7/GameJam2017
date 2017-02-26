@@ -6,13 +6,14 @@ using CCC.Manager;
 public class MusicManager : MonoBehaviour {
 
     public AudioSource audio;
+    public float delay;
 
     void Start()
     {
         DelayManager.CallTo(delegate()
         {
             audio.Play();
-        },9);
+        },delay);
         
     }
 }
