@@ -12,15 +12,13 @@ public class TransmissionManager : MonoBehaviour {
     private List<string> text = new List<string>();
     private int currentTransmission = 0;
 
+    public MusicManager musicManager;
+
     void Start ()
     {
         // Voici tous les messages qu'on va envoyer au joueur!
-
-        /*
-        CreateTransmission("Une nouvelle pizzeria vient d'ouvrir au coin de la rue",2);
-        */
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(570, LastMinute));
         
-        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 minutes!", 570);
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(630, EndGame));
     }
 
@@ -46,8 +44,14 @@ public class TransmissionManager : MonoBehaviour {
         transmissionCanvas.SetActive(false);
     }
 
+    public void LastMinute()
+    {
+        musicManager.PlayLastMinuteSong();
+        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 minutes!",0);
+    }
+
     public void EndGame()
     {
-        //GameManager.EndGame();
+        GameManager.EndGame(false);
     }
 }

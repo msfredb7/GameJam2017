@@ -8,12 +8,19 @@ public class MusicManager : MonoBehaviour {
     public AudioSource audio;
     public float delay;
 
+    public AudioSource lastsong;
+
     void Start()
     {
         DelayManager.CallTo(delegate()
         {
             audio.Play();
         },delay);
-        
+    }
+
+    public void PlayLastMinuteSong()
+    {
+        audio.Stop();
+        lastsong.Play();
     }
 }

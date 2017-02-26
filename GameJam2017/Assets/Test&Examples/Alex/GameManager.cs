@@ -26,10 +26,12 @@ public class GameManager : Singleton<GameManager> {
     {
         if (Win)
         {
-
+            DelayManager.StopAll();
+            Scenes.Load("GameWin");
         } else
         {
-
+            DelayManager.StopAll();
+            Scenes.Load("GameOver");
         }
     }
 }

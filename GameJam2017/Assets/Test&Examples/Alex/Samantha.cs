@@ -104,7 +104,7 @@ public class Samantha : Brain {
 
     public void TravailPersonnel()
     {
-
+        // haha
     }
 
     public void ParleAvecAnn()
