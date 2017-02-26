@@ -40,7 +40,7 @@ public class Justine : Brain {
         //17H
 
         //18H
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
     }
 
@@ -60,6 +60,16 @@ public class Justine : Brain {
     public void AppelMari()
     {
         // TODO 
+        AppelTéléphonique newCall = new AppelTéléphonique("Justine", "Mari");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        telephone.SayInTelephone("Allo?", false);
+        telephone.SayInTelephone("Salut", true,3);
+        telephone.SayInTelephone("Mais voyons", false, 5);
+
+        telephone.EndCall(10);
     }
 
     public void ConversationGaetan()

@@ -70,11 +70,6 @@ public class DisplayObject : MonoBehaviour {
             charFace.sprite = Door;
             topInfo.text = "fonctionnalité non implanté";
         }
-        if (currentObjectType == 3)
-        {
-            charFace.sprite = Appel;
-            topInfo.text = "Appel de " + UIAppelTéléphonique.GetNomEmetteur();
-        }
     }
 
     public void InstanciateTextZones()
@@ -86,6 +81,7 @@ public class DisplayObject : MonoBehaviour {
             if (currentCategoryTab == 0) DisplayDescription();
             if (currentCategoryTab == 1) DisplayAppel();      //historique
             if (currentCategoryTab == 2) DisplaySMS();
+            if (currentCategoryTab == 3) DisplayAppelTéléphonique();
         }
         if (currentObjectType == 1)
         {
@@ -97,10 +93,6 @@ public class DisplayObject : MonoBehaviour {
         if (currentObjectType == 2)
         {
             if (currentCategoryTab == 0) DisplayAccès();
-        }
-        if (currentObjectType == 3)
-        {
-            if (currentCategoryTab == 0) DisplayAppelTéléphonique(); //conversation courant
         }
         PrintTexts();
     }
@@ -171,7 +163,7 @@ public class DisplayObject : MonoBehaviour {
 
         for (int i = 0; i < messageRecepteur.Count; i++)
         {
-            texts.Add(nomRecepteur + ": \n" + nomRecepteur[i]);
+            texts.Add(nomRecepteur + ": \n" + messageRecepteur[i]);
             if (i < messageEmetteur.Count)
             {
                 texts.Add(nomEmetteur + ": \n" + messageEmetteur[i]);
@@ -208,20 +200,17 @@ public class DisplayObject : MonoBehaviour {
     {
         if (currentObjectType == 0)
         {
-            UICell.contentUpdate.RemoveAllListeners();
+            if (UICell != null) UICell.contentUpdate.RemoveAllListeners();
+            if (UIAppelTéléphonique != null) UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 1)
         {
-            UIOrdinateur.contentUpdate.RemoveAllListeners();
-            UIFichierActif.contentUpdate.RemoveAllListeners();
+            if (UIOrdinateur != null) UIOrdinateur.contentUpdate.RemoveAllListeners();
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.RemoveAllListeners();
         }
         if (currentObjectType == 2)
         {
-            UIRegistre.contentUpdate.RemoveAllListeners();
-        }
-        if (currentObjectType == 3)
-        {
-            UIAppelTéléphonique.contentUpdate.RemoveAllListeners();
+            if (UIOrdinateur != null) UIRegistre.contentUpdate.RemoveAllListeners();
         }
     }
 
@@ -230,31 +219,51 @@ public class DisplayObject : MonoBehaviour {
 
         if (currentObjectType == 0)
         {
-            UICell.contentUpdate.AddListener(newContent);
+            if (UICell != null) UICell.contentUpdate.AddListener(newContent);
+            if (UIAppelTéléphonique != null) UIAppelTéléphonique.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 1)
         {
-            UIOrdinateur.contentUpdate.AddListener(newContent);
-            UIFichierActif.contentUpdate.AddListener(newContent);
+            if (UIOrdinateur != null) UIOrdinateur.contentUpdate.AddListener(newContent);
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
         }
         if (currentObjectType == 2)
         {
-            UIRegistre.contentUpdate.AddListener(newContent);
-        }
-        if (currentObjectType == 3)
-        {
-            UIAppelTéléphonique.contentUpdate.AddListener(newContent);
+            if (UIOrdinateur != null) UIRegistre.contentUpdate.AddListener(newContent);
         }
     }
 
     public void newContent()
     {
-        ChangeTab(currentCategoryTab);
+        Debug.Log("update");
+
+        int previousTab = currentCategoryTab; //Change object met le tab à cuurentCatTab à 0
+        ChangeObject();
+        ChangeTab(previousTab);
     }
 
     public void ChangeObject()
     {
-        DisableListener();
+        if (currentObjectType == 0)
+        {
+            UIAppelTéléphonique = UICell.GetCurrentCall();
+            if (UIAppelTéléphonique != null)
+            {
+                UIAppelTéléphonique.contentUpdate.AddListener(newContent);
+                Debug.Log("Tel Setter");
+            }
+        }
+
+        if (currentObjectType == 1)
+        {
+            UIFichierActif = UIOrdinateur.GetFichierActif();
+            if (UIFichierActif != null) UIFichierActif.contentUpdate.AddListener(newContent);
+        }
+        
+
+
+        if (UIAppelTéléphonique == null) Debug.Log("tel existe");
+        else Debug.Log("tel n'existe pas");
 
         UpdateHeader();
         DestroyCategoryTab();
@@ -263,7 +272,6 @@ public class DisplayObject : MonoBehaviour {
 
         ActivateListener(); 
     }
-
 
 
     public void DestroyCategoryTab()
@@ -281,7 +289,8 @@ public class DisplayObject : MonoBehaviour {
         int nbCategory = listObjets[currentObjectType].categoryName.Count;
         for (int i = 0; i < nbCategory; i++)
         {
-            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { } //skip fichier actif si null
+            if (currentObjectType == 1 && i == 2 && UIFichierActif == null) { }             //skip fichier actif si null
+            else if (currentObjectType == 0 && i == 3 && UIAppelTéléphonique == null) { Debug.Log("tel ignorer"); }   //skip appel courant si null
             else
             {
                 GameObject newButton = Instantiate(categoryTabButton);
@@ -304,8 +313,11 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetCharacter(Personne personne)
     {
+        DisableListener();
+
         UIPersonne = personne;
         UICell = personne.GetCell();
+        UIAppelTéléphonique = UICell.GetCurrentCall();
         currentObjectType = 0;
         currentCategoryTab = 0;
 
@@ -314,6 +326,8 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetComputer(Ordinateur ordinateur)
     {
+        DisableListener();
+
         UIOrdinateur = ordinateur;
         UIFichierActif = ordinateur.GetFichierActif();
         currentObjectType = 1;
@@ -324,22 +338,12 @@ public class DisplayObject : MonoBehaviour {
 
     public void GetRegister(Registre registre)
     {
+        DisableListener();
+
         UIRegistre = registre;
         currentObjectType = 2;
         currentCategoryTab = 0;
   
         ChangeObject();
     }
-
-    public void GetAppelTéléphonique(AppelTéléphonique appeltéléphonique)
-    {
-        UIAppelTéléphonique = appeltéléphonique;
-        currentObjectType = 3;
-        currentCategoryTab = 0;
-
-        ChangeObject();
-    }
-
-
-
 }

@@ -53,4 +53,9 @@ public class Personne : Character
     {
         return myBrain;
     }
+
+    public void SetMyCall(AppelTéléphonique myCall)
+    {
+        myCell.SetMyCall(myCall);
+    }
 }

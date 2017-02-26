@@ -54,7 +54,7 @@ public class Gaetan : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(600, WayPoint.getWaypoint("PlacardConsierge").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(610, EmbrasseEnrique));
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionSud").position, personnage));
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(620, WayPoint.getWaypoint("SalleReunionGaetan").position, personnage));
     }
 
     //8h40 discution stephen?

@@ -25,13 +25,16 @@ public class Cell {
     private List<SMS> historiqueTextos = new List<SMS>();
     private List<Call> historiqueAppels = new List<Call>();
 
+    private AppelTéléphonique myCall;
+
     public Cell()
     {
-
+        myCall = null;
     }
 
     public Cell(List<SMS> historiqueTextos, List<Call> historiqueAppels)
     {
+        myCall = null;
         this.historiqueAppels = historiqueAppels;
         this.historiqueTextos = historiqueTextos;
     }
@@ -64,5 +67,59 @@ public class Cell {
         historiqueAppels.Add(nouveauCall);
 
         contentUpdate.Invoke();
+    }
+
+    public void SetMyCall(AppelTéléphonique myCall)
+    {
+        this.myCall = myCall;
+        contentUpdate.Invoke();
+    }
+
+    public AppelTéléphonique GetCurrentCall()
+    {
+        return myCall;
+    }
+
+    public void SayInTelephone(string message, bool emeteur, float delay = 0)
+    {
+        if(delay == 0)
+        {
+            if (emeteur)
+            {
+                myCall.AddMessageEmetteur(message);
+            }
+            else
+            {
+                myCall.AddMessageRecepteur(message);
+            }
+        } else
+        {
+            DelayManager.CallTo(delegate ()
+            {
+                if (emeteur)
+                {
+                    myCall.AddMessageEmetteur(message);
+                }
+                else
+                {
+                    myCall.AddMessageRecepteur(message);
+                }
+            }, delay);
+        }
+    }
+
+    public void EndCall(float delay)
+    {
+        if (delay == 0)
+        {
+            myCall = null;
+        }
+        else
+        {
+            DelayManager.CallTo(delegate ()
+            {
+                myCall = null;
+            }, delay);
+        }
     }
 }

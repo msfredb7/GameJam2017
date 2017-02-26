@@ -21,4 +21,17 @@ public class GameManager : Singleton<GameManager> {
         scenario.Gaetan.SetPersonne("Gaetan", "Whore", new Cell());
         scenario.MonsieurX.SetPersonne("MonsieurX", "Whore", new Cell());
     }
+
+    public static void EndGame(bool Win)
+    {
+        if (Win)
+        {
+            DelayManager.StopAll();
+            Scenes.Load("GameWin");
+        } else
+        {
+            DelayManager.StopAll();
+            Scenes.Load("GameOver");
+        }
+    }
 }

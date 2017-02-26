@@ -78,7 +78,7 @@ public class Samantha : Brain {
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(605, PrepareUnCofee)); // 18h05 a 18h15
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionNord").position, personnage)); // 18h15 a 18h30
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionSamantha").position, personnage)); // 18h15 a 18h30
     }
 
     public void MakeTexto1()
@@ -104,7 +104,7 @@ public class Samantha : Brain {
 
     public void TravailPersonnel()
     {
-
+        // haha
     }
 
     public void ParleAvecAnn()
