@@ -46,7 +46,7 @@ public class Steven : Brain
                                                                                                                         //Discussion avec Enriquer (Instigateur -> ? )
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(200, DiscussionEnrique)); // 11h20 a 11h40
 
-        ScenarioEventManager.AddEvent(new MoveScenarioEvent(220, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 11h40 a 11h50
+        ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Steven").position, personnage)); // 11h40 a 11h50
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(230, TurnRight));
 
