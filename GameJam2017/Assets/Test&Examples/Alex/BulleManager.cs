@@ -61,6 +61,8 @@ public class BulleManager : MonoBehaviour {
         myBubble.gameObject.SetActive(true);
         myBubble.myText.GetComponent<TextMesh>().text = text;
         myBubble.SetValues(currentOffsetX, currentOffsetZ, character, time);
+
+        myBubble.Init();
     }
 
     private void MoveCamera(Character character)
@@ -104,5 +106,7 @@ public class BulleManager : MonoBehaviour {
         Bubble myBubble = Instantiate(currentBulle, position, currentBulle.transform.rotation);
 
         myBubble.SetValues(callOffsetX,callOffsetZ,character,time);
+
+        myBubble.Init();
     }
 }
