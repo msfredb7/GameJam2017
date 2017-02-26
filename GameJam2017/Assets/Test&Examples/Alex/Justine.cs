@@ -46,8 +46,15 @@ public class Justine : Brain {
 
     public void ConversationSteven()
     {
+        Personne steph = ScenarioManager.instance.Steven;
+        personnage.focus = steph;
+        steph.focus = personnage;
+
         BulleManager.instance.Say("Salut Steven", personnage,2);
         BulleManager.instance.Say("J'ai un appel important,\n je reviens.", ScenarioManager.instance.Steven, delay:2);
+
+        steph.SetFocusIn(null, 7);
+        personnage.SetFocusIn(null, 7);
     }
 
     public void AppelMari()
@@ -57,6 +64,10 @@ public class Justine : Brain {
 
     public void ConversationGaetan()
     {
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
+
         BulleManager.instance.Say("C'est vraiment malaisant,\n mais j'ai bouché la \n toilette des femmes", personnage);
         BulleManager.instance.Say("Ben voyons,\n y'a pas de problème\n, on va aller voir ca\n ensemble", ScenarioManager.instance.Gaetan, delay:5);
         BulleManager.instance.Say("Ensemble?", personnage, 2 , 10);
@@ -67,16 +78,26 @@ public class Justine : Brain {
         BulleManager.instance.Say("Comment ca\ndangereux?", personnage, 3 , delay: 35);
         BulleManager.instance.Say("Quelqu'un de malintentionné\npourrait lancer une\nbombe par ce conduit?", ScenarioManager.instance.Gaetan, delay: 38);
         BulleManager.instance.Say("Hmm okay, tu fais\nparfois peur Gaetan.\nAnyway j'dois retourner travailler.", personnage, delay: 42);
+
+        gaet.SetFocusIn(null, 43);
+        personnage.SetFocusIn(null, 43);
     }
 
     public void ConversationSamantha()
     {
+        Personne sam = ScenarioManager.instance.Samantha;
+        personnage.focus = sam;
+        sam.focus = personnage;
+
         BulleManager.instance.Say("Hey! Ca te tenterais-tu\nd'aller magasiner demain?", personnage);
         BulleManager.instance.Say("Ca serait super!\nOn pourrait aller\nse faire les ongles aussi.", ScenarioManager.instance.Samantha, 5);
         BulleManager.instance.Say("Ah mais attend,\nla soirée risque d'être\ntrop explosive.Je\npense pas qu'on sera en\n mesure de s'en remettre", ScenarioManager.instance.Samantha, 10);
         BulleManager.instance.Say("De quoi tu parles?", personnage, 2 , 15);
         BulleManager.instance.Say("Bah la fête pour\ntondé...Euh pour\nle deal de Enrique!", ScenarioManager.instance.Samantha , 17);
         BulleManager.instance.Say("Hmm okay...\nTu m'en reparleras\nplus tard", personnage, 22);
+
+        sam.SetFocusIn(null, 23);
+        personnage.SetFocusIn(null, 23);
     }
 
     public void AppelMari2()

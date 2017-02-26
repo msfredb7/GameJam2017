@@ -76,23 +76,36 @@ public class Annushka : Brain {
 
     public void JasetteAvecGaetan()
     {
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
+
         BulleManager.instance.Say("Ça va bien \nlà-dedans?", ScenarioManager.instance.Gaetan, 5);
         BulleManager.instance.Say("Qui parle à moi?", personnage, 5,5);
         BulleManager.instance.Say("C’est moi Gaétan \nle concierge, c’est \nla première fois que \nnous avons la chance de parler", ScenarioManager.instance.Gaetan, 10 , 10);
         BulleManager.instance.Say(": Pas sur que être \nune chance…", personnage, 5,20);
         BulleManager.instance.Say("Allez je vous laisse \ntranquille,\n bonne journée", ScenarioManager.instance.Gaetan, 5,25);
 
+        gaet.SetFocusIn(null, 26);
+        personnage.SetFocusIn(null, 26);
     }
 
 
 
     public void RencontreAvecSteven()
     {
+        Personne stev = ScenarioManager.instance.Steven;
+        personnage.focus = stev;
+        stev.focus = personnage;
+
         BulleManager.instance.Say("Avais-tu des\n questions sur \nla compagnie?", ScenarioManager.instance.Steven, 5);
         BulleManager.instance.Say("Oui, pourquoi Samantha\n travailler ici?", ScenarioManager.instance.Annushka, 5, 5);
         BulleManager.instance.Say("Bonne question, \nc’est Enrique qui\n a insisté pour l’engager", ScenarioManager.instance.Steven, 10, 10);
         BulleManager.instance.Say("Pas très surprenant… \nPas plus macho que lui", ScenarioManager.instance.Annushka, 5, 20);
         BulleManager.instance.Say("Je ne te le\n fais pas dire !", ScenarioManager.instance.Steven, 5, 25);
+
+        stev.SetFocusIn(null, 26);
+        personnage.SetFocusIn(null, 26);
     }
 
     public void DiscussionAvecStephen()
@@ -122,10 +135,16 @@ public class Annushka : Brain {
 
     public void DemandePourGaetan()
     {
+        Personne gaet = ScenarioManager.instance.Gaetan;
+        personnage.focus = gaet;
+        gaet.focus = personnage;
+
         BulleManager.instance.Say("Besoin débarrer\n salle entrainement", ScenarioManager.instance.Annushka, 5);
         BulleManager.instance.Say("Aucun problème,\n suis-moi", ScenarioManager.instance.Gaetan, 5, 5);
         BulleManager.instance.Say("Merci monsieur.", ScenarioManager.instance.Annushka, 5, 10);
 
+        gaet.SetFocusIn(null, 11);
+        personnage.SetFocusIn(null, 11);
     }
 
     public void OuvertureDuColis()
