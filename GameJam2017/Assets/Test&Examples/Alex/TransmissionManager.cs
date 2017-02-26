@@ -19,6 +19,11 @@ public class TransmissionManager : MonoBehaviour {
 
     void Start ()
     {
+        if(transmissionCanvas == null)
+        {
+            Debug.LogWarning("No transmission!");
+            return;
+        }
         initialY = transmissionCanvas.transform.position.y;
 
         // Voici tous les messages qu'on va envoyer au joueur!
