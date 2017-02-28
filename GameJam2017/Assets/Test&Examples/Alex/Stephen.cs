@@ -8,6 +8,7 @@ public class Stephen : Brain {
     {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("StephenDesk").position, personnage));
+
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(20, WayPoint.getWaypoint("WCBlue").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(32,GaetanConv));
         //9H
@@ -18,6 +19,7 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(113, TurnLeft1));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(155, WayPoint.getWaypoint("StephenDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(163,GaetanSurprise ));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(180, Travaille1));
         //11H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(230, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(231, TurnLeft));
@@ -29,6 +31,8 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("InformaticienDesk").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(310,TocGary ));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(320, WayPoint.getWaypoint("StephenDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(320, DiscussionAnn));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(180, Travaille2));
         //14H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(360, WayPoint.getWaypoint("SalleDesEmployes_Stephen").position, personnage));
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(361, TurnLeft1));
@@ -44,6 +48,16 @@ public class Stephen : Brain {
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(585,AppelTel2 ));
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionStephen").position, personnage));
+    }
+
+    public void Travaille1()
+    {
+        ClavierAnimation(50);
+    }
+
+    public void Travaille2()
+    {
+        ClavierAnimation(40);
     }
 
     public void TurnLeft1()
@@ -183,5 +197,23 @@ public class Stephen : Brain {
         telephone.SayInTelephone("J’ai pas 1000$ sur moi pis j’ai pas le temps d’aller le retirer avant 18h30…", "Stephen", 10);
 
         telephone.EndCall(10);
+    }
+
+    public void DiscussionAnn()
+    {
+        Personne ann = ScenarioManager.instance.Annushka;
+        personnage.focus = ann;
+        ann.focus = personnage;
+
+        BulleManager.instance.Say("Bonjour Annushka!", personnage , 2);
+        BulleManager.instance.Say("Bonjour Stephen,\n ta journée,\n ca va bien?", ann, 2, 5);
+        BulleManager.instance.Say("Oui oui", personnage, 2 ,7);
+
+        BulleManager.instance.Say("Hey Annushka, savais tu que Rodriguez n'est pas le vrai nom de famille de Enrique?", personnage, delay:10);
+        BulleManager.instance.Say("Ah oui vraiment?", ann, 3, 15);
+        BulleManager.instance.Say("J'ai fait la découverte en fouillant dans des dossiers. J'me demande pourquoi il l'a caché", personnage, 2, 7);
+
+        ann.SetFocusIn(null, 20);
+        personnage.SetFocusIn(null, 20);
     }
 }

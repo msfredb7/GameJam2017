@@ -20,6 +20,8 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(90, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 9h30 a 9h35
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(95, WorkingAtDesk1));
+
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(140, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage)); // 10h10 a 10h30
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(141, TurnTop1)); // 9h05 a 9h30
@@ -29,6 +31,8 @@ public class Annushka : Brain {
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(180, WayPoint.getWaypoint("WCRed").position, personnage)); // 11h00 a 11h10
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(205, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 11h25 a 11h30
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, WorkingAtDesk4));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(210, DiscussionAvecStephen)); //11h30 a 11h50
 
@@ -40,11 +44,15 @@ public class Annushka : Brain {
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(300, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 13h00 a 13h20
 
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(320, WorkingAtDesk2));
+
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(355, WayPoint.getWaypoint("SalleEntrainement_Talk").position, personnage)); // 13h55 a 14h05
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(370, DiscussionAvecEnrique)); // 14h05 
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(410, WayPoint.getWaypoint("AnnushkaDesk").position, personnage)); // 14h50 a 15h00
+
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(420, WorkingAtDesk3));
 
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(435, WayPoint.getWaypoint("InformaticienDesk").position, personnage)); // 15h15 a 15h30
 
@@ -126,6 +134,26 @@ public class Annushka : Brain {
         ClavierAnimation(10);
     }
 
+    public void WorkingAtDesk1()
+    {
+        ClavierAnimation(35);
+    }
+
+    public void WorkingAtDesk2()
+    {
+        ClavierAnimation(35);
+    }
+
+    public void WorkingAtDesk3()
+    {
+        ClavierAnimation(15);
+    }
+
+    public void WorkingAtDesk4()
+    {
+        ClavierAnimation(20);
+    }
+
     public void JasetteAvecGaetan()
     {
         Personne gaet = ScenarioManager.instance.Gaetan;
@@ -162,7 +190,17 @@ public class Annushka : Brain {
 
     public void DiscussionAvecStephen()
     {
+        Personne stephen = ScenarioManager.instance.Stephen;
+        personnage.focus = stephen;
+        stephen.focus = personnage;
 
+        BulleManager.instance.Say("J'ai vraiment hate\nau party de se soir!", ScenarioManager.instance.Stephen);
+        BulleManager.instance.Say("Moi aussi", personnage, 3, 5);
+        BulleManager.instance.Say("Quelqu'un m'a dit que\nMonsieur Luis, l'inviter\n de se soir, est vraiment un\nmalade après quelques drinks", ScenarioManager.instance.Stephen, 8, 8);
+        BulleManager.instance.Say("Moi, hate de voir", personnage, 3, 16);
+
+        stephen.SetFocusIn(null, 26);
+        personnage.SetFocusIn(null, 26);
     }
 
     public void EntrainementAvecEnrique()

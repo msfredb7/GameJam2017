@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager> {
         base.Awake();
         MasterManager.Sync();
 
-        
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(630,FinDuJeu));
     }
 
     public static void EndGame(bool Win)
@@ -27,5 +27,10 @@ public class GameManager : Singleton<GameManager> {
             // Autres animations
             Scenes.Load("GameOver");
         }
+    }
+
+    public void FinDuJeu()
+    {
+        EndGame(false);
     }
 }
