@@ -18,6 +18,7 @@ public class IntroController : MonoBehaviour {
     [Header("World")]
     public Camera cam;
     public ScenarioEventManager eventMan;
+    public AudioClip bureauMusic;
 
     int stage = 0;
     private bool canGoToStage1 = false;
@@ -80,7 +81,7 @@ public class IntroController : MonoBehaviour {
     {
         stage = 2;
         print("stage 2");
-        SoundManager.StopMusic();
+        SoundManager.PlayMusic(bureauMusic, faded: true);
         frontFade.DOFade(1, 0.75f).OnComplete(delegate()
         {
             content.SetActive(false);

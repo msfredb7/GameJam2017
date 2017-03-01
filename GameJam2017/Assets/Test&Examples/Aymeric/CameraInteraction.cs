@@ -276,7 +276,7 @@ public class CameraInteraction : Singleton<CameraInteraction>
                                     currentOrdiPassword = hit.collider.GetComponent<Ordinateur>();
                                     currentPasswordWall = PasswordWallSpawner.LaunchPasswordWall(OnSucceedPassword, currentOrdiPassword.password);
                                 }
-                                else
+                                else if(currentOrdiPassword != hit.collider.GetComponent<Ordinateur>())
                                     DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
                             }
                             if (hit.collider.GetComponent<FeuillePapier>() != null)
@@ -309,7 +309,7 @@ public class CameraInteraction : Singleton<CameraInteraction>
                                     currentOrdiPassword = hit.collider.GetComponent<Ordinateur>();
                                     currentPasswordWall = PasswordWallSpawner.LaunchPasswordWall(OnSucceedPassword, currentOrdiPassword.password);
                                 }
-                                else
+                                else if (currentOrdiPassword != hit.collider.GetComponent<Ordinateur>())
                                     DisplayObject.instance.GetComputer(hit.collider.GetComponent<Ordinateur>());
                             }
 
