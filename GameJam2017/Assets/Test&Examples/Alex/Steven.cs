@@ -200,7 +200,8 @@ public class Steven : Brain
     }
     public void DiscussionGaétan()
     { }
-    //Telephon
+
+    //Telephone
     public void phoneCall1()
     {
         AppelTéléphonique newCall = new AppelTéléphonique("Anonyme", "Steven");
@@ -208,7 +209,7 @@ public class Steven : Brain
 
         Cell telephone = personnage.GetCell();
 
-        BulleManager.instance.StartCall(personnage, 16);
+        BulleManager.instance.StartCall(personnage, 14);
 
    
         telephone.SayInTelephone("Oui, ici Steven", "Steven", 0);
@@ -218,13 +219,11 @@ public class Steven : Brain
         telephone.SayInTelephone("Non", "Steven", 8);
         telephone.SayInTelephone("Vous devez nous contactez-nous en cas d'imprévu", "Anonyme", 10);
         telephone.SayInTelephone("Je comprends", "Steven", 12);
-        telephone.SayInTelephone("Bonne chance", "Anonyme", 14);
-        telephone.SayInTelephone("Merci", "Steven", 16);
+        telephone.SayInTelephone("En espérant qu'elle ne se doute de rien", "Anonyme", 14);
 
-        
-        telephone.EndCall(16);
+        telephone.EndCall(14);
 
-        personnage.GetCell().AddCall("Anonyme","30/02/2017");
+        personnage.GetCell().AddCall("Anonyme","30/02/2017 - 8h30");
     }
 
     public void phoneCallAnnushka()
@@ -244,6 +243,9 @@ public class Steven : Brain
         telephone.SayInTelephone("Je te reviens là-dessus !", "Steven", 10);
 
         telephone.EndCall(10);
+
+        personnage.GetCell().AddCall("Annushka", "30/02/2017 - 12h40");
+        ScenarioManager.instance.Annushka.GetCell().AddCall("Steven", "30/02/2017 - 12h40");
     }
 
     public void phoneCall2()
@@ -261,6 +263,8 @@ public class Steven : Brain
         telephone.SayInTelephone("Parfait merci !", "Steven", 6);
 
         telephone.EndCall(6);
+
+        personnage.GetCell().AddCall("Anonyme", "30/02/2017 - 13h05");
     }
 
     //Animations Fixe (ou marche dans le vide, dépendament)

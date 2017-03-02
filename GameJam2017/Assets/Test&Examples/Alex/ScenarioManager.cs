@@ -81,11 +81,10 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("EB GAMES", "Titre : Votre infolettre mensuel Message: Passez en boutique pour bénéficier de rabais exceptionnels sur les nouveautés.Échangez votre Xbox One(avec un minimum de 14 jeux et 3 mannettes) pour obtenir un crédit - magasin de 50$ sur la Nintendo Switch. "));
 
 
-        listS.Add(new SiteInternet("www.LeMarketingPourLesNuls.ca","29/02/2016 : 11.00"));
-        listS.Add(new SiteInternet("www.LaFainDuMonde.fr", "29/02/2016 : 13.00"));
-        listS.Add(new SiteInternet("www.LeMonde.fr", "29/02/2016 : 13.10"));
+        listS.Add(new SiteInternet("www.LeMarketingPourLesNuls.ca","29/02/2016 : 8h00"));
+        listS.Add(new SiteInternet("www.DevenirVotreProprePatron.fr", "29/02/2016 : 14h00"));
         StephenOrdi.initialise("StephenOrdi",listS,listC);
-        Stephen.GetCell().AddTexto("Papa, j'ai trouvé un doudou, je peux le garder pour ce soir.", "29/02/2016 19.00", "Maya");
+        Stephen.GetCell().AddTexto("J'sens que Enrique va me donner un bon bonus ma belle ! J'vais te gâter ;)", "29/02/2016 19.00", "Maya");
         Stephen.GetBrain().ToDo();
     }
     public void InitSteven()
@@ -94,12 +93,12 @@ public class ScenarioManager : MonoBehaviour {
         List<SiteInternet> listS = new List<SiteInternet>();
         listC.Add(new Courriel("Ressources Humaines Canada", "Titre : Conditions de travail Message: En réponse à vos précédentes requêtes, nous vous confirmons que les motifs évoqués par vos employés ne sont pas suffisant pour ouvrir une enquête interne sur votre PDG. "));
         listC.Add(new Courriel("LinkedIn", "Titre : Nouvelle connexion Message: Annushka désire rejoindre votre réseau LinkedIn.Nous vous suggérons de n’accepter les invitations des personnes que vous connaissez personnellement. "));
-        listS.Add(new SiteInternet("www.MutinerieEnEntreprise.ca", "29/02/2016 : 11.00"));
-        listS.Add(new SiteInternet("www.PrimiPrime.fr", "29/02/2016 : 13.00"));
-        listS.Add(new SiteInternet("www.Calinours.fr", "29/02/2016 : 13.10"));
+        listS.Add(new SiteInternet("www.StrategiesHumaines.ca", "29/02/2016 : 11h00"));
+        listS.Add(new SiteInternet("www.uqac.ca", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.MotiverSesEmployés.com", "29/02/2016 : 16h10"));
         StevenOrdi.initialise("StevenOrdi", listS, listC);
         StevenOrdi.AddFichierActif("RH", "Enrique Nom de jeune fille de la mère: Flores Date de naissance: 1980 - 08 - 01 Code employé: MasterChief \nGaétan Nom de jeune fille de la mère: Tremblay Date de naissance: 1980 - 07 - 15 Code employé: JanitorMan \nJustine Nom de jeune fille de la mère: Lavoie Date de naissance: 1987 - 09 - 21 Code employé: Juju87 \nSteven Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Stephen \nStephen Nom de jeune fille de la mère: Dupont Date de naissance: 1984 - 06 - 29 Code employé: Steven \nGary Nom de jeune fille de la mère: Loiselle Date de naissance: 1990 - 05 - 04 Code employé: gary_the_best \nAnnushkra Nom de jeune fille de la mère: Abakoumov Date de naissance: 1982 - 11 - 12 Code employé: LaStagiaireRusse \n Samantha :Nom de jeune fille de la mère: Lagarce Date de naissance: 1989 - 04 - 15 Code employé: SexyLady");
-        Steven.GetCell().AddTexto("Papa, j'ai perdu mon doudou, tu peux regarder si il est pas avec toi?", "29/02/2017 18.30", "Lola");
+        Steven.GetCell().AddTexto("Faut qu'on se parle de nos plans pour demain soir !", "29/02/2017 18.30", "Stephen");
         Steven.GetBrain().ToDo();
     }
     public void InitEnrique()
@@ -108,11 +107,13 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("Garage automobile", "Titre : Civic immatriculé 756 JWB Message: Votre Civic est prête à être récupéré.Votre facture s’élève à 11, 876$ taxes incluses payable dans les trente(30) prochains jours."));
         listC.Add(new Courriel("Magasine 100% Hétéro", "Titre : Renouvellement abonnement Message: Votre abonnement au magasine 100 % Hétéro a expiré il y a 2 jours.Le renouvellement automatique d’un montant de 69, 00$ s’effectuera automatiquement la semaine prochaine.Pour annuler votre abonnement, veuillez communiquer avec le service à la clientèle. "));
         List<SiteInternet> listS = new List<SiteInternet>();
-        listS.Add(new SiteInternet("www.CactchAttack.ca", "29/02/2016 : 11.00"));
-        listS.Add(new SiteInternet("www.CatchMen.fr", "29/02/2016 : 13.00"));
-        listS.Add(new SiteInternet("www.XMen.ca", "29/02/2016 : 13.10"));
+        listS.Add(new SiteInternet("www.100%-Hétéro.com", "29/02/2016 : 8h59"));
+        listS.Add(new SiteInternet("www.ConnaitreSaSexualite.com", "29/02/2016 : 9h05"));
+        listS.Add(new SiteInternet("www.100%-Homo.com", "29/02/2016 : 9h10"));
+        listS.Add(new SiteInternet("www.100%-Homo.com", "30/02/2016 : 8h05"));
         EnriqueOrdi.initialise("EnriqueOrdi", listS, listC);
-        Enrique.GetCell().AddTexto("Ouesh mon poto, près pour remettre la balle au centre ce soir?", "29/02/2017", "Gladius");
+        Enrique.GetCell().AddTexto("Alors, toujours pas de copine? Pourtant j'tai présenté pleins de filles, j'commence à croire que t'es aux hommes", "29/02/2017", "Mikael");
+        Enrique.GetCell().AddTexto("Y'a pas plus hétéro que moi j'tassure ! J'suis même abonné à 100% Hétéro depuis des années", "29/02/2017", "Message Sortant");
         Enrique.GetBrain().ToDo();
     }
     public void InitSamantha()
@@ -120,10 +121,10 @@ public class ScenarioManager : MonoBehaviour {
         List<Courriel> listC = new List<Courriel>();
         List<SiteInternet> listS = new List<SiteInternet>();
         listS.Add(new SiteInternet("www.LaVenusMaquillage.ca", "29/02/2016 : 11.00"));
-        listS.Add(new SiteInternet("www.FoudroiStyle.fr", "29/02/2016 : 13.00"));
-        listS.Add(new SiteInternet("www.Sasasamouraille.ca", "29/02/2016 : 13.10"));
+        listS.Add(new SiteInternet("www.SeduireSonPatron.com", "29/02/2016 : 13.00"));
+        listS.Add(new SiteInternet("www.AmourDeBureau.ca", "29/02/2016 : 13.10"));
         SamanthaOrdi.initialise("SamanthaOrdi", listS, listC);
-        Samantha.GetCell().AddTexto("Olala, j'ai croisé un homme aujourd'hui, il est juste TROPPPPPPP BEAU <3", "30/02/2017 8.05", "NianCat");
+        Samantha.GetCell().AddTexto("Je vais suivre tes conseils pour draguer Enrique! Il ne pourra pas me résister cette fois ;)", "30/02/2017 8h05", "Sabrina");
         Samantha.GetBrain().ToDo();
     }
     public void InitGary()
@@ -134,8 +135,8 @@ public class ScenarioManager : MonoBehaviour {
         listS.Add(new SiteInternet("www.WoW.com", "29/02/2016 : 13.00"));
         listS.Add(new SiteInternet("www.GuildWar2.com", "29/02/2016 : 13.10"));
         GaryOrdi.initialise("GaryOrdi", listS, listC);
-        GaryOrdi.AddFichierActif("Rapport Incomplet", "PDG de la compagnie Petrolus, depuis près de 20 ans, Luis est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays. Il est encore à se jour marié à une certaine Madame Flores.");
-        Gary.GetCell().AddTexto("Calling all capitale pilote! We got a Titan tackled in 7RM, all reinforcement needed!","30/02/2017 2.30","CEO Init");
+        GaryOrdi.AddFichierActif("Rapport Incomplet", "PDG de la compagnie Petrolus, depuis près de 20 ans, M.Luis est très respecté au Mexique. \n\nNéanmoins, j’ai réussi à trouver un scandale qui remonte à plusieurs années, soit 1996. \n\nIl aurait renié son fils après qu’il se soit ouvertement déclaré homosexuel, ce dernier aurait désormais changé d’identité et quitté le pays. Il est encore à se jour marié à une certaine Madame Flores.");
+        Gary.GetCell().AddTexto("Calling all capitale pilote! We got a Titan tackled in 7RM, all reinforcement needed!","30/02/2017 2h30","CEO Init");
         Gary.GetBrain().ToDo();
     }
     public void InitAnnushka()
@@ -145,7 +146,7 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("International Student Center", "Titre : Message de bienvenue Message: Nous confirmons votre autorisation de travailler pour une durée de 3 mois, avec possibilité de prolongement conditionnel aux recommandations au sein de l’entreprise de M.Enrique Rodriguez. "));
         listC.Add(new Courriel("LinkedIn", "Titre : Steven a accepté votre demande de connexion Message: Vous pouvez désormais visualiser le profil de Steven ou démarrer une conversation. "));
         AnnushkaOrdi.initialise("AnnushkaOrdi", listS, listC);
-        Justine.GetCell().AddTexto("Alors, ce stage? Tu me tien au courant de comment se passe ton premier jour?", "30/02/2017 7.50", "Maman");
+        Annushka.GetCell().AddTexto("стадия CE? Ту меня тянь Au Courant де комментарий SE раззё тонный премьер ?", "30/02/2017 7h50", "Maman");
         Annushka.GetBrain().ToDo();
     }
     public void InitJustine()
@@ -155,19 +156,18 @@ public class ScenarioManager : MonoBehaviour {
         listC.Add(new Courriel("Ordre comptable agréé (CPA)", "Titre : Plainte #134-02-111 Message: Madame, nous vous rappelons l’importance de répondre dans les plus brefs délais à notre précédent message.Votre ancien employeur, M.Milton, ayant déposé une plainte contre vous, il est dans votre devoir de formuler votre version des faits rapidement. "));
         listC.Add(new Courriel("Votre concessionnaire BMW", "Titre : Livraison - BMW 3 Series 2017 Message: Nous avons le plaisir de vous annoncer que votre BMW 3 Series 2017 vient tout juste d’arriver à notre succursale.Vous pouvez passer dès ce soir la récupérer, tel que demandé, nous l’avons décoré d’un ruban rouge. "));
         listC.Add(new Courriel("M.Milton", "Titre : Fraude fiscale Message: Puisque tu ne retournes pas mes appels, j’ai officiellement déposé une plainte à ton ordre professionnel.J’ai toutes les preuves nécessaires pour te poursuivre en justice.Je te conseille de me rendre ce que tu m’as volé pendant les 5 dernières années + intérêt de 10 % +dédommagement de 50 000$. "));
-        listS.Add(new SiteInternet("www.Droit.ca", "29/02/2016 : 11.00"));
-        listS.Add(new SiteInternet("www.ContratLegal.fr", "29/02/2016 : 13.00"));
-        listS.Add(new SiteInternet("www.MaitreNabal.ca", "29/02/2016 : 13.10"));
+        listS.Add(new SiteInternet("www.Droit.ca", "29/02/2016 : 9h27"));
+        listS.Add(new SiteInternet("www.ContratLegal.fr", "29/02/2016 : 14h05"));
+        listS.Add(new SiteInternet("www.ParadisFiscaux.ca", "29/02/2016 : 15h16"));
         JustineOrdi.initialise("JustineOrdi", listS, listC);
-        Justine.GetCell().AddTexto("Je pense que le paragraph 5 du code du travail Wallonien peut me faire gagner pas mal d'argent demain soir", "29/02/2016 16.40", "Illidiana");
+        Justine.GetCell().AddTexto("Je prépare le même coup que d'habitude ce soir. 1 fois par 5 ans, c'est une tradition", "29/02/2016 16h40", "Julie");
         Justine.GetBrain().ToDo();
     }
 
     public void InitGaetan()
     {
 
-        Gaetan.GetCell().AddTexto("Yo man, bien ou bien chez toi?", "29/02/2016 16.20", "George Tron");
-
+        Gaetan.GetCell().AddTexto("Quand est-ce que tu nous présentes ton nouveau chum?", "29/02/2016 16h20", "George");
         Gaetan.GetBrain().ToDo();
     }
 

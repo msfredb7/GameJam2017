@@ -80,7 +80,7 @@ public class Gaetan : Brain
     public void AnnushkaOrdiUse()
     {
         ScenarioManager.instance.StephenOrdi.AddSiteInternet(new SiteInternet("www.Généalogie.com", "30/02/2017 10.45"));
-        ScenarioManager.instance.AnnushkaOrdi.AddFichierActif("Genealogie Enrique", "Enrique Rojo \n Enrique Lopez \n Enrique Picaso\n Enrique Lavabo");
+        ScenarioManager.instance.AnnushkaOrdi.AddFichierActif("Genealogie Enrique", " Enrique Rojo \n Enrique Lopez \n Enrique Picaso\n Enrique Florez");
         ClavierAnimation(15);
     }
 

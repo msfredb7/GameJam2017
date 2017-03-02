@@ -153,6 +153,8 @@ public class Stephen : Brain {
         telephone.SayInTelephone("Fais vite, sinon ton plan va échouer", "Stephen", 10);
 
         telephone.EndCall(10);
+
+        personnage.GetCell().AddCall("Anonyme", "30/02/2017 - 12h40");
     }
 
     //13h10 à 13h20 : Cogne à la porte, sans réponse
@@ -197,6 +199,8 @@ public class Stephen : Brain {
         telephone.SayInTelephone("J’ai pas 1000$ sur moi pis j’ai pas le temps d’aller le retirer avant 18h30…", "Stephen", 10);
 
         telephone.EndCall(10);
+
+        personnage.GetCell().AddCall("Anonyme", "30/02/2017 - 17h45");
     }
 
     public void DiscussionAnn()

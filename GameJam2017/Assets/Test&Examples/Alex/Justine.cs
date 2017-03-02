@@ -8,6 +8,7 @@ public class Justine : Brain {
     {
         //8H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(0, WayPoint.getWaypoint("JustineDesk").position, personnage));
+        ScenarioEventManager.AddEvent(new ActionScenarioEvent(15, TravailPersonnel4));
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(25, WayPoint.getWaypoint("StevenDesk_Visiteur").position, personnage));
 
         ScenarioEventManager.AddEvent(new ActionScenarioEvent(27, TurnTop));
@@ -56,6 +57,11 @@ public class Justine : Brain {
         //18H
         ScenarioEventManager.AddEvent(new MoveScenarioEvent(615, WayPoint.getWaypoint("SalleReunionJustine").position, personnage));
 
+    }
+
+    public void TravailPersonnel4()
+    {
+        ClavierAnimation(10);
     }
 
     public void TravailPersonnel3()
@@ -123,28 +129,31 @@ public class Justine : Brain {
 
         Cell telephone = personnage.GetCell();
 
-        BulleManager.instance.StartCall(personnage,34);
+        BulleManager.instance.StartCall(personnage,10);
 
-        telephone.SayInTelephone("Allo?", "Inconue");
-        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.f", "Justine",2);
-        telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", "Inconue", 4);
-        telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", "Justine", 6);
-        telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", "Inconue", 8);
-        telephone.SayInTelephone("C’est une surprise", "Justine", 10);
-        telephone.SayInTelephone("Allez dit le moi", "Inconue", 12);
-        telephone.SayInTelephone("Non", "Justine", 14);
-        telephone.SayInTelephone("Un indice allez", "Inconue", 16);
-        telephone.SayInTelephone("Non j’veux pas que tu devines", "Justine", 18);
-        telephone.SayInTelephone("Je vais pas deviner avec un ptit indice", "Inconue", 20);
-        telephone.SayInTelephone("C’est ca que tu as dis la dernière fois aussi", "Justine", 22);
-        telephone.SayInTelephone("Ohhhh t’es plate", "Inconue", 24);
-        telephone.SayInTelephone("Bon raccroche, je dois retourner travailler", "Justine", 26);
-        telephone.SayInTelephone("Pourquoi je raccrocherais? C’est à ton tour", "Inconue", 28);
-        telephone.SayInTelephone("Non raccroche s’il te plait", "Justine", 30);
-        telephone.SayInTelephone("Non toi raccroche", "Inconue", 32);
-        telephone.SayInTelephone("Non toi raccroche", "Justine", 34);
+        telephone.SayInTelephone("Allo?", "Inconnu");
+        telephone.SayInTelephone("Bonjour c'est ta petite choupinette! J'ai une surprise pour toi.", "Justine",2);
+        //telephone.SayInTelephone("Mais voyons mon amour, c’est la 3ième en 1 mois, t’as-tu eu une promotion?", "Inconnu", 4);
+        //telephone.SayInTelephone("Non du tout, j’ai juste envie de te gâter et je reçois mon bonus de fin de contrat aujourd’hui", "Justine", 6);
+        telephone.SayInTelephone("C’est quoi le cadeau que tu m’achetes?", "Inconnu", 4);
+        telephone.SayInTelephone("C’est une surprise", "Justine", 6);
+        telephone.SayInTelephone("Allez dit le moi", "Inconnu", 8);
+        telephone.SayInTelephone("Non, tu verras ce soir!", "Justine", 10);
 
-        telephone.EndCall(34);
+        //telephone.SayInTelephone("Un indice allez", "Inconue", 16);
+        //telephone.SayInTelephone("Non j’veux pas que tu devines", "Justine", 18);
+        //telephone.SayInTelephone("Je vais pas deviner avec un ptit indice", "Inconue", 20);
+        //telephone.SayInTelephone("C’est ca que tu as dis la dernière fois aussi", "Justine", 22);
+        //telephone.SayInTelephone("Ohhhh t’es plate", "Inconue", 24);
+        //telephone.SayInTelephone("Bon raccroche, je dois retourner travailler", "Justine", 26);
+        //telephone.SayInTelephone("Pourquoi je raccrocherais? C’est à ton tour", "Inconue", 28);
+        //telephone.SayInTelephone("Non raccroche s’il te plait", "Justine", 30);
+        //telephone.SayInTelephone("Non toi raccroche", "Inconue", 32);
+        //telephone.SayInTelephone("Non toi raccroche", "Justine", 34);
+
+        telephone.EndCall(10);
+        ClavierAnimation(20);
+        ScenarioManager.instance.Annushka.GetCell().AddCall("Anonyme", "30/02/2017 - 9h30");
     }
 
     public void ConversationGaetan()
@@ -156,9 +165,10 @@ public class Justine : Brain {
         BulleManager.instance.Say("C'est vraiment malaisant,\n mais j'ai bouché la \n toilette des femmes", personnage, 3 ,0);
         BulleManager.instance.Say("Ben voyons,\n y'a pas de problème\n, on va aller voir ca\n ensemble", ScenarioManager.instance.Gaetan, 4, 3);
         BulleManager.instance.Say("Ensemble?", personnage, 1 , 7);
-        BulleManager.instance.Say("Oui oui,\n ensemble!", ScenarioManager.instance.Gaetan, 3 , 8);
+        BulleManager.instance.Say("Oui oui,\n ensemble!", ScenarioManager.instance.Gaetan, 2 , 8);
+        BulleManager.instance.Say("Malaise...", ScenarioManager.instance.Justine, 1, 10);
         BulleManager.instance.Say("Savais-tu que\nla ventilation de la\ntoilette des dames\n menait directement\nau bureau de Enrique?", ScenarioManager.instance.Gaetan, 4,11);
-        BulleManager.instance.Say("OMG c'est horrible,\n est-ce qu'il le sait?", personnage, 3,15);
+        BulleManager.instance.Say("Ben voyons\n est-ce qu'il le sait?", personnage, 3,15);
         BulleManager.instance.Say("Surement pas,\ncar ca pourrait \nêtre dangereux", ScenarioManager.instance.Gaetan, 4,18);
         BulleManager.instance.Say("Comment ca\ndangereux?", personnage, 2, 22);
         BulleManager.instance.Say("Quelqu'un de malintentionné\npourrait lancer une\nbombe par ce conduit.", ScenarioManager.instance.Gaetan, 3, 24);
@@ -203,5 +213,6 @@ public class Justine : Brain {
         telephone.SayInTelephone("Moi aussi mon petit minou chou d’amour adoré que j’aime plus que tout au monde et de l’univers tout entier", "Justine", 12);
 
         telephone.EndCall(12);
+        ScenarioManager.instance.Annushka.GetCell().AddCall("Anonyme", "30/02/2017 - 15h00");
     }
 }

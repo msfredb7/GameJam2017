@@ -103,7 +103,23 @@ public class Enrique : Brain {
     //Appel de Gary (12h10) 
     public void GaryCall()
     {
-        //TODOAppel
+        AppelTéléphonique newCall = new AppelTéléphonique("Enrique", "Gary");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 15);
+
+   
+        telephone.SayInTelephone("Hey Gary ! Tu sais j’tavais demandé un service pour à soir. Ça tient toujours?", "Enrique", 0);
+        telephone.SayInTelephone("Gary ! Jpaye pour ton téléphone, pourquoi tu me réponds par courriel ?", "Enrique", 5);
+        telephone.SayInTelephone("Quel suprise party? Ah oui oui, à 18h30 exactement ?", "Enrique", 10);
+        telephone.SayInTelephone("Merci Gary, c'est vraiment apprécié ?", "Enrique", 15);
+
+        telephone.EndCall(18);
+
+        personnage.GetCell().AddCall("Gary", "30/02/2017 - 12h50");
+        ScenarioManager.instance.Gary.GetCell().AddCall("Enrique", "30/02/2017 - 12h50");
     }
 
     //Rencontre avec Steven (15h00) :
@@ -132,7 +148,7 @@ public class Enrique : Brain {
         BulleManager.instance.Say("Sois honnête Justine,\n est-ce que je devrais\n me méfier de toi?", personnage, 5);
         BulleManager.instance.Say("Quoi? Ben non voyons,\n c’est qui qui t’as mis\n ça dans la tête?\n Mon ancien boss?", Justine, 5, 5);
         BulleManager.instance.Say("Non non, c’était juste\n une question comme ça…", personnage, 5, 10);
-        BulleManager.instance.Say("Donc j’aimerais que\n tu me complètes le rapport\n sur NOMCOMPAGNIE pour 18h", personnage, 5, 15);
+        BulleManager.instance.Say("Donc j’aimerais que\n tu me complètes le rapport\n sur Petrolus pour 18h", personnage, 5, 15);
         BulleManager.instance.Say("Aucun problème,\n je me met là-dessus pour\n les prochaines heures", Justine, 5, 20);
 
         Justine.SetFocusIn(null, 26);
@@ -160,13 +176,42 @@ public class Enrique : Brain {
     //Appel avec Gary(16h30) :
     public void AppelGary()
     {
-        //TODO
+        AppelTéléphonique newCall = new AppelTéléphonique("Enrique", "Gary");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 10);
+
+
+        telephone.SayInTelephone("T’oublies pas ce que je t’ai demandé pour à soir right?", "Enrique", 0);
+        telephone.SayInTelephone("Oui exactement. Merci", "Enrique", 5);
+        telephone.SayInTelephone("Oui oui, bon départ Justine ", "Enrique", 8);
+
+        telephone.EndCall(10);
+
+        personnage.GetCell().AddCall("Gary", "30/02/2017 - 16h30");
+        ScenarioManager.instance.Gary.GetCell().AddCall("Enrique", "30/02/2017 - 16h30");
     }
 
     //Appel Samantha (16h50) :
     public void AppelSamantha()
     {
-        //TODO
+        AppelTéléphonique newCall = new AppelTéléphonique("Enrique", "Samantha");
+        personnage.SetMyCall(newCall);
+
+        Cell telephone = personnage.GetCell();
+
+        BulleManager.instance.StartCall(personnage, 10);
+
+        telephone.SayInTelephone("As-tu confirmé le rendez-vous avec M.X ce soir?", "Enrique", 0);
+        telephone.SayInTelephone("J’ai pas eu le temps encore, j’men allais faire ça maintenant", "Samantha", 5);
+        telephone.SayInTelephone("Là là ! Arrête de remettre ça à plus tard", "Enrique", 8);
+
+        telephone.EndCall(10);
+
+        personnage.GetCell().AddCall("Gary", "30/02/2017 - 16h50");
+        ScenarioManager.instance.Samantha.GetCell().AddCall("Enrique", "30/02/2017 - 16h50");
     }
 
 

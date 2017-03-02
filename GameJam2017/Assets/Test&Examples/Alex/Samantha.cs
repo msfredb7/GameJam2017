@@ -126,9 +126,10 @@ public class Samantha : Brain {
     public void MakeTexto1()
     {
         personnage.GetCell().AddTexto("T'en reviendras pas Natasha, Enrique porte sa cravate rouge aujourd'hui. Y sait clairement que c'est ma préférée en plus", "8h10", "Enrique");
-        personnage.GetCell().AddTexto("Oops lis pas le dernier message, c'était pas pour toi !", "8h10", "Enrique");
+        personnage.GetCell().AddTexto("Oops lis pas le dernier message Enrique, c'était pas pour toi !", "8h10", "Enrique");
         personnage.GetCell().AddTexto("T'en reviendras pas Natasha, Enrique porte sa cravate rouge aujourd'hui. Y sait clairement que c'est ma préférée en plus", "8h10", "Natasha");
-    }
+        ClavierAnimation(15);
+}
 
     public void Drague1()
     {
@@ -259,21 +260,23 @@ public class Samantha : Brain {
 
     public void Appel_M_X()
     {
-        AppelTéléphonique newCall = new AppelTéléphonique("Samantha", "Anonyme");
+        AppelTéléphonique newCall = new AppelTéléphonique("Samantha", "M.Luis");
         personnage.SetMyCall(newCall);
 
         Cell telephone = personnage.GetCell();
 
-        BulleManager.instance.StartCall(personnage, 10);
+        BulleManager.instance.StartCall(personnage, 15);
 
         telephone.SayInTelephone("Oui Allo?", "Samantha");
-        telephone.SayInTelephone("Bonjour Luis, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", "Anonyme", 2);
-        telephone.SayInTelephone("Oui, je serais la à l'heure. C'est bien au 3ieme étape?", "Samantha", 4);
-        telephone.SayInTelephone("Oui, 3ième étage.", "Anonyme", 6);
-        telephone.SayInTelephone("Parfait.", "Samantha", 8);
-        telephone.SayInTelephone("Merci et au plaisir de vous rencontrer", "Anonyme", 10);
+        telephone.SayInTelephone("Bonjour M.Luis, c'était seulement pour confirmer votre rendez-vous avec notre PDG, ce soir 18h30.", "M.Luis", 4);
+        telephone.SayInTelephone("Oui, je serais la à l'heure. C'est bien au 3ieme étage?", "Samantha", 8);
+        telephone.SayInTelephone("Oui, 3ième étage.", "M.Luis", 11);
+        telephone.SayInTelephone("Parfait.", "Samantha", 13);
+        telephone.SayInTelephone("Merci et au plaisir de vous rencontrer", "M.Luis", 15);
 
-        telephone.EndCall(10);
+        telephone.EndCall(15);
+        personnage.GetCell().AddCall("M.Luis", "30/02/2017 - 17h10");
+        ScenarioManager.instance.MonsieurX.GetCell().AddCall("Samantha", "30/02/2017 - 17h10");
     }
 
     public void PrepareUnCofee()

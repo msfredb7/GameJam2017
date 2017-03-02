@@ -83,7 +83,7 @@ public class TransmissionManager : MonoBehaviour {
 
     public void LastMinute()
     {
-        CreateTransmission("Attention, nous avons eu comme information que le complot se mettra en marche dans approximativement 1 heures!",0);
+        CreateTransmission("Attention, nous avons reçu de nouvelles informations. Le complot se mettrait en marche dans approximativement 1 heure!",0);
         DelayManager.CallTo(delegate ()
         {
             musicManager.PlayLastMinuteSong();
@@ -113,12 +113,12 @@ public class TransmissionManager : MonoBehaviour {
 
     public void RabaisMcDo()
     {
-        CreateTransmission("Nouvelle de dernieres minutes, de nouveaux coupons rabais ont de chez McDo ont été déposé dans la salle des employés. Premier arrivé, premier servis!", 0);
+        CreateTransmission("Nouvelle de dernieres minutes, de nouveaux coupons rabais ont de chez McDo ont été déposé dans la salle des employés. Premier arrivé, premier servi!", 0);
     }
 
     public void TimHorton()
     {
-        CreateTransmission("Information important! Nouvelle saveur de café au Tim Hortons", 0);
+        CreateTransmission("Informations importantes! Nouvelle saveur de café au Tim Hortons", 0);
     }
 
     public void Reminder()

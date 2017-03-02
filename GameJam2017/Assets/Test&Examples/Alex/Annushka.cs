@@ -194,10 +194,10 @@ public class Annushka : Brain {
         personnage.focus = stephen;
         stephen.focus = personnage;
 
-        BulleManager.instance.Say("J'ai vraiment hate\nau party de se soir!", ScenarioManager.instance.Stephen);
-        BulleManager.instance.Say("Moi aussi", personnage, 3, 5);
-        BulleManager.instance.Say("Quelqu'un m'a dit que\nMonsieur Luis, l'inviter\n de se soir, est vraiment un\nmalade après quelques drinks", ScenarioManager.instance.Stephen, 8, 8);
-        BulleManager.instance.Say("Moi, hate de voir", personnage, 3, 16);
+        BulleManager.instance.Say("Tu manges pas?", ScenarioManager.instance.Stephen,3,0);
+        BulleManager.instance.Say("Moi seulement boire vodka", personnage, 3, 3);
+        BulleManager.instance.Say("On va bien\ns'entendre tous les deux\nalors ", ScenarioManager.instance.Stephen, 8, 8);
+        BulleManager.instance.Say("Je pense pas\nnon...", personnage, 3, 16);
 
         stephen.SetFocusIn(null, 26);
         personnage.SetFocusIn(null, 26);
@@ -210,7 +210,7 @@ public class Annushka : Brain {
 
     public void ProblemeAvecOrdinateur()
     {
-        BulleManager.instance.Say("Saletée de machine !!!!!", personnage, 5);
+        BulleManager.instance.Say("Patron incompétant /n Ordinateur brisé ", personnage, 5);
     }
 
     public void AppelAuToilette()
@@ -223,15 +223,16 @@ public class Annushka : Brain {
         BulleManager.instance.StartCall(personnage, 14);
 
         telephone.SayInTelephone("Oui Allo?", "Annushka");
-        telephone.SayInTelephone("Oui salut c'est moi", "Anonyme", 2);
-        telephone.SayInTelephone("Comment se passe la mission?", "Anonyme", 4);
-        telephone.SayInTelephone("Pas mission, stage", "Annushka", 6);
-        telephone.SayInTelephone("Et comment est ton patron?", "Anonyme", 8);
-        telephone.SayInTelephone("Stupide, incompétent, macho, mérite la mort", "Annushka", 10);
-        telephone.SayInTelephone("Promet moi que tu ne feras rien de stupide.", "Anonyme", 12);
-        telephone.SayInTelephone("Promis père.", "Annushka", 14);
+        telephone.SayInTelephone("Transférez moi à M.Florez", "Anonyme", 2);
+        telephone.SayInTelephone("Aucun M.Florez ici", "Annushka", 4);
+        telephone.SayInTelephone("M.Florez, il travaille ici !", "Anonyme", 8);
+        telephone.SayInTelephone("Non, patron Rodriguez, mais pas Florez.", "Annushka", 10);
+        telephone.SayInTelephone("C'est urgent! M.Florez va commettre une grave erreur ce soir", "Anonyme", 12);
+        telephone.SayInTelephone("Désolé, mauvais numéro. Aucun M.Florez ici", "Annushka", 14);
 
         telephone.EndCall(14);
+
+        ScenarioManager.instance.Annushka.GetCell().AddCall("Anonyme", "30/02/2017 - 17h05");
     }
 
     public void DemandePourGaetan()
@@ -250,6 +251,7 @@ public class Annushka : Brain {
 
     public void OuvertureDuColis()
     {
-        BulleManager.instance.Say("Miam bon gâteau\n à la vanille!", ScenarioManager.instance.Annushka, 10);
+        BulleManager.instance.Say("Moi curieuse...\n Que contient colis?", ScenarioManager.instance.Annushka, 3,10);
+        BulleManager.instance.Say("Miam bon gâteau\n à la vanille!", ScenarioManager.instance.Annushka, 13);
     }
 }

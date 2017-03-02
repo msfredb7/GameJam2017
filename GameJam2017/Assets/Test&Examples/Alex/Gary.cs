@@ -42,7 +42,7 @@ public class Gary : Brain {
 
     public void SendCourrielToEnrique()
     {
-        ScenarioManager.instance.EnriqueOrdi.AddCourriel(new Courriel("Garry", "Titre : Réponse conversation téléphonique Message: Oui je peux toujours m’arranger pour fermer les lumières, c’est à quelle heure la soirée ? "));
+        ScenarioManager.instance.EnriqueOrdi.AddCourriel(new Courriel("Garry", "Titre : Réponse conversation téléphonique Message: Oui je peux toujours m’arranger pour fermer les lumières, c’est à quelle heure le surprise party ? "));
     }
 
     public void TelephoneEnrique()
@@ -67,7 +67,7 @@ public class Gary : Brain {
 
     public void TelephoneEnrique2()
     {
-
+        ScenarioManager.instance.EnriqueOrdi.AddCourriel(new Courriel("Garry", "Titre : Conversation téléphonique Message: Non les lumières s’éteindront à 18h30 pile et tout le monde pourra crier Bon Départ Justine."));
     }
 
     public void SendCourrielToStephen3()
